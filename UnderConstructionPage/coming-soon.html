@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="coming-soon.css">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+</head>
+
+<body>
+<!-- TODO center body -->
+    <!-- bird pic -->
+    <div id="Bird">
+        <img src="media/builder-bird.png" alt="Birds are building the website!" width=100px>
+    </div>
+
+    <!-- header text -->
+    <div class=texts>
+        <div id="head-text">
+            <h1>Sorry, we're doing some work on the site</h1>
+        </div>
+
+        <div id="main-text">
+            <h2>A Place For Now is currently under construction. Our team is working hard to provide you with the best experience and solutions for temporary housing. Thank you for being patient! <br><br>
+            Since you are here why not take a moment and tell us about your experience with our website or just with housing, in general? We would really appreciate it!</h2>
+        </div>
+
+
+        <!-- Subscription buttons -->
+        <input type="button" name="answer1" class="subscriptionButton" id="offering" value="I'm looking to offer housing" onclick="showDiv1()" />
+
+        <!-- TODO subscription bar offering -->
+        <!-- Begin Mailchimp Signup Form -->
+        <div id="subscriptionForm1" style="display:none;">
+            <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+            	#mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+            	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+            	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+            <div id="mc_embed_signup">
+            <form action="https://aplacefornow.us4.list-manage.com/subscribe/post?u=14221c63c8f86c6cc1d4cca8f&amp;id=d1e6a2d7c9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+
+            	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_14221c63c8f86c6cc1d4cca8f_d1e6a2d7c9" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe1" class="button"></div>
+                </div>
+            </form>
+            </div>
+        </div>
+
+<!--End mc_embed_signup-->
+
+
+        <input type="button" name="answer2" class="subscriptionButton" id="requesting" value="I'm looking to be housed" onclick="showDiv2()" />
+
+        <!-- TODO subscription bar searching -->
+        <!-- Begin Mailchimp Signup Form -->
+        <div id="subscriptionForm2" style="display:none;">
+            <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+                /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+                   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+            <div id="mc_embed_signup">
+            <form action="https://aplacefornow.us4.list-manage.com/subscribe/post?u=14221c63c8f86c6cc1d4cca8f&amp;id=d1e6a2d7c9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_14221c63c8f86c6cc1d4cca8f_d1e6a2d7c9" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe2" class="button"></div>
+                </div>
+            </form>
+            </div>
+        </div>
+
+        <!--End mc_embed_signup-->
+    </div>
+
+    <!-- TODO social media -->
+    <!-- <footer> -->
+        <!-- FB -->
+        <div class="Social-media" id="FB">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/A-Place-for-Now-APFN-103517767884952/">
+            <img src="media/fb-p.png" width=30px>
+            </a>
+        </div>
+
+        <!-- IG -->
+        <div class="Social-media" id="IG">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/aplacefornow/">
+            <img src="media/ig-p.png" width=30px>
+            </a>
+        </div>
+
+        <!-- Email:  -->
+        <div class="Social-media" id="Mail">
+            <a target="_blank" rel="noopener noreferrer" href="mailto:contact@aplacefornow.nl">
+            <img src="media/mail-p.png" width=30px>
+            </a>
+        </div>
+
+        <!-- TODO possibly in the future Whatsapp:  -->
+    <!-- </footer> -->
+</body>
+
+<script>
+    let sf1 = document.querySelector('#subscriptionForm1');
+    let display1 = sf1.style.display;
+
+    let sf2 = document.querySelector('#subscriptionForm2');
+    let display2 = sf2.style.display;
+
+    function showDiv1() {
+        if (display1 == 'none') {
+            display1 = "block";
+        }
+        else if (display1 == 'block') {
+            display1 = 'none';
+        }
+
+        document.getElementById('subscriptionForm1').style.display = display1;
+    }
+
+    function showDiv2() {
+        if (display2 == 'none') {
+            display2 = "block";
+        }
+        else if (display2 == 'block') {
+            display2 = 'none';
+        }
+
+        document.getElementById('subscriptionForm2').style.display = display2;
+    }
+
+    function layoutHandler(){
+    	var styleLink = document.getElementById("pagestyle");
+    	if(window.innerWidth < 700){
+    		styleLink.setAttribute("href", "mobile.css");
+
+    	} else {
+    	    styleLink.setAttribute("href", "large.css");
+    	}
+    }
+    window.onresize = layoutHandler;
+    layoutHandler();
+</script>
