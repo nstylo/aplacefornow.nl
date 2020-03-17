@@ -47,6 +47,8 @@ body{
 } */
 
 /* button shapes */
+
+
 .button {
     border-radius: 25px;
     border: none;
@@ -73,6 +75,10 @@ body{
     margin: 24px 20px;
     cursor: pointer;
     background-color: #ad578d;
+    
+}
+.subscriptionForm1 {
+
 }
 
 /* green: 72c7b4 */
@@ -86,8 +92,10 @@ body{
 }
 
 #mc-embedded-subscribe1 {
-    background-color: #72c7b4;
+    background-color: #72c7b4;  
 }
+
+
 
 #mc-embedded-subscribe2 {
     background-color: #ad578d;

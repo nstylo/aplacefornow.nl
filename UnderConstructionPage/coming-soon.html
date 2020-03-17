@@ -28,10 +28,11 @@
 
         <!-- Subscription buttons -->
         <input type="button" name="answer1" class="subscriptionButton" id="offering" value="I'm looking to offer housing" onclick="showDiv1()" />
+        
 
         <!-- TODO subscription bar offering -->
         <!-- Begin Mailchimp Signup Form -->
-        <div id="subscriptionForm1" style="display:none;">
+        <div id="subscriptionForm1" style="display:none;" >
             <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
             <style type="text/css">
             	#mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
@@ -39,7 +40,7 @@
             	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
             </style>
             <div id="mc_embed_signup">
-            <form action="https://aplacefornow.us4.list-manage.com/subscribe/post?u=14221c63c8f86c6cc1d4cca8f&amp;id=d1e6a2d7c9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <form action="https://aplacefornow.us4.list-manage.com/subscribe/post?u=14221c63c8f86c6cc1d4cca8f&amp;id=d1e6a2d7c9" method="post" id="mc-embedded-subscribe-form1" name="mc-embedded-subscribe-form1" class="validate" target="_blank" novalidate>
                 <div id="mc_embed_signup_scroll">
 
             	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
@@ -50,12 +51,9 @@
             </form>
             </div>
         </div>
-
 <!--End mc_embed_signup-->
 
-
         <input type="button" name="answer2" class="subscriptionButton" id="requesting" value="I'm looking to be housed" onclick="showDiv2()" />
-
         <!-- TODO subscription bar searching -->
         <!-- Begin Mailchimp Signup Form -->
         <div id="subscriptionForm2" style="display:none;">
@@ -66,7 +64,7 @@
                    We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
             </style>
             <div id="mc_embed_signup">
-            <form action="https://aplacefornow.us4.list-manage.com/subscribe/post?u=14221c63c8f86c6cc1d4cca8f&amp;id=d1e6a2d7c9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <form action="https://aplacefornow.us4.list-manage.com/subscribe/post?u=14221c63c8f86c6cc1d4cca8f&amp;id=d1e6a2d7c9" method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form2" class="validate" target="_blank" novalidate>
                 <div id="mc_embed_signup_scroll">
 
                 <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
@@ -118,23 +116,27 @@
     function showDiv1() {
         if (display1 == 'none') {
             display1 = "block";
+            display2 = "none";
         }
         else if (display1 == 'block') {
             display1 = 'none';
         }
 
         document.getElementById('subscriptionForm1').style.display = display1;
+        document.getElementById('subscriptionForm2').style.display = display2;
     }
 
     function showDiv2() {
         if (display2 == 'none') {
             display2 = "block";
+            display1 = "none";
         }
         else if (display2 == 'block') {
             display2 = 'none';
         }
 
         document.getElementById('subscriptionForm2').style.display = display2;
+        document.getElementById('subscriptionForm1').style.display = display1;
     }
 
     function layoutHandler(){
