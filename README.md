@@ -12,3 +12,7 @@ the development server to refresh.
 
 We use [prettier](https://prettier.io/), [eslint](https://eslint.org/) and
 [editorconfig](https://editorconfig.org/) for development.
+
+## Workflow
+
+feature_branch -> develop (needs review) -> master
