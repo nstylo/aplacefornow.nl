@@ -5,6 +5,10 @@ steps:
         - '-t'
         - 'gcr.io/$PROJECT_ID/apfn-frontend'
         - '.'
+    - name: 'gcr.io/cloud-builders/docker'
+      args:
+        - 'push'
+        - 'gcr.io/$PROJECT_ID/apfn-frontend'
     - name: 'gcr.io/cloud-builders/gcloud'
       args:
         - 'run'
@@ -16,3 +20,4 @@ steps:
         - 'europe-west1'
         - '--platform'
         - 'managed'
+        - '--allow-unauthenticated'
