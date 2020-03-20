@@ -9,6 +9,7 @@ steps:
       args:
         - 'run'
         - 'deploy'
+        - 'apfn-frontend-master'
         - '--image'
         - 'gcr.io/$PROJECT_ID/apfn-frontend'
         - '--region'
