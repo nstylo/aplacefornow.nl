@@ -13,7 +13,7 @@ steps:
       args:
         - 'run'
         - 'deploy'
-        - 'apfn-frontend-master'
+        - 'apfn-frontend-$BRANCH_NAME'
         - '--image'
         - 'gcr.io/$PROJECT_ID/apfn-frontend:latest'
         - '--region'
