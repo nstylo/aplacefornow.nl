@@ -15,7 +15,7 @@ steps:
         - 'deploy'
         - 'apfn-frontend-master'
         - '--image'
-        - 'gcr.io/$PROJECT_ID/apfn-frontend'
+        - 'gcr.io/$PROJECT_ID/apfn-frontend:latest'
         - '--region'
         - 'europe-west1'
         - '--platform'
