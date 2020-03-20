@@ -19,7 +19,7 @@ ENV HOST 0.0.0.0
 
 # Substitute ENV VARS in nginx config file
 RUN sh -c   "envsubst < /etc/nginx/conf.d/nginx.templ > \
-            /etx/nginx/conf.d/nginx.conf"
+            /etc/nginx/conf.d/nginx.conf"
 
 # Drop react build behind nginx
 COPY --from=react-build /app/build /usr/share/nginx/html
