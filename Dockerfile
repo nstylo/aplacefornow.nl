@@ -1,8 +1,6 @@
 ## Build environment
 FROM node:alpine as react-build
 
-WORKDIR /frontend
-
 # Install and build react app
 RUN npm install
 RUN npm run-script build
@@ -20,7 +18,7 @@ RUN sh -c   "envsubst < /etc/nginx/conf.d/nginx.templ > \
             /etx/nginx/conf.d/nginx.conf"
 
 # Drop react build behind nginx
-COPY --from=react-build /frontend/build /usr/share/nginx/html
+COPY --from=react-build /build /usr/share/nginx/html
 
 EXPOSE $PORT
 
