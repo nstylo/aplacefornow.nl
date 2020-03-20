@@ -2,6 +2,7 @@
 FROM node:alpine as react-build
 
 # Install and build react app
+RUN ls
 RUN npm install
 RUN npm run-script build
 
