@@ -22,7 +22,7 @@ RUN sh -c   "envsubst < /etc/nginx/conf.d/nginx.templ > \
             /etx/nginx/conf.d/nginx.conf"
 
 # Drop react build behind nginx
-COPY --from=react-build /build /usr/share/nginx/html
+COPY --from=react-build /app/build /usr/share/nginx/html
 
 EXPOSE $PORT
 
