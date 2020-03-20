@@ -26,4 +26,4 @@ COPY --from=react-build /app/build /usr/share/nginx/html
 
 EXPOSE $PORT
 
-CMD ["nginx", "-g", "daemon off"]
+CMD ["nginx", "-g", "daemon off;"]
