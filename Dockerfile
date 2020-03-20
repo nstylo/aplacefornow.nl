@@ -1,6 +1,9 @@
 ## Build environment
 FROM node:alpine as react-build
 
+WORKDIR /app
+COPY . ./
+
 # Install and build react app
 RUN ls
 RUN npm install
