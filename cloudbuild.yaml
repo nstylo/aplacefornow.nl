@@ -11,5 +11,7 @@ steps:
         - 'deploy'
         - '--image'
         - 'gcr.io/$PROJECT_ID/apfn-frontend'
+        - '--region'
+        - 'europe-west1'
         - '--platform'
         - 'managed'
