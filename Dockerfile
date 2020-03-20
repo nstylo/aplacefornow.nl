@@ -18,7 +18,7 @@ ENV PORT 8080
 ENV HOST 0.0.0.0
 
 # Substitute ENV VARS in nginx config file
-RUN sh -c   "envsubst < /etc/nginx/conf.d/nginx.templ > \
+RUN sh -c   "envsubst '\$PORT' < /etc/nginx/conf.d/nginx.templ > \
             /etc/nginx/conf.d/nginx.conf"
 
 # Drop react build behind nginx
