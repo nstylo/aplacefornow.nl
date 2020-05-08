@@ -1,15 +1,39 @@
 import React from "react"
-import logo from "./logo.svg"
-import "./App.css"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { ProtectedRoute } from "./Auth/ProtectedRoute"
+
+// import pages
+import About from "./Pages/About"
+import Login from "./Pages/Login"
+import Signup from "./Pages/Signup"
+import ForgotPassword from "./Pages/Forgot-Password"
+import ResetPassword from "./Pages/Reset-Password"
+import NoMatch from "./Pages/404.jsx"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>A Place For Now boilerplate</p>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+        <Route path="/reset-password">
+          <ResetPassword />
+        </Route>
+        <Route path="/forgot-password">
+          <ForgotPassword />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
