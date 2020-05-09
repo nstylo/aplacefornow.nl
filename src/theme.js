@@ -171,6 +171,50 @@ const brandon_black_italic = {
 export const theme = createMuiTheme({
   typography: {
     fontFamily: "Brandon Grotesque",
+    fontSize: "24px",
+    h1: {
+      fontSize: "128px",
+      fontWeight: "700",
+    },
+    h2: {
+      fontSize: "64px",
+      fontWeight: "700",
+    },
+    h3: {
+      fontSize: "48px",
+      fontWeight: "700",
+    },
+    h4: {
+      fontSize: "36px",
+      fontWeight: "700",
+    },
+    h5: {
+      fontSize: "24px",
+      fontWeight: "700",
+    },
+    h6: {
+      fontSize: "24px",
+      fontWeight: "700",
+      fontStyle: "italic",
+    },
+    button: {
+      fontSize: "24px",
+      fontWeight: "700",
+    },
+  },
+  palette: {
+    text: {
+      primary: "#2D2D2D",
+      secondary: "#F5F5F5",
+    },
+    primary: {
+      main: "#AD578D",
+      dark: "#914A7A",
+    },
+    secondary: {
+      main: "#72C7B4",
+      dark: "#64AD98",
+    },
   },
   overrides: {
     MuiCssBaseline: {

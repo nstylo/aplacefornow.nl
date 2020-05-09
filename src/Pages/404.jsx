@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { Typography } from "@material-ui/core"
 
 export default () => {
   return (
@@ -19,6 +20,12 @@ export default () => {
       <div>
         <Link to="/reset-password">Reset Password</Link>
       </div>
+      <Typography variant="h1">About us</Typography>
+      <Typography variant="h2">About us</Typography>
+      <Typography variant="h3">About us</Typography>
+      <Typography variant="h4">About us</Typography>
+      <Typography variant="h5">About us</Typography>
+      <Typography variant="h6">About us</Typography>
       <p
         style={{
           "font-style": "normal",
