@@ -34,6 +34,8 @@ export default ({ children, path, exact }) => {
     history.push("/login")
   }
 
+  // TODO: add useEffect for initially setting the correct tab
+
   return (
     <Route exact path={path}>
       <Grid>

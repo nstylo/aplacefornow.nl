@@ -6,6 +6,8 @@ import { useTheme } from "@material-ui/core/styles"
 
 import { ReactComponent as Rectangles } from "../Assets/Rectangles.svg"
 import { ReactComponent as Circles } from "../Assets/Circles.svg"
+import { ReactComponent as UNest } from "../Assets/Nest.svg"
+import { ReactComponent as UClouds } from "../Assets/Clouds.svg"
 
 // for testing purposes
 import Mika from "../Assets/Mika.png"
@@ -13,6 +15,8 @@ import Mika from "../Assets/Mika.png"
 export default () => {
   return (
     <Grid container>
+      <UNest style={{ position: "absolute", top: "220px" }} />
+      <Clouds />
       <Section left="160px" top="163px" bottom="634px">
         <Typography variant="h1" color="primary">
           About us
@@ -44,6 +48,7 @@ export default () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </P>
+          ich koennte versuchen in redacted
         </Section>
       </Grid>
       <Section left="150px" right="150px" bottom="318px">
@@ -74,6 +79,11 @@ export default () => {
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
         </Grid>
       </Section>
     </Grid>
@@ -82,6 +92,16 @@ export default () => {
 
 const P = styled.p`
   width: ${props => props.width};
+`
+
+const Clouds = styled(UClouds)`
+  position: absolute;
+  top: 2960px;
+  left: 1000px;
+
+  @media (min-width: 1920px) {
+    left: calc(1000px + (100vw - 1920px) / 2);
+  }
 `
 
 const Section = styled(Grid).attrs(props => ({
