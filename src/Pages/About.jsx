@@ -12,6 +12,10 @@ import { ReactComponent as UClouds } from "../Assets/Clouds.svg"
 // for testing purposes
 import Mika from "../Assets/Mika.png"
 
+// TODO:
+// Make ValueCards and Avatars wrap on media query
+// Make SVG reduce in scale (maybe z index as well) on media query
+
 export default () => {
   return (
     <Grid container>

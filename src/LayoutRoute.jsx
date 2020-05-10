@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { AppBar, Toolbar, Button, Tabs, Tab, useTheme } from "@material-ui/core"
@@ -8,6 +8,22 @@ export default ({ children, path, exact }) => {
   const [activeTab, setActiveTab] = useState(0)
   const theme = useTheme()
   let history = useHistory()
+
+  useEffect(() => {
+    switch (history.location.pathname) {
+      case "/":
+        setActiveTab(0)
+        break
+      case "/how-it-works":
+        setActiveTab(1)
+        break
+      case "/about":
+        setActiveTab(2)
+        break
+      default:
+        setActiveTab(0)
+    }
+  }, [history.location.pathname])
 
   const handleChange = (event, newValue) => {
     setActiveTab(newValue)
@@ -33,8 +49,6 @@ export default ({ children, path, exact }) => {
   const handleLogin = event => {
     history.push("/login")
   }
-
-  // TODO: add useEffect for initially setting the correct tab
 
   return (
     <Route exact path={path}>

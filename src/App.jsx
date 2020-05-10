@@ -10,7 +10,9 @@ import { theme } from "./theme"
 import LayoutRoute from "./LayoutRoute"
 
 // import pages
+import Home from "./Pages/Home"
 import About from "./Pages/About"
+import HowItWorks from "./Pages/HowItWorks"
 import Login from "./Pages/Login"
 import Signup from "./Pages/Signup"
 import ForgotPassword from "./Pages/Forgot-Password"
@@ -35,8 +37,14 @@ function App() {
           <Route exact path="/forgot-password">
             <ForgotPassword />
           </Route>
+          <LayoutRoute exact path="/">
+            <Home />
+          </LayoutRoute>
           <LayoutRoute exact path="/about">
             <About />
+          </LayoutRoute>
+          <LayoutRoute exact path="/how-it-works">
+            <HowItWorks />
           </LayoutRoute>
           <Route path="*">
             <NoMatch />
