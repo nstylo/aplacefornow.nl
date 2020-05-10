@@ -48,7 +48,6 @@ export default () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </P>
-          ich koennte versuchen in redacted
         </Section>
       </Grid>
       <Section left="150px" right="150px" bottom="318px">
