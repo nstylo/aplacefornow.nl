@@ -7,6 +7,8 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 // theme
 import { theme } from "./theme"
 
+import LayoutRoute from "./LayoutRoute"
+
 // import pages
 import About from "./Pages/About"
 import Login from "./Pages/Login"
@@ -21,21 +23,21 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Switch>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <Signup />
           </Route>
-          <Route path="/reset-password">
+          <Route exact path="/reset-password">
             <ResetPassword />
           </Route>
-          <Route path="/forgot-password">
+          <Route exact path="/forgot-password">
             <ForgotPassword />
           </Route>
-          <Route path="/about">
+          <LayoutRoute exact path="/about">
             <About />
-          </Route>
+          </LayoutRoute>
           <Route path="*">
             <NoMatch />
           </Route>
