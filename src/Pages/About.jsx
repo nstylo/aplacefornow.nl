@@ -1,11 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Grid, Typography, Box } from "@material-ui/core"
+import { Grid, Typography } from "@material-ui/core"
 import { useTheme } from "@material-ui/core/styles"
 
 import { ReactComponent as Rectangles } from "../Assets/Rectangles.svg"
 import { ReactComponent as Circles } from "../Assets/Circles.svg"
+
+// for testing purposes
+import Mika from "../Assets/Mika.png"
 
 export default () => {
   return (
@@ -51,7 +54,7 @@ export default () => {
           <ValueCard></ValueCard>
         </Grid>
       </Section>
-      <Section left="150px">
+      <Section left="150px" bottom="220px">
         <Typography variant="h1" color="primary">
           Meet the team
         </Typography>
@@ -62,9 +65,17 @@ export default () => {
           aliquip ex ea commodo consequat.
         </P>
       </Section>
-      <Grid item xs={12}>
-        team flexbox
-      </Grid>
+      <Section left="185px" right="185px">
+        <Grid container spacing={6}>
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        </Grid>
+      </Section>
     </Grid>
   )
 }
@@ -119,5 +130,44 @@ const ValueCard = styled(UValueCard)`
     width: 100%;
     height: auto;
     margin-bottom: 30px;
+  }
+`
+
+const UAvatar = ({ img, name, pos, className }) => {
+  const theme = useTheme()
+
+  return (
+    <Grid item xs={3} className={className}>
+      <img src={img} alt={"photo of" + name} />
+      <div
+        className="deco"
+        // TODO: inline style should generally prevented
+        style={{ backgroundColor: theme.palette.primary.main }}
+      />
+      <Typography variant="h5">{name}</Typography>
+      <Typography variant="subtitle1">{pos}</Typography>
+    </Grid>
+  )
+}
+
+const Avatar = styled(UAvatar)`
+  img {
+    border-radius: 50px;
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+    max-height: 350px;
+  }
+
+  .deco {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 10vw;
+    max-width: 200px;
+    height: calc(5px + 0.1vw);
+  }
+
+  p {
+    margin: 5px 0;
   }
 `
