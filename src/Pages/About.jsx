@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import { Grid, Typography, Box } from "@material-ui/core"
+import { useTheme } from "@material-ui/core/styles"
 
 import { ReactComponent as Rectangles } from "../Assets/Rectangles.svg"
 import { ReactComponent as Circles } from "../Assets/Circles.svg"
@@ -17,14 +18,17 @@ export default () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          aliquip ex ea commodo consequat.
+        </P>
+        <P width="700px">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
         </P>
       </Section>
       <Grid item xs={12}>
-        <Section left="150px" right="150px" bottom="89px">
+        <Section left="150px" right="150px" bottom="50px">
           <Typography variant="h1" color="primary">
             Values
           </Typography>
@@ -40,7 +44,7 @@ export default () => {
         </Section>
       </Grid>
       <Section left="150px" right="150px" bottom="318px">
-        <Grid container spacing={8} wrap="nowrap">
+        <Grid container spacing={8} wrap="nowrap" justify="space-between">
           <ValueCard rect></ValueCard>
           <ValueCard></ValueCard>
           <ValueCard rect></ValueCard>
@@ -79,14 +83,41 @@ const Section = styled(Grid).attrs(props => ({
   padding-bottom: ${props => props.bottom};
 `
 
-const ValueCard = ({ rect }) => {
+const UValueCard = ({ rect, className }) => {
+  const theme = useTheme()
+
   return (
-    <Grid item>
-      {rect ? (
-        <Rectangles style={{ width: "100%" }} />
-      ) : (
-        <Circles style={{ width: "100%" }} />
-      )}
+    <Grid item className={className}>
+      {rect ? <Rectangles /> : <Circles />}
+      <div
+        className="deco"
+        // TODO: inline style should generally prevented
+        style={{ backgroundColor: theme.palette.primary.main }}
+      />
+      <Typography variant="h6">Value here</Typography>
+      <P>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </P>
     </Grid>
   )
 }
+
+// TODO: improve responsiveness
+const ValueCard = styled(UValueCard)`
+  .deco {
+    margin-top: calc(10px + 5vw);
+    margin-bottom: 25px;
+    width: 10vw;
+    max-width: 200px;
+    height: calc(5px + 0.15vw);
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+`
