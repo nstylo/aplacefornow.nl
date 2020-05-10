@@ -171,7 +171,7 @@ const brandon_black_italic = {
 export const theme = createMuiTheme({
   typography: {
     fontFamily: "Brandon Grotesque",
-    fontSize: "24px",
+    fontSize: 24,
     h1: {
       fontSize: "128px",
       fontWeight: "700",
