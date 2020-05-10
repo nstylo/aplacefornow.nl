@@ -15,7 +15,7 @@ import Mika from "../Assets/Mika.png"
 export default () => {
   return (
     <Grid container>
-      <UNest style={{ position: "absolute", top: "220px" }} />
+      <Nest />
       <Clouds />
       <Section left="160px" top="163px" bottom="634px">
         <Typography variant="h1" color="primary">
@@ -92,6 +92,11 @@ export default () => {
 
 const P = styled.p`
   width: ${props => props.width};
+`
+
+const Nest = styled(UNest)`
+  position: absolute;
+  top: 220px;
 `
 
 const Clouds = styled(UClouds)`
