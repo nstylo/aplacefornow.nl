@@ -75,6 +75,7 @@ export default () => {
       </Section>
       <Section left="185px" right="185px">
         <Grid container spacing={6}>
+          {/* TODO: map over list of avatar objects */}
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
