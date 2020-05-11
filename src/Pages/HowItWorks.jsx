@@ -8,11 +8,14 @@ import { useTheme } from "@material-ui/core/styles"
 import { ReactComponent as UParagraphRect } from "../Assets/ParagraphRect.svg"
 import { ReactComponent as UTenantButton } from "../Assets/TenantButton.svg"
 import { ReactComponent as UHostButton } from "../Assets/HostButton.svg"
+import { ReactComponent as UTenantPath } from "../Assets/TenantPath.svg"
 
 export default () => {
   return (
     <Grid container>
-    <ParagraphRect/>
+      <TenantButton/>
+      <HostButton/>
+      <ParagraphRect/>
       <Section left="160px" top="280px" bottom="634px">
         <Typography variant="h1" color="primary">
           How It Works
@@ -27,11 +30,8 @@ export default () => {
         sint occaecat cupidatat non proident, sunt in culpa qui 
         officia deserunt mollit anim id est laborum.
         </P>
-        <Grid container>
-        <TenantButton/>
-        <HostButton/>
-        </Grid>
       </Section>
+      <TenantPath/>
     </Grid>
   )
 }
@@ -44,9 +44,11 @@ const TenantButton = styled(UTenantButton)`
   position: absolute;
   top: 800px;
   left: 350px;
+
   @media (min-width: 1920px) {
     left: calc(350px + (100vw - 1920px) / 2);
   }
+
 `
 const HostButton = styled(UHostButton)`
   position: absolute;
@@ -55,6 +57,16 @@ const HostButton = styled(UHostButton)`
 
   @media (min-width: 1920px) {
     left: calc(1265px + (100vw - 1920px) / 2);
+  }
+`
+const TenantPath = styled(UTenantPath)`
+  position: absolute;
+  top:1070px;
+  left:208px;
+  bottom:375px;
+
+  @media (min-width: 1920px) {
+    left: calc(155px + (100vw - 1920px) / 2);
   }
 `
 
