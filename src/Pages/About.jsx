@@ -156,9 +156,9 @@ const ValueCard = styled(UValueCard)`
   }
 
   svg {
-    width: 100%;
+    width: 90%;
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
 `
 

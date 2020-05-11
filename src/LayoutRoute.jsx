@@ -55,7 +55,7 @@ export default ({ children, path, exact }) => {
       <Grid>
         <AppBar position="fixed">
           <Toolbar>
-            <Logo style={{ padding: "8px" }} />
+            <Logo style={{ padding: "4px", height: "64px", width: "64px" }} />
             <Container>
               <Tabs
                 value={activeTab}

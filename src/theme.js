@@ -1,4 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles"
+import createBreakpoints from "@material-ui/core/styles/createBreakpoints"
 
 // thin
 import BrandonThinWoff2 from "./Fonts/BrandonGrotesque-Thin.woff2"
@@ -168,25 +169,33 @@ const brandon_black_italic = {
   `,
 }
 
+const breakpoints = createBreakpoints({
+  xs: 0,
+  sm: 600,
+  md: 960,
+  lg: 1280,
+  xl: 1920,
+})
+
 export const theme = createMuiTheme({
   typography: {
     fontFamily: "Brandon Grotesque",
     htmlFontSize: 16,
-    fontSize: 24,
+    fontSize: 20,
     h1: {
-      fontSize: "128px",
+      fontSize: "76px",
       fontWeight: "700",
     },
     h2: {
-      fontSize: "64px",
+      fontSize: "54px",
       fontWeight: "700",
     },
     h3: {
-      fontSize: "48px",
+      fontSize: "40px",
       fontWeight: "700",
     },
     h4: {
-      fontSize: "36px",
+      fontSize: "32px",
       fontWeight: "700",
     },
     h5: {
@@ -199,12 +208,12 @@ export const theme = createMuiTheme({
       fontStyle: "italic",
     },
     subtitle1: {
-      fontSize: "24px",
+      fontSize: "20px",
       fontWeight: "300",
       fontStyle: "italic",
     },
     button: {
-      fontSize: "24px",
+      fontSize: "20px",
       fontWeight: "700",
     },
   },
@@ -220,6 +229,15 @@ export const theme = createMuiTheme({
     secondary: {
       main: "#72C7B4",
       dark: "#64AD98",
+    },
+  },
+  toolbar: {
+    minHeight: 56,
+    [`${breakpoints.up("xs")} and (orientation: landscape)`]: {
+      minHeight: 48,
+    },
+    [breakpoints.up("sm")]: {
+      minHeight: 64,
     },
   },
   overrides: {
