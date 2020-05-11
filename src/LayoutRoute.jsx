@@ -3,6 +3,7 @@ import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { AppBar, Toolbar, Button, Tabs, Tab, useTheme } from "@material-ui/core"
 import { ReactComponent as Logo } from "./Assets/Logo.svg"
+import { breakpoints } from "./theme"
 
 export default ({ children, path, exact }) => {
   const [activeTab, setActiveTab] = useState(0)
@@ -99,8 +100,8 @@ const Container = styled.div`
 const Grid = styled.div`
   display: grid;
 
-  @media (min-width: 1920px) {
-    grid-template-columns: auto 1920px auto;
+  @media (min-width: ${breakpoints.xl}px) {
+    grid-template-columns: auto ${breakpoints.xl}px auto;
   }
 `
 

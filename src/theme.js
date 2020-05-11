@@ -169,13 +169,13 @@ const brandon_black_italic = {
   `,
 }
 
-const breakpoints = createBreakpoints({
-  xs: 0,
+export const breakpoints = {
+  xs: 320,
   sm: 600,
   md: 960,
   lg: 1280,
-  xl: 1920,
-})
+  xl: 1400,
+}
 
 export const theme = createMuiTheme({
   typography: {
@@ -229,15 +229,6 @@ export const theme = createMuiTheme({
     secondary: {
       main: "#72C7B4",
       dark: "#64AD98",
-    },
-  },
-  toolbar: {
-    minHeight: 56,
-    [`${breakpoints.up("xs")} and (orientation: landscape)`]: {
-      minHeight: 48,
-    },
-    [breakpoints.up("sm")]: {
-      minHeight: 64,
     },
   },
   overrides: {

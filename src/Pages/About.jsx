@@ -9,6 +9,8 @@ import { ReactComponent as Circles } from "../Assets/Circles.svg"
 import { ReactComponent as UNest } from "../Assets/Nest.svg"
 import { ReactComponent as UClouds } from "../Assets/Clouds.svg"
 
+import { breakpoints } from "../theme"
+
 // for testing purposes
 import Mika from "../Assets/Mika.png"
 
@@ -20,18 +22,17 @@ export default () => {
   return (
     <Grid container>
       <Nest />
-      <Clouds />
-      <Section left="160px" top="163px" bottom="634px">
+      <Section top="160px" bottom="580px">
         <Typography variant="h1" color="primary">
           About us
         </Typography>
-        <P width="700px">
+        <P width="600px">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </P>
-        <P width="700px">
+        <P width="600px">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est
@@ -39,7 +40,7 @@ export default () => {
         </P>
       </Section>
       <Grid item xs={12}>
-        <Section left="150px" right="150px" bottom="50px">
+        <Section bottom="50px">
           <Typography variant="h1" color="primary">
             Values
           </Typography>
@@ -54,26 +55,27 @@ export default () => {
           </P>
         </Section>
       </Grid>
-      <Section left="150px" right="150px" bottom="318px">
-        <Grid container spacing={8} wrap="nowrap" justify="space-between">
+      <Section bottom="310px">
+        <Grid container spacing={6} wrap="nowrap" justify="space-between">
           <ValueCard rect></ValueCard>
           <ValueCard></ValueCard>
           <ValueCard rect></ValueCard>
           <ValueCard></ValueCard>
         </Grid>
       </Section>
-      <Section left="150px" bottom="220px">
+      <Section bottom="220px">
+        <Clouds />
         <Typography variant="h1" color="primary">
           Meet the team
         </Typography>
-        <P width="700px">
+        <P width="600px">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </P>
       </Section>
-      <Section left="185px" right="185px">
+      <Section>
         <Grid container spacing={6}>
           {/* TODO: map over list of avatar objects */}
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
@@ -96,20 +98,34 @@ export default () => {
 
 const P = styled.p`
   width: ${props => props.width};
+  z-index: 1;
 `
 
 const Nest = styled(UNest)`
   position: absolute;
-  top: 220px;
+  top: 100px;
+  opacity: 0.75;
+  z-index: -1;
+  width: ${breakpoints.xl}px;
+
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 98vw;
+  }
+  mon11may,18: 00yes￼maybe￼no￼ Add comment;
 `
 
 const Clouds = styled(UClouds)`
   position: absolute;
-  top: 2960px;
-  left: 1000px;
+  right: 0px;
+  top: -160px;
+  width: 600px;
+  height: auto;
+  opacity: 0.75;
+  z-index: -1;
 
-  @media (min-width: 1920px) {
-    left: calc(1000px + (100vw - 1920px) / 2);
+  @media (max-width: ${breakpoints.lg}px) {
+    width: 480px;
+    top: -100px;
   }
 `
 
@@ -117,8 +133,9 @@ const Section = styled(Grid).attrs(props => ({
   item: true,
   xs: 12,
 }))`
-  padding-left: ${props => props.left};
-  padding-right: ${props => props.right};
+  position: relative;
+  padding-left: 80px;
+  padding-right: 80px;
   padding-top: ${props => props.top};
   padding-bottom: ${props => props.bottom};
 `
@@ -151,14 +168,14 @@ const ValueCard = styled(UValueCard)`
     margin-top: calc(10px + 5vw);
     margin-bottom: 25px;
     width: 10vw;
-    max-width: 200px;
-    height: calc(5px + 0.15vw);
+    max-width: 180px;
+    height: calc(3px + 0.15vw);
   }
 
   svg {
     width: 90%;
     height: auto;
-    margin-bottom: 24px;
+    margin-bottom: 10px;
   }
 `
 
@@ -189,11 +206,11 @@ const Avatar = styled(UAvatar)`
   }
 
   .deco {
-    margin-top: 10px;
+    margin-top: 16px;
     margin-bottom: 5px;
     width: 10vw;
-    max-width: 200px;
-    height: calc(5px + 0.1vw);
+    max-width: 160px;
+    height: calc(3px + 0.1vw);
   }
 
   p {
