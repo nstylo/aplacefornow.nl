@@ -56,12 +56,12 @@ export default () => {
         </Section>
       </Grid>
       <Section bottom="310px">
-        <Grid container spacing={6} wrap="nowrap" justify="space-between">
+        <ValueCardSection>
           <ValueCard rect></ValueCard>
           <ValueCard></ValueCard>
           <ValueCard rect></ValueCard>
           <ValueCard></ValueCard>
-        </Grid>
+        </ValueCardSection>
       </Section>
       <Section bottom="220px">
         <Clouds />
@@ -99,9 +99,11 @@ export default () => {
 const P = styled(Typography).attrs(() => ({
   variant: "body1",
 }))`
+  text-align: justify;
   margin-top: 16px;
   margin-bottom: 24px;
-  width: ${props => props.width};
+  max-width: ${props => props.width};
+  width: auto;
 `
 
 const Nest = styled(UNest)`
@@ -114,7 +116,6 @@ const Nest = styled(UNest)`
   @media (max-width: ${breakpoints.xl}px) {
     width: 98vw;
   }
-  mon11may,18: 00yes￼maybe￼no￼ Add comment;
 `
 
 const Clouds = styled(UClouds)`
@@ -132,7 +133,7 @@ const Clouds = styled(UClouds)`
   }
 `
 
-const Section = styled(Grid).attrs(props => ({
+const Section = styled(Grid).attrs(() => ({
   item: true,
   xs: 12,
 }))`
@@ -141,6 +142,19 @@ const Section = styled(Grid).attrs(props => ({
   padding-right: 80px;
   padding-top: ${props => props.top};
   padding-bottom: ${props => props.bottom};
+`
+
+const ValueCardSection = styled(Grid).attrs(() => ({
+  container: true,
+  spacing: 6,
+}))`
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  @media (max-width: ${breakpoints.md}px) {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 `
 
 const UValueCard = ({ rect, className }) => {
@@ -176,9 +190,14 @@ const ValueCard = styled(UValueCard)`
   }
 
   svg {
-    width: 90%;
+    width: 100%;
     height: auto;
     margin-bottom: 10px;
+  }
+
+  @media (max-width: ${breakpoints.md}px) {
+    width: 300px;
+    height: auto;
   }
 `
 
