@@ -6,7 +6,6 @@ COPY . ./
 
 # Install and build react app
 RUN ls
-RUN rm -rf package-lock.json
 RUN npm install
 RUN npm run-script build
 
