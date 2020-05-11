@@ -96,9 +96,12 @@ export default () => {
   )
 }
 
-const P = styled.p`
+const P = styled(Typography).attrs(() => ({
+  variant: "body1",
+}))`
+  margin-top: 16px;
+  margin-bottom: 24px;
   width: ${props => props.width};
-  z-index: 1;
 `
 
 const Nest = styled(UNest)`
