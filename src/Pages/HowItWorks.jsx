@@ -9,6 +9,8 @@ import { ReactComponent as UParagraphRect } from "../Assets/ParagraphRect.svg"
 import { ReactComponent as UTenantButton } from "../Assets/TenantButton.svg"
 import { ReactComponent as UHostButton } from "../Assets/HostButton.svg"
 import { ReactComponent as UTenantPath } from "../Assets/TenantPath.svg"
+import { ReactComponent as UHostPath } from "../Assets/HostPath.svg"
+import { ReactComponent as UIntersectionCircles } from "../Assets/IntersectionCircles.svg"
 
 export default () => {
   return (
@@ -32,6 +34,8 @@ export default () => {
         </P>
       </Section>
       <TenantPath/>
+      <HostPath/>
+      <IntersectionCircles/>
     </Grid>
   )
 }
@@ -62,13 +66,31 @@ const HostButton = styled(UHostButton)`
 const TenantPath = styled(UTenantPath)`
   position: absolute;
   top:1070px;
-  left:208px;
-  bottom:375px;
+  left:255px;
 
   @media (min-width: 1920px) {
     left: calc(155px + (100vw - 1920px) / 2);
   }
 `
+const HostPath = styled(UHostPath)`
+  position: absolute;
+  top:1070px;
+  left:954.84px;
+
+  @media (min-width: 1920px) {
+    left: calc(954.84px + (100vw - 1920px) / 2);
+  }
+`
+const IntersectionCircles = styled(UIntersectionCircles)`
+  position: absolute;
+  top:915px;
+  left:168px;
+
+  @media (min-width: 1920px) {
+    left: calc(168px + (100vw - 1920px) / 2);
+  }
+`
+
 
 const P = styled.p`
   width: ${props => props.width};
