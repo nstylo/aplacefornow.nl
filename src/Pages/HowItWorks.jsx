@@ -11,6 +11,7 @@ import { ReactComponent as UHostButton } from "../Assets/HostButton.svg"
 import { ReactComponent as UTenantPath } from "../Assets/TenantPath.svg"
 import { ReactComponent as UHostPath } from "../Assets/HostPath.svg"
 import { ReactComponent as UIntersectionCircles } from "../Assets/IntersectionCircles.svg"
+import { ReactComponent as UWelcomeBirds } from "../Assets/WelcomeBirds.svg"
 
 // for testing purposes
 import Clouds from "../Assets/Clouds.png"
@@ -21,6 +22,10 @@ export default () => {
       <TenantButton/>
       <HostButton/>
       <ParagraphRect/>
+      <WelcomeBirds/>
+      <TenantPath/>
+      <HostPath/>
+      <IntersectionCircles/>
       <Section left="160px" top="280px" bottom="634px">
         <Typography variant="h1" color="primary">
           How It Works
@@ -35,12 +40,12 @@ export default () => {
         sint occaecat cupidatat non proident, sunt in culpa qui 
         officia deserunt mollit anim id est laborum.
         </P>
-      <TenantPath/>
-      <HostPath/>
-      <IntersectionCircles/>
-      <Section left="135px" right="135px">
-        <Grid container spacing={6}>
+      <Section  top="280px">
+        <Grid container spacing={6} >
+        <Step img={Clouds} header={"step 1"} text={"aosdhah"} imgleft/>
+        <Step img={Clouds} header={"step 1"} text={"aosdhah"}  />
         <Step img={Clouds} header={"step 1"} text={"aosdhah"} imgleft />
+        <Step img={Clouds} header={"step 1"} text={"aosdhah"} />
         </Grid>
       </Section>
       </Section>
@@ -98,8 +103,15 @@ const IntersectionCircles = styled(UIntersectionCircles)`
     left: calc(168px + (100vw - 1920px) / 2);
   }
 `
+const WelcomeBirds = styled(UWelcomeBirds)`
+  position: absolute;
+  top:2535px;
+  left:462px;
 
-
+  @media (min-width: 1920px) {
+    left: calc(462px + (100vw - 1920px) / 2);
+  };
+`
 const P = styled.p`
   width: ${props => props.width};
 `
@@ -116,26 +128,44 @@ const UStep = ({ img, header, text, imgleft, className }) => {
   const theme = useTheme()
 
   return (
-    <Grid item xs={6} className={className}>
+
+    <Grid item xs={6} className={className} >
     {imgleft ? <img src={img} alt={"photo of" + header} />
     :
-    <Typography variant="h3">{header}</Typography> }
-    {imgleft ? <Typography variant="h3">{header}</Typography> : <P>{text}</P> }
-    {imgleft ? <P>{text}</P> : <img src={img} alt={"photo of" + header} />}  
+    <Typography variant="h3" color="primary" >{header}</Typography> }
+    {imgleft ? <Typography variant="h3" color="primary" >{header}</Typography> : <P>{text}</P> }
+    {imgleft ? <P >{text}</P> : <img src={img} alt={"photo of" + header} />}  
     </Grid>
   )
 }
 
 const Step = styled(UStep)`
   img {
-    border-radius: 50px;
-    width: 100%;
-    height: auto;
-    max-width: 305px;
-    max-height: 310px;
+    display:inline;
+    float:left;
   }
 
   p {
-    margin: 5px 0;
+    display:inline;
+    margin-left:10px;
+    margin-top:20px;
+    float:left;
+
   }
+
+`
+const UimgRight = ({ img, header, className }) => {
+  const theme = useTheme()
+
+  return (
+    <img src={img} alt={"photo of" + header} className={className} />
+  )
+}
+
+const imgRight = styled(UimgRight)`
+  img {
+    display:inline;
+    float:right;
+  }
+  
 `
