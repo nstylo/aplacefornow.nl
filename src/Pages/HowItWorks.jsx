@@ -12,6 +12,9 @@ import { ReactComponent as UTenantPath } from "../Assets/TenantPath.svg"
 import { ReactComponent as UHostPath } from "../Assets/HostPath.svg"
 import { ReactComponent as UIntersectionCircles } from "../Assets/IntersectionCircles.svg"
 
+// for testing purposes
+import Clouds from "../Assets/Clouds.png"
+
 export default () => {
   return (
     <Grid container>
@@ -32,10 +35,15 @@ export default () => {
         sint occaecat cupidatat non proident, sunt in culpa qui 
         officia deserunt mollit anim id est laborum.
         </P>
-      </Section>
       <TenantPath/>
       <HostPath/>
       <IntersectionCircles/>
+      <Section left="135px" right="135px">
+        <Grid container spacing={6}>
+        <Step img={Clouds} header={"step 1"} text={"aosdhah"} imgleft />
+        </Grid>
+      </Section>
+      </Section>
     </Grid>
   )
 }
@@ -103,4 +111,31 @@ const Section = styled(Grid).attrs(props => ({
   padding-right: ${props => props.right};
   padding-top: ${props => props.top};
   padding-bottom: ${props => props.bottom};
+`
+const UStep = ({ img, header, text, imgleft, className }) => {
+  const theme = useTheme()
+
+  return (
+    <Grid item xs={6} className={className}>
+    {imgleft ? <img src={img} alt={"photo of" + header} />
+    :
+    <Typography variant="h3">{header}</Typography> }
+    {imgleft ? <Typography variant="h3">{header}</Typography> : <P>{text}</P> }
+    {imgleft ? <P>{text}</P> : <img src={img} alt={"photo of" + header} />}  
+    </Grid>
+  )
+}
+
+const Step = styled(UStep)`
+  img {
+    border-radius: 50px;
+    width: 100%;
+    height: auto;
+    max-width: 305px;
+    max-height: 310px;
+  }
+
+  p {
+    margin: 5px 0;
+  }
 `
