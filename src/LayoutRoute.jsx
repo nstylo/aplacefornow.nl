@@ -1,9 +1,28 @@
 import React, { useState, useEffect } from "react"
 import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
-import { AppBar, Toolbar, Button, Tabs, Tab, useTheme } from "@material-ui/core"
 import { ReactComponent as Logo } from "./Assets/Logo.svg"
 import { breakpoints } from "./theme"
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  Tabs,
+  Tab,
+  useTheme,
+  useScrollTrigger,
+  Slide,
+} from "@material-ui/core"
+
+const HideOnScroll = ({ children }) => {
+  const trigger = useScrollTrigger()
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  )
+}
 
 export default ({ children, path, exact }) => {
   const [activeTab, setActiveTab] = useState(0)
@@ -54,37 +73,39 @@ export default ({ children, path, exact }) => {
   return (
     <Route exact path={path}>
       <Grid>
-        <AppBar position="fixed">
-          <Toolbar>
-            <Logo style={{ padding: "4px", height: "64px", width: "64px" }} />
-            <Container>
-              <Tabs
-                value={activeTab}
-                onChange={handleChange}
-                TabIndicatorProps={{
-                  style: {
+        <HideOnScroll>
+          <AppBar position="fixed">
+            <Toolbar>
+              <Logo style={{ padding: "4px", height: "64px", width: "64px" }} />
+              <Container>
+                <Tabs
+                  value={activeTab}
+                  onChange={handleChange}
+                  TabIndicatorProps={{
+                    style: {
+                      backgroundColor: theme.palette.text.secondary,
+                    },
+                  }}
+                >
+                  <Tab label="home" />
+                  <Tab label="how it works" />
+                  <Tab label="about us" />
+                </Tabs>
+                <Button
+                  color="primary"
+                  style={{
+                    padding: "0 30px",
+                    marginLeft: "30px",
                     backgroundColor: theme.palette.text.secondary,
-                  },
-                }}
-              >
-                <Tab label="home" />
-                <Tab label="how it works" />
-                <Tab label="about us" />
-              </Tabs>
-              <Button
-                color="primary"
-                style={{
-                  padding: "0 30px",
-                  marginLeft: "30px",
-                  backgroundColor: theme.palette.text.secondary,
-                }}
-                onClick={handleLogin}
-              >
-                Log in
-              </Button>
-            </Container>
-          </Toolbar>
-        </AppBar>
+                  }}
+                  onClick={handleLogin}
+                >
+                  Log in
+                </Button>
+              </Container>
+            </Toolbar>
+          </AppBar>
+        </HideOnScroll>
         <Item>{children}</Item>
       </Grid>
     </Route>
