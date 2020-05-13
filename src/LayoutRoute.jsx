@@ -3,6 +3,7 @@ import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { ReactComponent as Logo } from "./Assets/Logo.svg"
 import { breakpoints } from "./theme"
+
 import {
   AppBar,
   Toolbar,
@@ -12,8 +13,44 @@ import {
   useTheme,
   useScrollTrigger,
   Slide,
+  Zoom,
+  Fab,
 } from "@material-ui/core"
 
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
+
+const UScrollTop = ({ className }) => {
+  const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 })
+
+  const handleClick = event => {
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      "#back-to-top-anchor"
+    )
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" })
+    }
+  }
+
+  return (
+    <Zoom in={trigger}>
+      <div className={className} onClick={handleClick} role="presentation">
+        <Fab color="primary" size="medium" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </div>
+    </Zoom>
+  )
+}
+
+// TODO: responsive bottom + right
+const ScrollTop = styled(UScrollTop)`
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+`
+
+// used for hiding the header on scroll
 const HideOnScroll = ({ children }) => {
   const trigger = useScrollTrigger()
 
@@ -72,6 +109,7 @@ export default ({ children, path, exact }) => {
 
   return (
     <Route exact path={path}>
+      <div id="back-to-top-anchor" />
       <Grid>
         <HideOnScroll>
           <AppBar position="fixed">
@@ -108,6 +146,7 @@ export default ({ children, path, exact }) => {
         </HideOnScroll>
         <Item>{children}</Item>
       </Grid>
+      <ScrollTop />
     </Route>
   )
 }
