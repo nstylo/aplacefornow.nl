@@ -178,6 +178,9 @@ export const breakpoints = {
 }
 
 export const theme = createMuiTheme({
+  breakpoints: {
+    values: breakpoints,
+  },
   typography: {
     fontFamily: "Brandon Grotesque",
     htmlFontSize: 16,
