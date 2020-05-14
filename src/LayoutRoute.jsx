@@ -6,7 +6,7 @@ import { breakpoints } from "./theme"
 
 import {
   AppBar,
-  Toolbar,
+  Toolbar as UToolbar,
   Button,
   Tabs,
   Tab,
@@ -114,13 +114,14 @@ export default ({ children, path, exact }) => {
         <HideOnScroll>
           <AppBar position="fixed">
             <Toolbar>
-              <Logo style={{ padding: "4px", height: "64px", width: "64px" }} />
+              <Logo style={{ padding: "2px", height: "50px", width: "50px" }} />
               <Container>
                 <Tabs
                   value={activeTab}
                   onChange={handleChange}
                   TabIndicatorProps={{
                     style: {
+                      height: 3,
                       backgroundColor: theme.palette.text.secondary,
                     },
                   }}
@@ -132,6 +133,7 @@ export default ({ children, path, exact }) => {
                 <Button
                   color="primary"
                   style={{
+                    margin: "4px 0",
                     padding: "0 30px",
                     marginLeft: "30px",
                     backgroundColor: theme.palette.text.secondary,
@@ -150,6 +152,12 @@ export default ({ children, path, exact }) => {
     </Route>
   )
 }
+
+const Toolbar = styled(UToolbar)`
+  @media (min-width: ${breakpoints.sm}px) {
+    min-height: 54px;
+  }
+`
 
 const Container = styled.div`
   display: flex;

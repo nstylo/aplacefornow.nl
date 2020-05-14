@@ -183,7 +183,7 @@ export const theme = createMuiTheme({
     htmlFontSize: 16,
     fontSize: 20,
     h1: {
-      fontSize: "76px",
+      fontSize: "64px",
       fontWeight: "700",
     },
     h2: {
@@ -199,25 +199,25 @@ export const theme = createMuiTheme({
       fontWeight: "700",
     },
     h5: {
-      fontSize: "24px",
+      fontSize: "20px",
       fontWeight: "700",
     },
     h6: {
-      fontSize: "24px",
+      fontSize: "20px",
       fontWeight: "700",
       fontStyle: "italic",
     },
     body1: {
-      fontSize: "24px",
+      fontSize: "20px",
       fontWeight: "400",
     },
     subtitle1: {
-      fontSize: "20px",
+      fontSize: "18px",
       fontWeight: "300",
       fontStyle: "italic",
     },
     button: {
-      fontSize: "20px",
+      fontSize: "18px",
       fontWeight: "700",
     },
   },
