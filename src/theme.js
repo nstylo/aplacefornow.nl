@@ -1,5 +1,4 @@
 import { createMuiTheme } from "@material-ui/core/styles"
-import createBreakpoints from "@material-ui/core/styles/createBreakpoints"
 
 // thin
 import BrandonThinWoff2 from "./Fonts/BrandonGrotesque-Thin.woff2"
@@ -172,6 +171,7 @@ const brandon_black_italic = {
 export const breakpoints = {
   xs: 320,
   sm: 600,
+  mds: 740,
   md: 960,
   lg: 1280,
   xl: 1400,

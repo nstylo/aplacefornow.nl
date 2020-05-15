@@ -64,6 +64,10 @@ const HideOnScroll = ({ children }) => {
 export default ({ children, path, exact }) => {
   const [activeTab, setActiveTab] = useState(0)
   const theme = useTheme()
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  })
   let history = useHistory()
 
   useEffect(() => {
@@ -82,7 +86,7 @@ export default ({ children, path, exact }) => {
     }
   }, [history.location.pathname])
 
-  const handleChange = (event, newValue) => {
+  const handleTabbing = (event, newValue) => {
     setActiveTab(newValue)
     let url
 
@@ -112,13 +116,13 @@ export default ({ children, path, exact }) => {
       <div id="back-to-top-anchor" />
       <Grid>
         <HideOnScroll>
-          <AppBar position="fixed">
+          <AppBar position="fixed" elevation={trigger ? 4 : 0}>
             <Toolbar>
               <Logo style={{ padding: "2px", height: "50px", width: "50px" }} />
               <Container>
                 <Tabs
                   value={activeTab}
-                  onChange={handleChange}
+                  onChange={handleTabbing}
                   TabIndicatorProps={{
                     style: {
                       height: 3,

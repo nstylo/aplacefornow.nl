@@ -1,10 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 
+// material ui components
 import { Grid, Typography } from "@material-ui/core"
-import { useTheme } from "@material-ui/core/styles"
-import useMediaQuery from "@material-ui/core/useMediaQuery"
 
+// responsiveness
+import useMediaQuery from "@material-ui/core/useMediaQuery"
+import { useTheme } from "@material-ui/core/styles"
+
+// visual stuff
 import { ReactComponent as Rectangles } from "../Assets/Rectangles.svg"
 import { ReactComponent as Circles } from "../Assets/Circles.svg"
 import { ReactComponent as UNest } from "../Assets/Nest.svg"
