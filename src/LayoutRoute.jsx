@@ -95,6 +95,11 @@ export default ({ children, path, exact }) => {
     }
   }, [history.location.pathname])
 
+  // prevent open menu on resize
+  useEffect(() => {
+    setOpen(false)
+  }, [matches])
+
   const handleTabbing = (event, newValue) => {
     setActiveTab(newValue)
     let url
@@ -199,11 +204,16 @@ const UNav = ({ className, theme, handleLogin, ...props }) => {
   )
 }
 
+// TODO: hover
 const Nav = styled(UNav)`
   padding: 0 30px;
   margin: ${props =>
     props.orientation === "horizontal" ? "4px 0 4px 30px" : "20px 6px 0 6px"};
   background-color: ${props => props.theme.palette.text.secondary};
+
+  :hover {
+    background-color: ${props => props.theme.palette.text.secondary};
+  }
 `
 
 const Toolbar = styled(UToolbar)`
