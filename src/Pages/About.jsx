@@ -1,9 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 
+// material ui components
 import { Grid, Typography } from "@material-ui/core"
+
+// responsiveness
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 import { useTheme } from "@material-ui/core/styles"
 
+// visual stuff
 import { ReactComponent as Rectangles } from "../Assets/Rectangles.svg"
 import { ReactComponent as Circles } from "../Assets/Circles.svg"
 import { ReactComponent as UNest } from "../Assets/Nest.svg"
@@ -13,10 +18,6 @@ import { breakpoints } from "../theme"
 
 // for testing purposes
 import Mika from "../Assets/Mika.png"
-
-// TODO:
-// Make ValueCards and Avatars wrap on media query
-// Make SVG reduce in scale (maybe z index as well) on media query
 
 export default () => {
   return (
@@ -76,7 +77,7 @@ export default () => {
         </P>
       </Section>
       <Section>
-        <Grid container spacing={6}>
+        <Grid container spacing={8} wrap="wrap">
           {/* TODO: map over list of avatar objects */}
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
           <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
@@ -203,13 +204,19 @@ const ValueCard = styled(UValueCard)`
 
 const UAvatar = ({ img, name, pos, className }) => {
   const theme = useTheme()
+  const matches_md = useMediaQuery(theme.breakpoints.down("md"))
+  const matches_sm = useMediaQuery(theme.breakpoints.down("sm"))
+  const matches_xs = useMediaQuery(theme.breakpoints.down("xs"))
 
   return (
-    <Grid item xs={3} className={className}>
-      <img src={img} alt={"photo of" + name} />
+    <Grid
+      item
+      xs={matches_xs ? 12 : matches_sm ? 6 : matches_md ? 4 : 3}
+      className={className}
+    >
+      <img src={img} alt={"photo of " + name} />
       <div
         className="deco"
-        // TODO: inline style should generally prevented
         style={{ backgroundColor: theme.palette.primary.main }}
       />
       <Typography variant="h5">{name}</Typography>
@@ -224,7 +231,6 @@ const Avatar = styled(UAvatar)`
     width: 100%;
     height: auto;
     max-width: 350px;
-    max-height: 350px;
   }
 
   .deco {

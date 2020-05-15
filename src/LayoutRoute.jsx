@@ -1,13 +1,82 @@
 import React, { useState, useEffect } from "react"
 import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
-import { AppBar, Toolbar, Button, Tabs, Tab, useTheme } from "@material-ui/core"
 import { ReactComponent as Logo } from "./Assets/Logo.svg"
 import { breakpoints } from "./theme"
 
+import {
+  AppBar,
+  Toolbar as UToolbar,
+  Button,
+  IconButton,
+  Drawer,
+  Tabs,
+  Tab,
+  useTheme,
+  useScrollTrigger,
+  Slide,
+  Zoom,
+  Fab,
+} from "@material-ui/core"
+
+// make things reactive
+import useMediaQuery from "@material-ui/core/useMediaQuery"
+
+// icons
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
+import MenuIcon from "@material-ui/icons/Menu"
+
+const UScrollTop = ({ className }) => {
+  const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 })
+
+  const handleClick = event => {
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      "#back-to-top-anchor"
+    )
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" })
+    }
+  }
+
+  return (
+    <Zoom in={trigger}>
+      <div className={className} onClick={handleClick} role="presentation">
+        <Fab color="primary" size="medium" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </div>
+    </Zoom>
+  )
+}
+
+// TODO: responsive bottom + right
+const ScrollTop = styled(UScrollTop)`
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+`
+
+// used for hiding the header on scroll
+const HideOnScroll = ({ children }) => {
+  const trigger = useScrollTrigger()
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  )
+}
+
 export default ({ children, path, exact }) => {
   const [activeTab, setActiveTab] = useState(0)
+  const [isOpen, setOpen] = useState(false)
   const theme = useTheme()
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  })
+  const matches = useMediaQuery(`(min-width: ${breakpoints.mds}px)`)
   let history = useHistory()
 
   useEffect(() => {
@@ -26,7 +95,12 @@ export default ({ children, path, exact }) => {
     }
   }, [history.location.pathname])
 
-  const handleChange = (event, newValue) => {
+  // prevent open menu on resize
+  useEffect(() => {
+    setOpen(false)
+  }, [matches])
+
+  const handleTabbing = (event, newValue) => {
     setActiveTab(newValue)
     let url
 
@@ -53,43 +127,100 @@ export default ({ children, path, exact }) => {
 
   return (
     <Route exact path={path}>
+      <div id="back-to-top-anchor" />
       <Grid>
-        <AppBar position="fixed">
-          <Toolbar>
-            <Logo style={{ padding: "4px", height: "64px", width: "64px" }} />
-            <Container>
-              <Tabs
-                value={activeTab}
-                onChange={handleChange}
-                TabIndicatorProps={{
-                  style: {
-                    backgroundColor: theme.palette.text.secondary,
-                  },
-                }}
-              >
-                <Tab label="home" />
-                <Tab label="how it works" />
-                <Tab label="about us" />
-              </Tabs>
-              <Button
-                color="primary"
-                style={{
-                  padding: "0 30px",
-                  marginLeft: "30px",
-                  backgroundColor: theme.palette.text.secondary,
-                }}
-                onClick={handleLogin}
-              >
-                Log in
-              </Button>
-            </Container>
-          </Toolbar>
-        </AppBar>
+        <HideOnScroll>
+          <AppBar position="fixed" elevation={trigger ? 4 : 0}>
+            <Toolbar>
+              <Logo style={{ padding: "2px", height: "50px", width: "50px" }} />
+              <Container>
+                {matches ? (
+                  <Nav
+                    orientation="horizontal"
+                    value={activeTab}
+                    onChange={handleTabbing}
+                    TabIndicatorProps={{
+                      style: {
+                        height: 3,
+                        backgroundColor: theme.palette.text.secondary,
+                      },
+                    }}
+                    theme={theme}
+                    handleLogin={handleLogin}
+                  />
+                ) : (
+                  <>
+                    <Drawer
+                      anchor="right"
+                      open={isOpen}
+                      onClose={() => setOpen(false)}
+                    >
+                      <Nav
+                        orientation="vertical"
+                        indicatorColor="primary"
+                        value={activeTab}
+                        onChange={handleTabbing}
+                        TabIndicatorProps={{
+                          style: {
+                            width: 4,
+                          },
+                        }}
+                        theme={theme}
+                        handleLogin={handleLogin}
+                      />
+                    </Drawer>
+                    <IconButton
+                      color="inherit"
+                      onClick={() => setOpen(!isOpen)}
+                      style={{ padding: 0 }}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </>
+                )}
+              </Container>
+            </Toolbar>
+          </AppBar>
+        </HideOnScroll>
         <Item>{children}</Item>
       </Grid>
+      <ScrollTop />
     </Route>
   )
 }
+
+const UNav = ({ className, theme, handleLogin, ...props }) => {
+  return (
+    <>
+      <Tabs {...props}>
+        <Tab label="home" />
+        <Tab label="how it works" />
+        <Tab label="about us" />
+      </Tabs>
+      <Button className={className} color="primary" onClick={handleLogin}>
+        Log in
+      </Button>
+    </>
+  )
+}
+
+// TODO: hover
+const Nav = styled(UNav)`
+  padding: 0 30px;
+  margin: ${props =>
+    props.orientation === "horizontal" ? "4px 0 4px 30px" : "20px 6px 0 6px"};
+  background-color: ${props => props.theme.palette.text.secondary};
+
+  :hover {
+    background-color: ${props => props.theme.palette.text.secondary};
+  }
+`
+
+const Toolbar = styled(UToolbar)`
+  @media (min-width: ${breakpoints.sm}px) {
+    min-height: 54px;
+  }
+`
 
 const Container = styled.div`
   display: flex;
