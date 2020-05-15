@@ -8,6 +8,8 @@ import {
   AppBar,
   Toolbar as UToolbar,
   Button,
+  IconButton,
+  Drawer,
   Tabs,
   Tab,
   useTheme,
@@ -17,7 +19,12 @@ import {
   Fab,
 } from "@material-ui/core"
 
+// make things reactive
+import useMediaQuery from "@material-ui/core/useMediaQuery"
+
+// icons
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
+import MenuIcon from "@material-ui/icons/Menu"
 
 const UScrollTop = ({ className }) => {
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 })
@@ -63,11 +70,13 @@ const HideOnScroll = ({ children }) => {
 
 export default ({ children, path, exact }) => {
   const [activeTab, setActiveTab] = useState(0)
+  const [isOpen, setOpen] = useState(false)
   const theme = useTheme()
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
   })
+  const matches = useMediaQuery(`(min-width: ${breakpoints.mds}px)`)
   let history = useHistory()
 
   useEffect(() => {
@@ -120,32 +129,50 @@ export default ({ children, path, exact }) => {
             <Toolbar>
               <Logo style={{ padding: "2px", height: "50px", width: "50px" }} />
               <Container>
-                <Tabs
-                  value={activeTab}
-                  onChange={handleTabbing}
-                  TabIndicatorProps={{
-                    style: {
-                      height: 3,
-                      backgroundColor: theme.palette.text.secondary,
-                    },
-                  }}
-                >
-                  <Tab label="home" />
-                  <Tab label="how it works" />
-                  <Tab label="about us" />
-                </Tabs>
-                <Button
-                  color="primary"
-                  style={{
-                    margin: "4px 0",
-                    padding: "0 30px",
-                    marginLeft: "30px",
-                    backgroundColor: theme.palette.text.secondary,
-                  }}
-                  onClick={handleLogin}
-                >
-                  Log in
-                </Button>
+                {matches ? (
+                  <Nav
+                    orientation="horizontal"
+                    value={activeTab}
+                    onChange={handleTabbing}
+                    TabIndicatorProps={{
+                      style: {
+                        height: 3,
+                        backgroundColor: theme.palette.text.secondary,
+                      },
+                    }}
+                    theme={theme}
+                    handleLogin={handleLogin}
+                  />
+                ) : (
+                  <>
+                    <Drawer
+                      anchor="right"
+                      open={isOpen}
+                      onClose={() => setOpen(false)}
+                    >
+                      <Nav
+                        orientation="vertical"
+                        indicatorColor="primary"
+                        value={activeTab}
+                        onChange={handleTabbing}
+                        TabIndicatorProps={{
+                          style: {
+                            width: 4,
+                          },
+                        }}
+                        theme={theme}
+                        handleLogin={handleLogin}
+                      />
+                    </Drawer>
+                    <IconButton
+                      color="inherit"
+                      onClick={() => setOpen(!isOpen)}
+                      style={{ padding: 0 }}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </>
+                )}
               </Container>
             </Toolbar>
           </AppBar>
@@ -156,6 +183,28 @@ export default ({ children, path, exact }) => {
     </Route>
   )
 }
+
+const UNav = ({ className, theme, handleLogin, ...props }) => {
+  return (
+    <>
+      <Tabs {...props}>
+        <Tab label="home" />
+        <Tab label="how it works" />
+        <Tab label="about us" />
+      </Tabs>
+      <Button className={className} color="primary" onClick={handleLogin}>
+        Log in
+      </Button>
+    </>
+  )
+}
+
+const Nav = styled(UNav)`
+  padding: 0 30px;
+  margin: ${props =>
+    props.orientation === "horizontal" ? "4px 0 4px 30px" : "20px 6px 0 6px"};
+  background-color: ${props => props.theme.palette.text.secondary};
+`
 
 const Toolbar = styled(UToolbar)`
   @media (min-width: ${breakpoints.sm}px) {
