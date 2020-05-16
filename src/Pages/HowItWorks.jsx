@@ -31,7 +31,7 @@ export default () => {
       <TenantPath/>
       <HostPath/>
       <IntersectionCircles/>
-      <Section left="160px" top="280px" bottom="634px">
+      <Section left="160px" top="280px" bottom="320px">
         <Typography variant="h1" color="primary">
           How It Works
         </Typography>
@@ -46,6 +46,14 @@ export default () => {
         officia deserunt mollit anim id est laborum.
         </P>
       </Section>
+      <Grid container>
+        <StepImgLeft img={GreyClouds} header={"step 1"} text={"aosdhah"} color="primary" />
+        <StepImgRight img={GreyClouds} header={"step 1"} text={"aosdhah"}  color="secondary"/>
+        <StepImgLeft img={GreyClouds} header={"step 1"} text={"aosdhah"} color="primary" />
+        <StepImgRight img={GreyClouds} header={"step 1"} text={"aosdhah"}  color="secondary"/>
+        <StepImgLeft img={GreyClouds} header={"step 1"} text={"aosdhah"} color="primary" />
+        <StepImgRight img={GreyClouds} header={"step 1"} text={"aosdhah"}  color="secondary"/>
+      </Grid>
     </Grid>
   )
 }
@@ -128,38 +136,58 @@ const Section = styled(Grid).attrs(props => ({
 
 
 {/* Idea for DRY implementation, very difficult to do because of structure
-  of the page.
+of the page.*/}
 
-const UStepImgLeftSide = ({ img, header, text, color, className }) => {
+const UStepImgLeft = ({ img, header, text, imgleft, color, className }) => {
   const theme = useTheme()
 
   return (
-    <Grid direction="row" justify="flex-start" alignItems="center"  >
     <Grid item xs={6} className={className}>
-    <img src={img} alt={"image for" + header} />
-    </Grid>
-    <Grid item xs={6} className={className}>
+    <img src={img} alt={"photo of" + header} />
     <Typography variant="h3" color={color}>{header}</Typography>
-      <P>
-        {text}
-      </P>  
-    </Grid>
+    <P>{text}</P>
     </Grid>
   )
 }
 
-const StepImgLeftSide = styled(UStepImgLeftSide)`
+const UStepImgRight = ({ img, header, text, imgleft, color, className }) => {
+  const theme = useTheme()
+
+  return (
+    <Grid item xs={6} className={className}>
+    <img src={img} alt={"photo of" + header} />
+    <Typography variant="h3" color={color}>{header}</Typography>
+    <P>{text}</P>
+    </Grid>
+  )
+}
+
+const StepImgLeft = styled(UStepImgLeft)`
   img {
-    display:inline;
-    float:left;
+    border-radius: 50px;
+    width: 100%;
+    height: auto;
+    max-width: 305px;
+    max-height: 310px;
+    float: left;
   }
-
   p {
-    display:inline;
-    margin-left:10px;
-    margin-top:20px;
-
+    margin: 5px 0;
+    float: right;
   }
+  `
 
-`
-*/}
+const StepImgRight = styled(UStepImgRight)`
+  img {
+    border-radius: 50px;
+    width: 100%;
+    height: auto;
+    max-width: 305px;
+    max-height: 310px;
+    float: right;
+  }
+  p {
+    margin: 5px 0;
+    float: left;
+  }
+  `
