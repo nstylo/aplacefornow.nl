@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import { Grid, Typography } from "@material-ui/core"
+import { Grid, Typography, Paper } from "@material-ui/core"
 import { useTheme } from "@material-ui/core/styles"
 
 import { ReactComponent as UParagraphRect } from "../Assets/ParagraphRect.svg"
@@ -13,8 +13,13 @@ import { ReactComponent as UHostPath } from "../Assets/HostPath.svg"
 import { ReactComponent as UIntersectionCircles } from "../Assets/IntersectionCircles.svg"
 import { ReactComponent as UWelcomeBirds } from "../Assets/WelcomeBirds.svg"
 
-// for testing purposes
-import Clouds from "../Assets/Clouds.png"
+import GreyClouds from "../Assets/GreyClouds.svg"
+import TenantStep1 from "../Assets/TenantStep1.svg"
+import TenantStep2 from "../Assets/TenantStep2.svg"
+import TenantStep3 from "../Assets/TenantStep3.svg"
+import TenantStep4 from "../Assets/TenantStep4.svg"
+import TenantStep5 from "../Assets/TenantStep5.svg"
+
 
 export default () => {
   return (
@@ -40,14 +45,6 @@ export default () => {
         sint occaecat cupidatat non proident, sunt in culpa qui 
         officia deserunt mollit anim id est laborum.
         </P>
-      <Section  top="280px">
-        <Grid container spacing={6} >
-        <Step img={Clouds} header={"step 1"} text={"aosdhah"} imgleft/>
-        <Step img={Clouds} header={"step 1"} text={"aosdhah"}  />
-        <Step img={Clouds} header={"step 1"} text={"aosdhah"} imgleft />
-        <Step img={Clouds} header={"step 1"} text={"aosdhah"} />
-        </Grid>
-      </Section>
       </Section>
     </Grid>
   )
@@ -124,22 +121,34 @@ const Section = styled(Grid).attrs(props => ({
   padding-top: ${props => props.top};
   padding-bottom: ${props => props.bottom};
 `
-const UStep = ({ img, header, text, imgleft, className }) => {
+
+
+
+
+
+
+{/* Idea for DRY implementation, very difficult to do because of structure
+  of the page.
+
+const UStepImgLeftSide = ({ img, header, text, color, className }) => {
   const theme = useTheme()
 
   return (
-
-    <Grid item xs={6} className={className} >
-    {imgleft ? <img src={img} alt={"photo of" + header} />
-    :
-    <Typography variant="h3" color="primary" >{header}</Typography> }
-    {imgleft ? <Typography variant="h3" color="primary" >{header}</Typography> : <P>{text}</P> }
-    {imgleft ? <P >{text}</P> : <img src={img} alt={"photo of" + header} />}  
+    <Grid direction="row" justify="flex-start" alignItems="center"  >
+    <Grid item xs={6} className={className}>
+    <img src={img} alt={"image for" + header} />
+    </Grid>
+    <Grid item xs={6} className={className}>
+    <Typography variant="h3" color={color}>{header}</Typography>
+      <P>
+        {text}
+      </P>  
+    </Grid>
     </Grid>
   )
 }
 
-const Step = styled(UStep)`
+const StepImgLeftSide = styled(UStepImgLeftSide)`
   img {
     display:inline;
     float:left;
@@ -149,23 +158,8 @@ const Step = styled(UStep)`
     display:inline;
     margin-left:10px;
     margin-top:20px;
-    float:left;
 
   }
 
 `
-const UimgRight = ({ img, header, className }) => {
-  const theme = useTheme()
-
-  return (
-    <img src={img} alt={"photo of" + header} className={className} />
-  )
-}
-
-const imgRight = styled(UimgRight)`
-  img {
-    display:inline;
-    float:right;
-  }
-  
-`
+*/}
