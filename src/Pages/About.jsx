@@ -9,8 +9,7 @@ import { ReactComponent as Rectangles } from "../Assets/About/Rectangles.svg"
 import { ReactComponent as Circles } from "../Assets/About/Circles.svg"
 import { ReactComponent as UBranchWithEggs } from "../Assets/About/BranchWithEggs.svg"
 import { ReactComponent as UBranchWithBirds } from "../Assets/About/BranchWithBirds.svg"
-import { ReactComponent as UCloud1 } from "../Assets/About/Cloud1.svg"
-import { ReactComponent as UCloud2 } from "../Assets/About/Cloud2.svg"
+import { ReactComponent as UCloud } from "../Assets/About/Cloud.svg"
 import { useTheme } from "@material-ui/core/styles"
 
 import { breakpoints } from "../theme"
@@ -37,6 +36,8 @@ export default () => {
           proident, sunt in culpa qui officia deserunt mollit anim id est
           laborum.
         </P>
+        <Cloud1 width="65%" />
+        <Cloud2 width="45%" />
         <BranchWithEggs />
       </Section>
       <Section xs={12} top={200} item>
@@ -113,9 +114,7 @@ export default () => {
 const Container = styled(Grid).attrs(() => ({
   container: true,
 }))`
-  @media (max-width: ${breakpoints.xl}px) {
-    overflow: hidden;
-  }
+  overflow: hidden;
 `
 
 const P = styled(Typography).attrs(() => ({
@@ -127,16 +126,53 @@ const P = styled(Typography).attrs(() => ({
   width: auto;
 `
 
+const Cloud = styled(UCloud)`
+  overflow-x: hidden;
+  position: absolute;
+  z-index: -2;
+  width: ${props => props.width};
+  height: auto;
+`
+
+const Cloud1 = styled(Cloud)`
+  left: 20%;
+
+  @media (max-width: ${breakpoints.sm}px) {
+    top: 75%;
+  }
+
+  @media (max-width: ${breakpoints.xs}px) {
+    top: 88%;
+  }
+`
+
+const Cloud2 = styled(Cloud)`
+  top: 85%;
+  left: 60%;
+
+  @media (max-width: ${breakpoints.md}px) {
+    top: 95%;
+  }
+
+  @media (max-width: ${breakpoints.sm}px) {
+    top: 100%;
+  }
+
+  @media (max-width: ${breakpoints.xs}px) {
+    top: 110%;
+  }
+`
+
 const BranchWithEggs = styled(UBranchWithEggs)`
   position: relative;
-  width: 80%;
+  width: 75%;
   height: auto;
   top: 100px;
   left: -80px;
   z-index: -1;
 
   @media (max-width: ${breakpoints.lg}px) {
-    width: 100%;
+    width: 80%;
   }
 
   @media (max-width: ${breakpoints.sm}px) {
@@ -164,6 +200,7 @@ const BranchWithBirds = styled(UBranchWithBirds)`
 `
 
 const Section = styled(Grid)`
+  position: relative;
   padding-left: 80px;
   padding-right: 80px;
   padding-top: ${props => props.top}px;
