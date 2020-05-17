@@ -1,5 +1,5 @@
 import React from "react"
 
 export default () => {
-  return <div>Forgot Password Page</div>
+  return <div>SignUpForm</div>
 }

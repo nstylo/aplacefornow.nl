@@ -68,7 +68,7 @@ const HideOnScroll = ({ children }) => {
   )
 }
 
-export default ({ children, path, exact }) => {
+export default ({ children, ...props }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [isOpen, setOpen] = useState(false)
   const theme = useTheme()
@@ -126,7 +126,7 @@ export default ({ children, path, exact }) => {
   }
 
   return (
-    <Route exact path={path}>
+    <Route {...props}>
       <div id="back-to-top-anchor" />
       <Grid>
         <HideOnScroll>

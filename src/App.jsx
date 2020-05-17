@@ -1,23 +1,27 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-// import { ProtectedRoute } from "./Auth/ProtectedRoute"
 import { ThemeProvider } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 
 // theme
 import { theme } from "./theme"
 
+// routes
 import LayoutRoute from "./Routes/LayoutRoute"
+import AuthRoute from "./Routes/AuthRoute"
+// import { ProtectedRoute } from "./Auth/ProtectedRoute"
 
 // import pages
 import Home from "./Pages/Home"
 import About from "./Pages/About"
 import HowItWorks from "./Pages/HowItWorks"
-import Login from "./Pages/Login"
-import Signup from "./Pages/Signup"
-import ForgotPassword from "./Pages/Forgot-Password"
-import ResetPassword from "./Pages/Reset-Password"
 import NoMatch from "./Pages/404.jsx"
+
+// import forms
+import Login from "./Forms/Login"
+import SignUp from "./Forms/SignUp"
+import ResetPw from "./Forms/ResetPw"
+import ForgotPw from "./Forms/ForgotPw"
 
 function App() {
   return (
@@ -25,18 +29,18 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Switch>
-          <Route exact path="/login">
+          <AuthRoute exact path="/login">
             <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/reset-password">
-            <ResetPassword />
-          </Route>
-          <Route exact path="/forgot-password">
-            <ForgotPassword />
-          </Route>
+          </AuthRoute>
+          <AuthRoute exact path="/signup">
+            <SignUp />
+          </AuthRoute>
+          <AuthRoute exact path="/reset-password">
+            <ResetPw />
+          </AuthRoute>
+          <AuthRoute exact path="/forgot-password">
+            <ForgotPw />
+          </AuthRoute>
           <LayoutRoute exact path="/">
             <Home />
           </LayoutRoute>
