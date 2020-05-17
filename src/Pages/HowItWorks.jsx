@@ -36,24 +36,17 @@ export default () => {
       <TenantButton/>
       <HostButton/>
       <ParagraphRect/>
-      {/* UNDER CONSTRUCTION
       <TenantPath/>
       <HostPath/>
       <IntersectionCircles/>
-      */}
-      <Section left="160px" top="280px" bottom="320px">
+      <Section left="160px" top="280px" bottom="360px">
         <Typography variant="h1" color="primary">
           How It Works
         </Typography>
         <P>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit
-        esse cillum dolore eu fugiat nulla pariatur. Excepteur 
-        sint occaecat cupidatat non proident, sunt in culpa qui 
-        officia deserunt mollit anim id est laborum.
+        A Place For Now is built on the idea of creating a platform 
+        where the existing community can help students for a temporary 
+        time period while they search for a permanent place to stay. 
         </P>
       </Section>
       <Section left="160px">
@@ -75,16 +68,16 @@ export default () => {
         <StepImg img={HostStep4} header={"step 4"}/>
         <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the tenant."} color="secondary" />\
         <div><img src={WelcomeBirds} alt={"Welcome Birds"} /></div>
-        <Grid item xs={5} ></Grid>
-        <Grid item xs={3} > 
+        <Grid container justify="space-evenly" alignItems="center" spacing={1}>
+        <Grid item xs={3}  > 
         <Typography variant="h3" color="primary">Connect</Typography>
         <P>Meet your host and get to know both the city and each other. Get to see your room and get situated.</P>
         </Grid>
-        <Grid item xs={4} ></Grid>
-        <StepImg img={TenantStep5} header={"step 5"}/>
+        </Grid>
         <StepText header={"Saying goodbye :("} text={"After the time of your agreement has concluded it is time to say goodbye. Pay for your stay, say your goodbyes and maybe stay in touch."} color="primary" />
-        <StepText header={"Support your tenant"} text={"After some time the agreement will conclude. Try to support your tenant within their sourch for a permanent solution. When the time comes say your goodbyes and maybe stay in touch"} color="secondary" />
+        <StepImg img={TenantStep5} header={"step 5"}/>
         <StepImg img={HostStep5} header={"step 5"}/>
+        <StepText header={"Support your tenant"} text={"After some time the agreement will conclude. Try to support your tenant within their sourch for a permanent solution. When the time comes say your goodbyes and maybe stay in touch"} color="secondary" />
         <StepImg img={GreyClouds} header={"step 6"}/>
         <StepText header={"Help somebody else!"} text={"After your tenant has moved out you can repost your room again an help out someone new!"} color="primary" />
         <StepText header={"Repost your room"} text={"After your tenant has moved out you can repost your room again an help out someone new!"} color="secondary" />
@@ -164,8 +157,8 @@ const UStepText = ({ header, text, color, className }) => {
 
 const StepImg = styled(UStepImg)`
   img {
-    width: 100%;
-    height: auto;
+    width: 80%;
+    max-height:100%
     float: left;
   }
   
@@ -178,6 +171,7 @@ const StepText = styled(UStepText)`
   position: absolute;
   top:1070px;
   left:255px;
+  z-index:-1;
 
   @media (min-width: 1920px) {
     left: calc(155px + (100vw - 1920px) / 2);
@@ -187,6 +181,7 @@ const HostPath = styled(UHostPath)`
   position: absolute;
   top:1070px;
   left:954.84px;
+  z-index:-1;
 
   @media (min-width: 1920px) {
     left: calc(954.84px + (100vw - 1920px) / 2);
@@ -196,6 +191,8 @@ const IntersectionCircles = styled(UIntersectionCircles)`
   position: absolute;
   top:915px;
   left:168px;
+  z-index:-1;
+
 
   @media (min-width: 1920px) {
     left: calc(168px + (100vw - 1920px) / 2);
