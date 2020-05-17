@@ -34,7 +34,7 @@ export default () => {
         <P>
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in cul0pa qui officia deserunt mollit anim id est
+          proident, sunt in culpa qui officia deserunt mollit anim id est
           laborum.
         </P>
         <BranchWithEggs />
@@ -123,7 +123,7 @@ const P = styled(Typography).attrs(() => ({
 }))`
   text-align: justify;
   margin-top: 16px;
-  :margin-bottom: 24px;
+  margin-bottom: 24px;
   width: auto;
 `
 
