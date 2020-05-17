@@ -25,17 +25,15 @@ export default () => {
           About us
         </Typography>
         <P>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          A Place For Now is a non-profit startup aimed to create a community
+          based solution providing students with temporary and affordable
+          housing while they look for permanent solutions. Who better to tackle
+          problems face than a student team? We started out with three people
+          and now have over fifteen student members with a shared mission:
         </P>
-        <P>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum.
-        </P>
+        <Typography variant="subtitle2">
+          “Enhance the wellbeing of students and the community surrounding it.”
+        </Typography>
         <Cloud1 width="65%" />
         <Cloud2 width="45%" />
         <BranchWithEggs />

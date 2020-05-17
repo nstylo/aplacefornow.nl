@@ -220,6 +220,11 @@ export const theme = createMuiTheme({
       fontWeight: "300",
       fontStyle: "italic",
     },
+    subtitle2: {
+      fontSize: "20px",
+      fontWeight: "400",
+      fontStyle: "italic",
+    },
     button: {
       fontSize: "18px",
       fontWeight: "700",
