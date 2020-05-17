@@ -169,7 +169,8 @@ const brandon_black_italic = {
 }
 
 export const breakpoints = {
-  xs: 320,
+  xxs: 340,
+  xs: 480,
   sm: 600,
   mds: 740,
   md: 960,
