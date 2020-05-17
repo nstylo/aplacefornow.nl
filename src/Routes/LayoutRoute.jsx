@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
-import { ReactComponent as Logo } from "./Assets/Logo.svg"
-import { breakpoints } from "./theme"
+import { ReactComponent as Logo } from "../Assets/Logo.svg"
+import { breakpoints } from "../theme"
 
 import {
   AppBar,

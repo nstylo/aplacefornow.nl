@@ -1,13 +1,13 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { ProtectedRoute } from "./Auth/ProtectedRoute"
+// import { ProtectedRoute } from "./Auth/ProtectedRoute"
 import { ThemeProvider } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 
 // theme
 import { theme } from "./theme"
 
-import LayoutRoute from "./LayoutRoute"
+import LayoutRoute from "./Routes/LayoutRoute"
 
 // import pages
 import Home from "./Pages/Home"
