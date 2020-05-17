@@ -41,7 +41,7 @@ const Form = styled.div`
 
   grid-template-rows: ${props => (props.matches ? "100%" : "320px auto")};
   background: white;
-  padding: 12px 32px;
+  padding: 12px 64px;
 `
 
 const Background = styled.div`
