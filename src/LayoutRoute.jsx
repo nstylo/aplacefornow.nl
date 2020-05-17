@@ -132,7 +132,10 @@ export default ({ children, path, exact }) => {
         <HideOnScroll>
           <AppBar position="fixed" elevation={trigger ? 4 : 0}>
             <Toolbar>
-              <Logo style={{ height: "50px", width: "50px" }} />
+              <Logo
+                style={{ height: "50px", width: "50px", cursor: "pointer" }}
+                onClick={() => history.push("/")}
+              />
               <Container>
                 {matches ? (
                   <Nav
