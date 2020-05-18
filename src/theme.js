@@ -169,7 +169,8 @@ const brandon_black_italic = {
 }
 
 export const breakpoints = {
-  xs: 320,
+  xxs: 340,
+  xs: 480,
   sm: 600,
   mds: 740,
   md: 960,
@@ -217,6 +218,11 @@ export const theme = createMuiTheme({
     subtitle1: {
       fontSize: "18px",
       fontWeight: "300",
+      fontStyle: "italic",
+    },
+    subtitle2: {
+      fontSize: "20px",
+      fontWeight: "400",
       fontStyle: "italic",
     },
     button: {

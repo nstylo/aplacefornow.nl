@@ -4,98 +4,116 @@ import styled from "styled-components"
 // material ui components
 import { Grid, Typography } from "@material-ui/core"
 
-// responsiveness
-import useMediaQuery from "@material-ui/core/useMediaQuery"
-import { useTheme } from "@material-ui/core/styles"
-
 // visual stuff
-import { ReactComponent as Rectangles } from "../Assets/Rectangles.svg"
-import { ReactComponent as Circles } from "../Assets/Circles.svg"
-import { ReactComponent as UNest } from "../Assets/Nest.svg"
-import { ReactComponent as UClouds } from "../Assets/Clouds.svg"
+import { ReactComponent as Rectangles } from "../Assets/About/Rectangles.svg"
+import { ReactComponent as Circles } from "../Assets/About/Circles.svg"
+import { ReactComponent as UBranchWithEggs } from "../Assets/About/BranchWithEggs.svg"
+import { ReactComponent as UBranchWithBirds } from "../Assets/About/BranchWithBirds.svg"
+import { ReactComponent as UCloud } from "../Assets/About/Cloud.svg"
+import { useTheme } from "@material-ui/core/styles"
 
 import { breakpoints } from "../theme"
 
 // for testing purposes
-import Mika from "../Assets/Mika.png"
+import Mika from "../Assets/Photos/Mika.png"
 
 export default () => {
   return (
-    <Grid container>
-      <Nest />
-      <Section top="160px" bottom="580px">
+    <Container>
+      <Section xs={12} top={120} item>
         <Typography variant="h1" color="primary">
           About us
         </Typography>
-        <P width="600px">
+        <P>
+          A Place For Now is a non-profit startup aimed to create a community
+          based solution providing students with temporary and affordable
+          housing while they look for permanent solutions. Who better to tackle
+          problems face than a student team? We started out with three people
+          and now have over fifteen student members with a shared mission:
+        </P>
+        <Typography variant="subtitle2">
+          “Enhance the wellbeing of students and the community surrounding it.”
+        </Typography>
+        <Cloud1 width="65%" />
+        <Cloud2 width="45%" />
+        <BranchWithEggs />
+      </Section>
+      <Section xs={12} top={200} item>
+        <Typography variant="h1" color="primary">
+          Values
+        </Typography>
+        <P>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </P>
-        <P width="600px">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum.
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </P>
       </Section>
-      <Grid item xs={12}>
-        <Section bottom="50px">
+      <Section top={100} spacing={6} item container>
+        <ValueCard rect></ValueCard>
+        <ValueCard></ValueCard>
+        <ValueCard rect></ValueCard>
+        <ValueCard></ValueCard>
+      </Section>
+      <Section top={160} wrap="wrap" item container>
+        <Grid sm={12} md={7} item>
           <Typography variant="h1" color="primary">
-            Values
+            Meet the team
           </Typography>
           <P>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            aliquip ex ea commodo consequat.
           </P>
-        </Section>
-      </Grid>
-      <Section bottom="310px">
-        <ValueCardSection>
-          <ValueCard rect></ValueCard>
-          <ValueCard></ValueCard>
-          <ValueCard rect></ValueCard>
-          <ValueCard></ValueCard>
-        </ValueCardSection>
-      </Section>
-      <Section bottom="220px">
-        <Clouds />
-        <Typography variant="h1" color="primary">
-          Meet the team
-        </Typography>
-        <P width="600px">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </P>
-      </Section>
-      <Section>
-        <Grid container spacing={8} wrap="wrap">
-          {/* TODO: map over list of avatar objects */}
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-          <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        </Grid>
+        <Grid
+          xs={12}
+          md={5}
+          style={{
+            paddingLeft: "30px",
+            paddingTop: "40px",
+            display: "flex",
+            alignItems: "center",
+          }}
+          item
+        >
+          <BranchWithBirds />
         </Grid>
       </Section>
-    </Grid>
+      <Section
+        top={100}
+        spacing={8}
+        wrap="wrap"
+        justify="center"
+        item
+        container
+      >
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+      </Section>
+    </Container>
   )
 }
+
+const Container = styled(Grid).attrs(() => ({
+  container: true,
+}))`
+  overflow: hidden;
+`
 
 const P = styled(Typography).attrs(() => ({
   variant: "body1",
@@ -103,58 +121,96 @@ const P = styled(Typography).attrs(() => ({
   text-align: justify;
   margin-top: 16px;
   margin-bottom: 24px;
-  max-width: ${props => props.width};
   width: auto;
 `
 
-const Nest = styled(UNest)`
+const Cloud = styled(UCloud)`
+  overflow-x: hidden;
   position: absolute;
-  top: 100px;
-  opacity: 0.75;
-  z-index: -1;
-  width: ${breakpoints.xl}px;
+  z-index: -2;
+  width: ${props => props.width};
+  height: auto;
+`
 
-  @media (max-width: ${breakpoints.xl}px) {
-    width: 98vw;
+const Cloud1 = styled(Cloud)`
+  left: 20%;
+
+  @media (max-width: ${breakpoints.sm}px) {
+    top: 75%;
+  }
+
+  @media (max-width: ${breakpoints.xs}px) {
+    top: 88%;
   }
 `
 
-const Clouds = styled(UClouds)`
-  position: absolute;
-  right: 0px;
-  top: -160px;
-  width: 600px;
+const Cloud2 = styled(Cloud)`
+  top: 85%;
+  left: 60%;
+
+  @media (max-width: ${breakpoints.md}px) {
+    top: 95%;
+  }
+
+  @media (max-width: ${breakpoints.sm}px) {
+    top: 100%;
+  }
+
+  @media (max-width: ${breakpoints.xs}px) {
+    top: 110%;
+  }
+`
+
+const BranchWithEggs = styled(UBranchWithEggs)`
+  position: relative;
+  width: 75%;
   height: auto;
-  opacity: 0.75;
+  top: 100px;
+  left: -80px;
   z-index: -1;
 
   @media (max-width: ${breakpoints.lg}px) {
-    width: 480px;
-    top: -100px;
+    width: 80%;
+  }
+
+  @media (max-width: ${breakpoints.sm}px) {
+    left: -40px;
+  }
+  @media (max-width: ${breakpoints.xxs}px) {
+    left: -20px;
   }
 `
 
-const Section = styled(Grid).attrs(() => ({
-  item: true,
-  xs: 12,
-}))`
+const BranchWithBirds = styled(UBranchWithBirds)`
+  position: relative;
+  right: -80px;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+
+  @media (max-width: ${breakpoints.sm}px) {
+    right: -40px;
+  }
+
+  @media (max-width: ${breakpoints.xs}px) {
+    right: -20px;
+  }
+`
+
+const Section = styled(Grid)`
   position: relative;
   padding-left: 80px;
   padding-right: 80px;
-  padding-top: ${props => props.top};
-  padding-bottom: ${props => props.bottom};
-`
+  padding-top: ${props => props.top}px;
 
-const ValueCardSection = styled(Grid).attrs(() => ({
-  container: true,
-  spacing: 6,
-}))`
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  @media (max-width: ${breakpoints.sm}px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 
-  @media (max-width: ${breakpoints.md}px) {
-    flex-wrap: wrap;
-    justify-content: space-around;
+  @media (max-width: ${breakpoints.xxs}px) {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `
 
@@ -162,7 +218,7 @@ const UValueCard = ({ rect, className }) => {
   const theme = useTheme()
 
   return (
-    <Grid item className={className}>
+    <Grid item xs={12} sm={6} md={3} className={className}>
       {rect ? <Rectangles /> : <Circles />}
       <div
         className="deco"
@@ -204,16 +260,9 @@ const ValueCard = styled(UValueCard)`
 
 const UAvatar = ({ img, name, pos, className }) => {
   const theme = useTheme()
-  const matches_md = useMediaQuery(theme.breakpoints.down("md"))
-  const matches_sm = useMediaQuery(theme.breakpoints.down("sm"))
-  const matches_xs = useMediaQuery(theme.breakpoints.down("xs"))
 
   return (
-    <Grid
-      item
-      xs={matches_xs ? 12 : matches_sm ? 6 : matches_md ? 4 : 3}
-      className={className}
-    >
+    <Grid item xs={12} sm={6} md={4} lg={3} className={className}>
       <img src={img} alt={"photo of " + name} />
       <div
         className="deco"
@@ -226,6 +275,7 @@ const UAvatar = ({ img, name, pos, className }) => {
 }
 
 const Avatar = styled(UAvatar)`
+  max-width: 350px;
   img {
     border-radius: 50px;
     width: 100%;
@@ -239,9 +289,5 @@ const Avatar = styled(UAvatar)`
     width: 10vw;
     max-width: 160px;
     height: calc(3px + 0.1vw);
-  }
-
-  p {
-    margin: 5px 0;
   }
 `
