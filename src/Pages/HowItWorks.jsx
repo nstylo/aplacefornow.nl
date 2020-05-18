@@ -31,6 +31,17 @@ import { ReactComponent as UIntersectionCircles } from "../Assets/IntersectionCi
 
 
 export default () => {
+if (isMobile) {
+  return (
+    <Section left="50px" top="100px">
+    <Typography variant="h3" color="primary">
+          Mobile Version under Development
+    </Typography>
+
+    </Section>
+        
+  )
+} else {
   return (
     <Grid container>
       <TenantButton/>
@@ -94,6 +105,10 @@ export default () => {
     </Grid>
   )
 }
+
+}
+
+const isMobile = window.innerWidth <= 500;
 
 const ParagraphRect = styled(UParagraphRect)`
   position: absolute;
