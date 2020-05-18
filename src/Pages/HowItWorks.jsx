@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { spacing } from '@material-ui/system';
 
-import { Grid, Typography, Paper } from "@material-ui/core"
+import { Grid, Typography } from "@material-ui/core"
 import { useTheme } from "@material-ui/core/styles"
+import { breakpoints } from "../theme"
 
 import GreyClouds from "../Assets/GreyClouds.svg"
 import TenantStep1 from "../Assets/TenantStep1.svg"
@@ -39,7 +39,7 @@ export default () => {
       <TenantPath/>
       <HostPath/>
       <IntersectionCircles/>
-      <Section left="160px" top="280px" bottom="360px">
+      <Section left="160px" top="340px" bottom="380px">
         <Typography variant="h1" color="primary">
           How It Works
         </Typography>
@@ -49,8 +49,8 @@ export default () => {
         time period while they search for a permanent place to stay. 
         </P>
       </Section>
-      <Section left="160px">
-      <Grid container justify="space-evenly" alignItems="center" spacing={2}>
+      <Section left="140px">
+      <Grid container justify="space-between" alignItems="center" spacing={2}>
         <StepImg img={TenantStep1} header={"step 1"}/>
         <StepText header={"Create Your Profile"} text={"Create a free A Place For Now profile using your student email to get started. You can start creating your profile here."} color="primary" />
         <StepText header={"Create Your Profile"} text={"Create a free A Place For Now profile using your student email to get started. You can start creating your profile here."} color="secondary" />
@@ -66,14 +66,20 @@ export default () => {
         <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the host of the room."} color="Primary" />
         <StepImg img={TenantStep4} header={"step 4"}/>
         <StepImg img={HostStep4} header={"step 4"}/>
-        <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the tenant."} color="secondary" />\
-        <div><img src={WelcomeBirds} alt={"Welcome Birds"} /></div>
-        <Grid container justify="space-evenly" alignItems="center" spacing={1}>
+        <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the tenant."} color="secondary" />
+        </Grid>
+        <Section left="300px">
+        <div><img  src={WelcomeBirds} alt={"Welcome Birds"} /></div>
+        </Section>
+        <Grid container justify="space-evenly" alignItems="center" spacing={8}>
+        <Grid item xs={3}  ></Grid>
         <Grid item xs={3}  > 
         <Typography variant="h3" color="primary">Connect</Typography>
         <P>Meet your host and get to know both the city and each other. Get to see your room and get situated.</P>
         </Grid>
+        <Grid item xs={4}  ></Grid>
         </Grid>
+        <Grid container justify="space-between" alignItems="center" spacing={2}>
         <StepText header={"Saying goodbye :("} text={"After the time of your agreement has concluded it is time to say goodbye. Pay for your stay, say your goodbyes and maybe stay in touch."} color="primary" />
         <StepImg img={TenantStep5} header={"step 5"}/>
         <StepImg img={HostStep5} header={"step 5"}/>
@@ -82,7 +88,8 @@ export default () => {
         <StepText header={"Help somebody else!"} text={"After your tenant has moved out you can repost your room again an help out someone new!"} color="primary" />
         <StepText header={"Repost your room"} text={"After your tenant has moved out you can repost your room again an help out someone new!"} color="secondary" />
         <StepImg img={HostStep6} header={"step 6"}/>
-      </Grid>
+        </Grid>
+      
       </Section>
     </Grid>
   )
@@ -113,9 +120,15 @@ const HostButton = styled(UHostButton)`
 `
 
 
-const P = styled.p`
-  width: ${props => props.width};
-`
+const P = styled(Typography).attrs(() => ({
+  variant: "body1",
+}))`
+  text-align: justify;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  width: auto;
+` 
+
 const Section = styled(Grid).attrs(props => ({
   item: true,
   xs: 12,
@@ -135,7 +148,6 @@ const Section = styled(Grid).attrs(props => ({
 of the page.*/}
 
 const UStepImg = ({ img, header, className }) => {
-  const theme = useTheme()
 
   return (
     <Grid item xs={3} className={className } >
@@ -145,7 +157,6 @@ const UStepImg = ({ img, header, className }) => {
 }
 
 const UStepText = ({ header, text, color, className }) => {
-  const theme = useTheme()
 
   return (
     <Grid item xs={3} className={className} >
@@ -157,9 +168,6 @@ const UStepText = ({ header, text, color, className }) => {
 
 const StepImg = styled(UStepImg)`
   img {
-    width: 80%;
-    max-height:100%
-    float: left;
   }
   
   `
@@ -169,17 +177,17 @@ const StepText = styled(UStepText)`
   `
   const TenantPath = styled(UTenantPath)`
   position: absolute;
-  top:1070px;
-  left:255px;
+  top:1100px;
+  left:500px;
   z-index:-1;
 
   @media (min-width: 1920px) {
-    left: calc(155px + (100vw - 1920px) / 2);
+    left: calc(500px + (100vw - 1920px) / 2);
   }
 `
 const HostPath = styled(UHostPath)`
   position: absolute;
-  top:1070px;
+  top:1100px;
   left:954.84px;
   z-index:-1;
 
@@ -190,11 +198,11 @@ const HostPath = styled(UHostPath)`
 const IntersectionCircles = styled(UIntersectionCircles)`
   position: absolute;
   top:915px;
-  left:168px;
+  left:450px;
   z-index:-1;
 
 
   @media (min-width: 1920px) {
-    left: calc(168px + (100vw - 1920px) / 2);
+    left: calc(450px + (100vw - 1920px) / 2);
   }
 `
