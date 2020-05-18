@@ -1,0 +1,5 @@
+<!-- Vertical Rectangle to be put before paragraphs
+    (example in How It Works) -->
+<svg width="10" height="200" viewBox="0 0 10 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="10" height="200" fill="#AD578D"/>
+</svg>

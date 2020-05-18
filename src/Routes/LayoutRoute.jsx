@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
-import { ReactComponent as Logo } from "./Assets/Logo.svg"
-import { breakpoints } from "./theme"
+import { ReactComponent as Logo } from "../Assets/Logo.svg"
+import { breakpoints } from "../theme"
 
 import {
   AppBar,
@@ -68,7 +68,7 @@ const HideOnScroll = ({ children }) => {
   )
 }
 
-export default ({ children, path, exact }) => {
+export default ({ children, ...props }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [isOpen, setOpen] = useState(false)
   const theme = useTheme()
@@ -126,7 +126,7 @@ export default ({ children, path, exact }) => {
   }
 
   return (
-    <Route exact path={path}>
+    <Route {...props}>
       <div id="back-to-top-anchor" />
       <Grid>
         <HideOnScroll>
@@ -145,7 +145,7 @@ export default ({ children, path, exact }) => {
                     TabIndicatorProps={{
                       style: {
                         height: 3,
-                        backgroundColor: theme.palette.text.secondary,
+                        backgroundColor: theme.palette.grey[50],
                       },
                     }}
                     theme={theme}
@@ -212,10 +212,10 @@ const Nav = styled(UNav)`
   padding: 0 30px;
   margin: ${props =>
     props.orientation === "horizontal" ? "4px 0 4px 30px" : "20px 6px 0 6px"};
-  background-color: ${props => props.theme.palette.text.secondary};
+  background-color: ${props => props.theme.palette.grey[50]};
 
   :hover {
-    background-color: ${props => props.theme.palette.text.secondary};
+    background-color: ${props => props.theme.palette.grey[50]};
   }
 `
 
