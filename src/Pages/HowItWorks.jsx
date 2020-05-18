@@ -33,9 +33,10 @@ import { ReactComponent as UIntersectionCircles } from "../Assets/IntersectionCi
 export default () => {
 if (isMobile) {
   return (
-    <Section left="50px" top="100px">
-    <Typography variant="h3" color="primary">
-          Mobile Version under Development
+    <Section left="20px" top="100px">
+    <Typography variant="h4" color="primary">
+          Mobile Version under Development!
+          Please check back in a few days!
     </Typography>
 
     </Section>
@@ -44,13 +45,14 @@ if (isMobile) {
 } else {
   return (
     <Grid container>
-      <TenantButton/>
-      <HostButton/>
-      <ParagraphRect/>
-      <TenantPath/>
-      <HostPath/>
-      <IntersectionCircles/>
-      <Section left="160px" top="340px" bottom="380px">
+      <Section left="160px" top="100px" >
+      <Typography variant="h1" color="secondary">
+          This page is still under development! 
+          Please check back in a few days!
+      </Typography>
+      </Section>
+      {/*
+      <Section left="160px" top="100px" bottom="380px">
         <Typography variant="h1" color="primary">
           How It Works
         </Typography>
@@ -69,10 +71,10 @@ if (isMobile) {
         <StepText header={"Browse the Options"} text={"Browse through the different offers made available by hosts and select a room that fits with your needs."} color="Primary" />
         <StepImg img={TenantStep2} header={"step 2"}/>
         <StepImg img={HostStep2} header={"step 2"}/>
-        <StepText header={"Post Your Room"} text={"Browse through the different offers made available by hosts and select a room that fits with your needs."} color="secondary" />
+        <StepText header={"Post Your Room"} text={"Prepare your room for guests and take some cool pictures!"} color="secondary" />
         <StepImg img={TenantStep3} header={"step 3"}/>
         <StepText header={"Get in touch"} text={"After selecting a room get in touch with the host. Talk freely through our chat service and get to know each other a little better."} color="primary" />
-        <StepText header={"Get in touch"} text={"After selecting a room get in touch with the host. Talk freely through our chat service and get to know each other a little better."} color="secondary" />
+        <StepText header={"Get in touch"} text={"After receiving an application get in touch with the tenant. Talk freely through our chat service and get to know each other a little better."} color="secondary" />
         <StepImg img={HostStep3} header={"step 3"}/>
         <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the host of the room."} color="Primary" />
         <StepImg img={TenantStep4} header={"step 4"}/>
@@ -102,6 +104,7 @@ if (isMobile) {
         </Grid>
       
       </Section>
+      */}
     </Grid>
   )
 }

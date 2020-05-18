@@ -15,7 +15,25 @@ import { useTheme } from "@material-ui/core/styles"
 import { breakpoints } from "../theme"
 
 // for testing purposes
-import Mika from "../Assets/Photos/Mika.png"
+import Mika from "../Assets/Photos/mika.jpg"
+import aniruddh from "../Assets/Photos/aniruddh.jpg"
+import Atharva from "../Assets/Photos/atharva.jpg"
+import Barbara from "../Assets/Photos/bárbara.jpg"
+import Delal from "../Assets/Photos/delal.jpg"
+import Ece from "../Assets/Photos/ece.jpg"
+import Emma from "../Assets/Photos/emma.jpg"
+import Emre from "../Assets/Photos/emre.jpg"
+import Gijs from "../Assets/Photos/gijs.jpg"
+import Asaf from "../Assets/Photos/asaf.jpg"
+import Joao from "../Assets/Photos/joão.jpg"
+import Michael from "../Assets/Photos/michael.jpg"
+import Mihnea from "../Assets/Photos/mihnea.jpg"
+import Nicolas from "../Assets/Photos/nicolas.jpg"
+import Niklas from "../Assets/Photos/niklas.jpg"
+import Simon from "../Assets/Photos/simon.jpg"
+import Ave from "../Assets/Photos/ave.jpg"
+import Joep from "../Assets/Photos/joep.jpg"
+
 
 export default () => {
   return (
@@ -92,18 +110,24 @@ export default () => {
         item
         container
       >
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        <Avatar img={aniruddh} name="Aniruddh" pos="Head of Marketing" />
+        <Avatar img={Asaf} name="Asaf" pos="Chairman" />
+        <Avatar img={Atharva} name="Atharva" pos="Teasurer" />
+        <Avatar img={Ave} name="Ave" pos="Backend Developer" />
+        <Avatar img={Barbara} name="Bárbara" pos="Secretary" />
+        <Avatar img={Joao} name="João" pos="External Affairs Associate" />
+        <Avatar img={Ece} name="Ece" pos="Head of Social Media" />
+        <Avatar img={Emma} name="Emma" pos="UX Researcher" />
+        <Avatar img={Emre} name="Emre" pos="Frontend Developer" />
+        <Avatar img={Niklas} name="Niklas" pos="Frontend Developer" />
+        <Avatar img={Gijs} name="Gijs" pos="Process Improvement Extraordinaire" />
+        <Avatar img={Joep} name="Joep" pos="Head of External Affairs" />
+        <Avatar img={Michael} name="Michael" pos="External Affairs Associate" />
+        <Avatar img={Mihnea} name="Mihnea" pos="Head of Design and UX" />
+        <Avatar img={Mika} name="Mika" pos="UX Researcher" />
+        <Avatar img={Nicolas} name="Nicolas" pos="Backend and Frontend Developer" />
+        <Avatar img={Simon} name="Simon" pos="UX Researcher" />
+        <Avatar img={Delal} name="Delal" pos="Backend Developer" />
       </Section>
     </Container>
   )
@@ -278,9 +302,8 @@ const Avatar = styled(UAvatar)`
   max-width: 350px;
   img {
     border-radius: 50px;
-    width: 100%;
-    height: auto;
-    max-width: 350px;
+    height: 300px;
+    width: 300px;
   }
 
   .deco {
