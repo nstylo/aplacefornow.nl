@@ -34,7 +34,6 @@ import Simon from "../Assets/Photos/simon.jpg"
 import Ave from "../Assets/Photos/ave.jpg"
 import Joep from "../Assets/Photos/joep.jpg"
 
-
 export default () => {
   return (
     <Container>
@@ -61,20 +60,29 @@ export default () => {
           Values
         </Typography>
         <P>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          As a team aiming to bring good into the world, we've got to set some
+          ground-rules! Our values represent the way in which we aim to behave
+          every day and in every step of the way. We are constantly improving,
+          so we may better help you or someone you know. Here's what we're
+          about:
         </P>
       </Section>
-      <Section top={100} spacing={6} item container>
-        <ValueCard rect></ValueCard>
-        <ValueCard></ValueCard>
-        <ValueCard rect></ValueCard>
-        <ValueCard></ValueCard>
+      <Section top={100} spacing={6} item container justify="space-evenly">
+        {/*UGLY CODE FROM HERE, ONLY TEMPORARY*/}
+        <ValueCard
+          rect
+          value="Empathy"
+          text="We empathize and recognize the problems students face while looking for long term housing that does not feel like a compromise. Many of our team members, their friends, and family members, have faced problems with finding a place to stay in the first year of university."
+        ></ValueCard>
+        <ValueCard
+          value="Commitment"
+          text="As students ourselves we are committed to improving our fellow students’ livelihood. We have already spent countless hours designing and developing a platform that can serve our users, and we do not intend on stopping. We are passionate about improving the lives of others, while simultaneously improving ourselves and our abilities."
+        ></ValueCard>
+        <ValueCard
+          rect
+          value="Honesty"
+          text="We maintain honesty with all our efforts and remain transparent about our actions to our users. Protecting our users from fraudulent behaviour remains one of our top priorities and we have put in place various safeguards to ensure honesty from all users. We demand crystal clear communication internally, and we plan to remain consistent in this aspect."
+        ></ValueCard>
       </Section>
       <Section top={160} wrap="wrap" item container>
         <Grid sm={12} md={7} item>
@@ -82,10 +90,13 @@ export default () => {
             Meet the team
           </Typography>
           <P>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Each one of our team members is continuously looking to improve
+            themselves and the world. A Place For Now is a manifestation of some
+            smart and motivated individuals seeing how far they can take their
+            abilities. As Peter Parker once stated: "With great power comes
+            great responsibility," and we're aiming it at improving our
+            community members' livelihoods. Here are the wonderful faces behind
+            the project:
           </P>
         </Grid>
         <Grid
@@ -120,12 +131,20 @@ export default () => {
         <Avatar img={Emma} name="Emma" pos="UX Researcher" />
         <Avatar img={Emre} name="Emre" pos="Frontend Developer" />
         <Avatar img={Niklas} name="Niklas" pos="Frontend Developer" />
-        <Avatar img={Gijs} name="Gijs" pos="Process Improvement Extraordinaire" />
+        <Avatar
+          img={Gijs}
+          name="Gijs"
+          pos="Process Improvement Extraordinaire"
+        />
         <Avatar img={Joep} name="Joep" pos="Head of External Affairs" />
         <Avatar img={Michael} name="Michael" pos="External Affairs Associate" />
         <Avatar img={Mihnea} name="Mihnea" pos="Head of Design and UX" />
         <Avatar img={Mika} name="Mika" pos="UX Researcher" />
-        <Avatar img={Nicolas} name="Nicolas" pos="Backend and Frontend Developer" />
+        <Avatar
+          img={Nicolas}
+          name="Nicolas"
+          pos="Backend and Frontend Developer"
+        />
         <Avatar img={Simon} name="Simon" pos="UX Researcher" />
         <Avatar img={Delal} name="Delal" pos="Backend Developer" />
       </Section>
@@ -152,7 +171,7 @@ const Cloud = styled(UCloud)`
   overflow-x: hidden;
   position: absolute;
   z-index: -2;
-  width: ${props => props.width};
+  width: ${(props) => props.width};
   height: auto;
 `
 
@@ -225,7 +244,7 @@ const Section = styled(Grid)`
   position: relative;
   padding-left: 80px;
   padding-right: 80px;
-  padding-top: ${props => props.top}px;
+  padding-top: ${(props) => props.top}px;
 
   @media (max-width: ${breakpoints.sm}px) {
     padding-left: 40px;
@@ -238,7 +257,7 @@ const Section = styled(Grid)`
   }
 `
 
-const UValueCard = ({ rect, className }) => {
+const UValueCard = ({ value, text, rect, className }) => {
   const theme = useTheme()
 
   return (
@@ -249,13 +268,8 @@ const UValueCard = ({ rect, className }) => {
         // TODO: inline style should generally prevented
         style={{ backgroundColor: theme.palette.primary.main }}
       />
-      <Typography variant="h6">Value here</Typography>
-      <P>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </P>
+      <Typography variant="h6">{value}</Typography>
+      <P>{text}</P>
     </Grid>
   )
 }
