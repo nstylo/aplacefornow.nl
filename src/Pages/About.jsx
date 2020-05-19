@@ -61,7 +61,7 @@ export default () => {
         </Typography>
         <P>
           As a team aiming to bring good into the world, we've got to set some
-          ground-rules! Our values represent the way in which we aim to behave
+          ground rules! Our values represent the way in which we aim to behave
           every day and in every step of the way. We are constantly improving,
           so we may better help you or someone you know. Here's what we're
           about:
@@ -72,11 +72,11 @@ export default () => {
         <ValueCard
           rect
           value="Empathy"
-          text="We empathize and recognize the problems students face while looking for long term housing that does not feel like a compromise. Many of our team members, their friends, and family members, have faced problems with finding a place to stay in the first year of university."
+          text="We empathize and recognize the problems students face while looking for long term housing that does not feel like a compromise. Many of our team members, their friends, and family members have faced problems with finding a place to stay in the first year of university."
         ></ValueCard>
         <ValueCard
           value="Commitment"
-          text="As students ourselves we are committed to improving our fellow students’ livelihood. We have already spent countless hours designing and developing a platform that can serve our users, and we do not intend on stopping. We are passionate about improving the lives of others, while simultaneously improving ourselves and our abilities."
+          text="As students ourselves, we are committed to improving our fellow students’ livelihoods. We have already spent countless hours designing and developing a platform that can serve our users, and we do not intend on stopping. We are passionate about improving the lives of others, while simultaneously improving ourselves and our abilities."
         ></ValueCard>
         <ValueCard
           rect
@@ -94,9 +94,9 @@ export default () => {
             themselves and the world. A Place For Now is a manifestation of some
             smart and motivated individuals seeing how far they can take their
             abilities. As Peter Parker once stated: "With great power comes
-            great responsibility," and we're aiming it at improving our
-            community members' livelihoods. Here are the wonderful faces behind
-            the project:
+            great responsibility," and we're aiming all of our powers at
+            improving our community members' livelihoods. Here are the wonderful
+            faces behind the project:
           </P>
         </Grid>
         <Grid
