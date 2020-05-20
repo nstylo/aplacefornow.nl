@@ -16,7 +16,7 @@ import { breakpoints } from "../theme"
 
 // for testing purposes
 import Mika from "../Assets/Photos/mika.jpg"
-import aniruddh from "../Assets/Photos/aniruddh.jpg"
+import Aniruddh from "../Assets/Photos/aniruddh.jpg"
 import Atharva from "../Assets/Photos/atharva.jpg"
 import Barbara from "../Assets/Photos/bárbara.jpg"
 import Delal from "../Assets/Photos/delal.jpg"
@@ -42,14 +42,18 @@ export default () => {
           About us
         </Typography>
         <P>
-          A Place For Now is a non-profit startup aimed to create a community
-          based solution providing students with temporary and affordable
-          housing while they look for permanent solutions. Who better to tackle
-          problems face than a student team? We started out with three people
-          and now have over fifteen student members with a shared mission:
+          A Place For Now is a non-profit startup aiming to create a
+          community-based solution providing students with temporary and
+          affordable housing while they looking for permanent housing solutions.
+          New students arrive at their university cities and don't always find
+          housing. Often, students all over the Netherlands only find housing
+          weeks or months after the school year begins! Who better to tackle
+          problems than a student team? We started out with three people and now
+          have over fifteen student members with a shared mission:
         </P>
         <Typography variant="subtitle2">
-          “Enhance the wellbeing of students and the community surrounding it.”
+          “Enhance the wellbeing of students and the community surrounding
+          them.”
         </Typography>
         <Cloud1 width="65%" />
         <Cloud2 width="45%" />
@@ -68,21 +72,27 @@ export default () => {
         </P>
       </Section>
       <Section top={100} spacing={6} item container justify="space-evenly">
-        {/*UGLY CODE FROM HERE, ONLY TEMPORARY*/}
-        <ValueCard
-          rect
-          value="Empathy"
-          text="We empathize and recognize the problems students face while looking for long term housing that does not feel like a compromise. Many of our team members, their friends, and family members have faced problems with finding a place to stay in the first year of university."
-        ></ValueCard>
-        <ValueCard
-          value="Commitment"
-          text="As students ourselves, we are committed to improving our fellow students’ livelihoods. We have already spent countless hours designing and developing a platform that can serve our users, and we do not intend on stopping. We are passionate about improving the lives of others, while simultaneously improving ourselves and our abilities."
-        ></ValueCard>
-        <ValueCard
-          rect
-          value="Honesty"
-          text="We maintain honesty with all our efforts and remain transparent about our actions to our users. Protecting our users from fraudulent behaviour remains one of our top priorities and we have put in place various safeguards to ensure honesty from all users. We demand crystal clear communication internally, and we plan to remain consistent in this aspect."
-        ></ValueCard>
+        <ValueCard rect header="Empathy">
+          We empathize and recognize the problems students face while looking
+          for long term housing that does not feel like a compromise. Many of
+          our team members, their friends, and family members have faced
+          problems with finding a place to stay in the first year of university.
+        </ValueCard>
+        <ValueCard header="Commitment">
+          As students ourselves, we are committed to improving our fellow
+          students’ livelihoods. We have already spent countless hours designing
+          and developing a platform that can serve our users, and we do not
+          intend on stopping. We are passionate about improving the lives of
+          others, while simultaneously improving ourselves and our abilities.
+        </ValueCard>
+        <ValueCard rect header="Honesty">
+          We maintain honesty with all our efforts and remain transparent about
+          our actions to our users. Protecting our users from fraudulent
+          behaviour remains one of our top priorities and we have put in place
+          various safeguards to ensure honesty from all users. We demand crystal
+          clear communication internally, and we plan to remain consistent in
+          this aspect.
+        </ValueCard>
       </Section>
       <Section top={160} wrap="wrap" item container>
         <Grid sm={12} md={7} item>
@@ -121,21 +131,21 @@ export default () => {
         item
         container
       >
-        <Avatar img={aniruddh} name="Aniruddh" pos="Head of Marketing" />
+        <Avatar img={Aniruddh} name="Aniruddh" pos="Head of Marketing" />
         <Avatar img={Asaf} name="Asaf" pos="Chairman" />
         <Avatar img={Atharva} name="Atharva" pos="Teasurer" />
         <Avatar img={Ave} name="Ave" pos="Backend Developer" />
         <Avatar img={Barbara} name="Bárbara" pos="Secretary" />
-        <Avatar img={Joao} name="João" pos="External Affairs Associate" />
+        <Avatar img={Delal} name="Delal" pos="Backend Developer" />
         <Avatar img={Ece} name="Ece" pos="Head of Social Media" />
         <Avatar img={Emma} name="Emma" pos="UX Researcher" />
         <Avatar img={Emre} name="Emre" pos="Frontend Developer" />
-        <Avatar img={Niklas} name="Niklas" pos="Frontend Developer" />
         <Avatar
           img={Gijs}
           name="Gijs"
           pos="Process Improvement Extraordinaire"
         />
+        <Avatar img={Joao} name="João" pos="External Affairs Associate" />
         <Avatar img={Joep} name="Joep" pos="Head of External Affairs" />
         <Avatar img={Michael} name="Michael" pos="External Affairs Associate" />
         <Avatar img={Mihnea} name="Mihnea" pos="Head of Design and UX" />
@@ -145,8 +155,8 @@ export default () => {
           name="Nicolas"
           pos="Backend and Frontend Developer"
         />
+        <Avatar img={Niklas} name="Niklas" pos="Frontend Developer" />
         <Avatar img={Simon} name="Simon" pos="UX Researcher" />
-        <Avatar img={Delal} name="Delal" pos="Backend Developer" />
       </Section>
     </Container>
   )
@@ -171,7 +181,7 @@ const Cloud = styled(UCloud)`
   overflow-x: hidden;
   position: absolute;
   z-index: -2;
-  width: ${(props) => props.width};
+  width: ${props => props.width};
   height: auto;
 `
 
@@ -244,7 +254,7 @@ const Section = styled(Grid)`
   position: relative;
   padding-left: 80px;
   padding-right: 80px;
-  padding-top: ${(props) => props.top}px;
+  padding-top: ${props => props.top}px;
 
   @media (max-width: ${breakpoints.sm}px) {
     padding-left: 40px;
@@ -257,7 +267,7 @@ const Section = styled(Grid)`
   }
 `
 
-const UValueCard = ({ value, text, rect, className }) => {
+const UValueCard = ({ header, children, rect, className }) => {
   const theme = useTheme()
 
   return (
@@ -268,8 +278,8 @@ const UValueCard = ({ value, text, rect, className }) => {
         // TODO: inline style should generally prevented
         style={{ backgroundColor: theme.palette.primary.main }}
       />
-      <Typography variant="h6">{value}</Typography>
-      <P>{text}</P>
+      <Typography variant="h6">{header}</Typography>
+      <P>{children}</P>
     </Grid>
   )
 }
