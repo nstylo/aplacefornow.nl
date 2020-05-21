@@ -46,12 +46,7 @@ if (isMobile) {
   return (
     <Grid container>
       <Section left="160px" top="100px" >
-      <Typography variant="h1" color="secondary">
-          This page is still under development! 
-          Please check back in a few days!
-      </Typography>
       </Section>
-      {/*
       <Section left="160px" top="100px" bottom="380px">
         <Typography variant="h1" color="primary">
           How It Works
@@ -104,7 +99,6 @@ if (isMobile) {
         </Grid>
       
       </Section>
-      */}
     </Grid>
   )
 }
