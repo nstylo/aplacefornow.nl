@@ -28,108 +28,108 @@ export default () => {
       <Typography variant="h6">About us</Typography>
       <p
         style={{
-          "font-style": "normal",
-          "font-weight": "100",
-          "font-size": "30px",
+          fontStyle: "normal",
+          fontWeight: "100",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "italic",
-          "font-weight": "100",
-          "font-size": "30px",
+          fontStyle: "italic",
+          fontWeight: "100",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "normal",
-          "font-weight": "300",
-          "font-size": "30px",
+          fontStyle: "normal",
+          fontWeight: "300",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "italic",
-          "font-weight": "300",
-          "font-size": "30px",
+          fontStyle: "italic",
+          fontWeight: "300",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "normal",
-          "font-weight": "400",
-          "font-size": "30px",
+          fontStyle: "normal",
+          fontWeight: "400",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "italic",
-          "font-weight": "400",
-          "font-size": "30px",
+          fontStyle: "italic",
+          fontWeight: "400",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "normal",
-          "font-weight": "600",
-          "font-size": "30px",
+          fontStyle: "normal",
+          fontWeight: "600",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "italic",
-          "font-weight": "600",
-          "font-size": "30px",
+          fontStyle: "italic",
+          fontWeight: "600",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "normal",
-          "font-weight": "700",
-          "font-size": "30px",
+          fontStyle: "normal",
+          fontWeight: "700",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "italic",
-          "font-weight": "700",
-          "font-size": "30px",
+          fontStyle: "italic",
+          fontWeight: "700",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "normal",
-          "font-weight": "900",
-          "font-size": "30px",
+          fontStyle: "normal",
+          fontWeight: "900",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
       </p>
       <p
         style={{
-          "font-style": "italic",
-          "font-weight": "900",
-          "font-size": "30px",
+          fontStyle: "italic",
+          fontWeight: "900",
+          fontSize: "30px",
         }}
       >
         The risque gown makes
