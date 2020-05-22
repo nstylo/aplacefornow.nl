@@ -6,22 +6,22 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 // theme
 import { theme } from "./theme"
 
+// import forms
+import Login from "./Forms/Login"
+import SignUp from "./Forms/SignUp"
+import ResetPw from "./Forms/ResetPw"
+import ForgotPw from "./Forms/ForgotPw"
+
 // routes
-import LayoutRoute from "./Routes/LayoutRoute"
-import AuthRoute from "./Routes/AuthRoute"
-// import { ProtectedRoute } from "./Auth/ProtectedRoute"
+import LayoutRoute from "./Misc/LayoutRoute"
+import DialogContext from "./Misc/DialogContext"
+// import { ProtectedRoute } from "./Misc/ProtectedRoute"
 
 // import pages
 import Home from "./Pages/Home"
 import About from "./Pages/About"
 import HowItWorks from "./Pages/HowItWorks"
 import NoMatch from "./Pages/404.jsx"
-
-// import forms
-import Login from "./Forms/Login"
-import SignUp from "./Forms/SignUp"
-import ResetPw from "./Forms/ResetPw"
-import ForgotPw from "./Forms/ForgotPw"
 
 function App() {
   return (
