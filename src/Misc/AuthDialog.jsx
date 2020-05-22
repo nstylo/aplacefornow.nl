@@ -47,8 +47,9 @@ const Background = styled.div`
 
 const Grid = styled.div`
   display: grid;
+  min-height: ${props => (props.columnStyle ? "800px" : "600px")};
   width: ${({ fullScreen, columnStyle }) =>
     fullScreen ? "100%" : columnStyle ? "600px" : "960px"};
-  grid-template-columns: ${props => (props.columnStyle ? "100%" : "70% auto")};
-  grid-template-rows: ${props => (props.columnStyle ? "auto 380px" : "100%")};
+  grid-template-columns: ${props => (props.columnStyle ? "100%" : "60% auto")};
+  grid-template-rows: ${props => (props.columnStyle ? "280px auto" : "100%")};
 `
