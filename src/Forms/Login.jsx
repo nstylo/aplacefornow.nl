@@ -1,9 +1,5 @@
 import React, { useState, useContext } from "react"
-import DialogContext from "../Misc/DialogContext"
-import AuthDialog from "../Misc/AuthDialog"
 import styled from "styled-components"
-import { theme } from "../theme"
-import { makeStyles } from "@material-ui/core/styles"
 
 // material ui components
 import {
@@ -15,23 +11,17 @@ import {
   FormControl,
   InputAdornment,
   IconButton,
-  Button as IButton,
   Checkbox,
   Link,
 } from "@material-ui/core"
 
+// custom components
+import DialogContext from "../Misc/DialogContext"
+import AuthDialog from "../Misc/AuthDialog"
+import { Button } from "../Basic/Basics"
+
 // icons
 import { Visibility, VisibilityOff } from "@material-ui/icons"
-
-const useStyles = makeStyles({
-  root: {
-    background: theme.palette.primary.main,
-    color: "#FAFAFA", // TODO: make styling more consistent with e.g. overrides
-    "&:hover": {
-      backgroundColor: theme.palette.primary.light,
-    },
-  },
-})
 
 export default () => {
   const [isVisible, setVisible] = useState(false)
@@ -107,7 +97,7 @@ export default () => {
               Forgot Password
             </Link>
           </HelperBar>
-          <UButton color="default">Log in</UButton>
+          <Button color="default">Log in</Button>
           <Typography variant="body1" style={{ paddingTop: "30px" }}>
             Don't have an account?
             <Link
@@ -135,11 +125,6 @@ const HelperBar = styled.div`
     max-height: 32px;
   }
 `
-
-const UButton = () => {
-  const classes = useStyles()
-  return <IButton className={classes.root}>Log In</IButton>
-}
 
 const FormBody = styled.div`
   display: flex;
