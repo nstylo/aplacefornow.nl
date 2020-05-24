@@ -45,7 +45,11 @@ export default () => {
       setOpen={setActiveModal}
     >
       <FormWrapper>
-        <Typography variant="h3" color="primary" style={{ fontWeight: 600 }}>
+        <Typography
+          variant="h3"
+          color="primary"
+          style={{ textAlign: "center" }}
+        >
           Log In
         </Typography>
         <FormBody>
@@ -142,7 +146,7 @@ const FormBody = styled.div`
   flex-direction: column;
   height: auto;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 20px;
 
   & > * {
     padding: 10px 0;
