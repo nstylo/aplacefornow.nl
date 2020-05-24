@@ -199,7 +199,7 @@ export const theme = createMuiTheme({
       fontWeight: "700",
     },
     h4: {
-      fontSize: "32px",
+      fontSize: "24px",
       fontWeight: "700",
     },
     h5: {

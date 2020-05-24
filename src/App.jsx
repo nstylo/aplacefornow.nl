@@ -48,6 +48,7 @@ function App() {
           </Switch>
         </Router>
         <Login />
+        <SignUp />
       </DialogContext.Provider>
     </ThemeProvider>
   )
