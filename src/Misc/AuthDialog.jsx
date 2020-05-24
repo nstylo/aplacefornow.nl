@@ -38,16 +38,10 @@ const Cloud = styled(UCloud)`
 `
 
 const Form = styled.div`
-  display: grid;
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: ${props => (props.columnStyle ? 2 : 1)};
-  grid-row-end: ${props => (props.columnStyle ? 2 : 1)};
-
-  grid-template-rows: ${props => (props.columnStyle ? "100%" : "320px auto")};
   background: white;
-  padding: 12px 64px;
+  padding: 52px 64px;
   z-index: 1000;
+  overflow-y: auto;
 `
 
 const Background = styled.div`
