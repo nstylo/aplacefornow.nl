@@ -50,6 +50,7 @@ function App() {
         <Login />
         <SignUp />
         <ForgotPw />
+        <ResetPw />
       </DialogContext.Provider>
     </ThemeProvider>
   )
