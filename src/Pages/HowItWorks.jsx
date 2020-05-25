@@ -17,6 +17,7 @@ import HostStep5 from "../Assets/HowItWorks/HostStep5.svg"
 import HostStep6 from "../Assets/HowItWorks/HostStep5.svg"
 import WelcomeBirds from "../Assets/WelcomeBirds.svg"
 import ParagraphRect from "../Assets/HowItWorks/ParagraphRect.svg"
+import StepTexts from "../Assets/HowItWorks/StepTexts.json";
 
 
 import { ReactComponent as UTenantButton } from "../Assets/HowItWorks/TenantButton.svg"
@@ -48,10 +49,10 @@ export default () => {
       <Section left="160px">
       <Grid container justify="space-evenly" alignItems="center" spacing={2}>
         <StepImg img={TenantStep1} header={"step 1"}/>
-        <StepText header={"Create Your Profile"} text={"Create a free A Place For Now profile using your student email to get started. You can start creating your profile here."} color="primary" />
-        <StepText header={"Create Your Profile"} text={"Create a free A Place For Now profile using your student email to get started. You can start creating your profile here."} color="secondary" />
+        <StepText header={"Create Your Profile"} text={StepTexts.TenantText1} color="primary" />
+        <StepText header={"Create Your Profile"} text={StepTexts.HostText1} color="secondary" />
         <StepImg img={HostStep1} header={"step 1"}/>
-        <StepText header={"Browse the Options"} text={"Browse through the different offers made available by hosts and select a room that fits with your needs."} color="Primary" />
+        <StepText header={"Browse the Options"} text={StepTexts.TenantText2} color="Primary" />
         <StepImg img={TenantStep2} header={"step 2"}/>
         <StepImg img={HostStep2} header={"step 2"}/>
         <StepText header={"Post Your Room"} text={"Browse through the different offers made available by hosts and select a room that fits with your needs."} color="secondary" />
