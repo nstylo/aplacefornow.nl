@@ -18,6 +18,20 @@ import HostStep6 from "../Assets/HowItWorks/HostStep5.svg"
 import WelcomeBirds from "../Assets/WelcomeBirds.svg"
 import ParagraphRect from "../Assets/HowItWorks/ParagraphRect.svg"
 import StepTexts from "../Assets/HowItWorks/StepTexts.json";
+import GreyTenantStep1 from "../Assets/HowItWorks/GreySteps/TenantStep1.svg";
+import GreyTenantStep2 from "../Assets/HowItWorks/GreySteps/TenantStep2.svg";
+import GreyTenantStep3 from "../Assets/HowItWorks/GreySteps/TenantStep3.svg";
+import GreyTenantStep4 from "../Assets/HowItWorks/GreySteps/TenantStep4.svg";
+import GreyTenantStep5 from "../Assets/HowItWorks/GreySteps/TenantStep5.svg";
+import GreyTenantStep6 from "../Assets/HowItWorks/GreySteps/TenantStep6.svg";
+import GreyTenantStep7 from "../Assets/HowItWorks/GreySteps/TenantStep7.svg";
+import GreyHostStep1 from "../Assets/HowItWorks/GreySteps/HostStep1.svg";
+import GreyHostStep2 from "../Assets/HowItWorks/GreySteps/HostStep2.svg";
+import GreyHostStep3 from "../Assets/HowItWorks/GreySteps/HostStep3.svg";
+import GreyHostStep4 from "../Assets/HowItWorks/GreySteps/HostStep4.svg";
+import GreyHostStep5 from "../Assets/HowItWorks/GreySteps/HostStep5.svg";
+import GreyHostStep6 from "../Assets/HowItWorks/GreySteps/HostStep6.svg";
+import GreyHostStep7 from "../Assets/HowItWorks/GreySteps/HostStep7.svg";
 
 
 import { ReactComponent as UTenantButton } from "../Assets/HowItWorks/TenantButton.svg"
