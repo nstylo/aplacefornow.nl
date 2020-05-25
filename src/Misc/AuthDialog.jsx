@@ -40,6 +40,9 @@ const Cloud = styled(UCloud)`
 `
 
 const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: white;
   padding: 52px 64px;
   z-index: 1000;

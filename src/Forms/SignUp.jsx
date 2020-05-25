@@ -44,7 +44,7 @@ export default () => {
       open={activeModal === "signup" ? true : false}
       setOpen={setActiveModal}
     >
-      <Typography variant="h3" color="primary" style={{ textAlign: "center" }}>
+      <Typography variant="h2" color="primary" style={{ textAlign: "center" }}>
         Sign Up
       </Typography>
       <FormBody>

@@ -49,6 +49,7 @@ function App() {
         </Router>
         <Login />
         <SignUp />
+        <ForgotPw />
       </DialogContext.Provider>
     </ThemeProvider>
   )
