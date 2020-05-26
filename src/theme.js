@@ -184,7 +184,7 @@ export const theme = createMuiTheme({
   },
   typography: {
     fontFamily: "Brandon Grotesque",
-    htmlFontSize: 16,
+    htmlFontSize: 20,
     fontSize: 20,
     h1: {
       fontSize: "64px",
@@ -199,7 +199,7 @@ export const theme = createMuiTheme({
       fontWeight: "700",
     },
     h4: {
-      fontSize: "32px",
+      fontSize: "24px",
       fontWeight: "700",
     },
     h5: {
@@ -238,6 +238,7 @@ export const theme = createMuiTheme({
     primary: {
       main: "#AD578D",
       dark: "#914A7A",
+      light: "#bc76a2",
     },
     secondary: {
       main: "#72C7B4",
@@ -265,3 +266,25 @@ export const theme = createMuiTheme({
     },
   },
 })
+
+// mobile is scaled down to 0.8
+theme.typography.h1 = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down("xs")]: {
+    fontSize: "52.1px",
+  },
+}
+
+theme.typography.h2 = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down("xs")]: {
+    fontSize: "43.2px",
+  },
+}
+
+theme.typography.h3 = {
+  ...theme.typography.h2,
+  [theme.breakpoints.down("xs")]: {
+    fontSize: "32px",
+  },
+}

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import DialogContext from "./DialogContext"
 import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { ReactComponent as Logo } from "../Assets/Logo.svg"
@@ -71,6 +72,7 @@ const HideOnScroll = ({ children }) => {
 export default ({ children, ...props }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [isOpen, setOpen] = useState(false)
+  const { setActiveModal } = useContext(DialogContext)
   const theme = useTheme()
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -122,7 +124,7 @@ export default ({ children, ...props }) => {
   }
 
   const handleLogin = event => {
-    history.push("/login")
+    setActiveModal("login")
   }
 
   return (
