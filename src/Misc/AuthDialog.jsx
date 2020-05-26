@@ -10,7 +10,7 @@ export default ({ children, open, setOpen }) => {
   const theme = useTheme()
   // add 64 px because of dialog margins to avoid x overflow
   const matches = useMediaQuery(`(max-width: ${breakpoints.md + 64}px)`)
-  const fullScreen = useMediaQuery(theme.breakpoints.down("xs"))
+  const fullScreen = useMediaQuery(`(max-width: ${breakpoints.sm + 64}px)`)
 
   return (
     <Dialog
@@ -20,7 +20,7 @@ export default ({ children, open, setOpen }) => {
       onClose={() => setOpen("none")}
     >
       <Grid columnStyle={matches} fullScreen={fullScreen}>
-        <Form columnStyle={matches}>{children}</Form>
+        <Form fullScreen={fullScreen}>{children}</Form>
         <Background columnStyle={matches}>
           <Cloud top="-10px" right="-30px" />
           <Cloud top="180px" right="160px" />
@@ -40,13 +40,9 @@ const Cloud = styled(UCloud)`
 `
 
 const Form = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background: white;
-  padding: 52px 64px;
+  padding: 52px ${props => (props.fullScreen ? "28px" : "64px")};
   z-index: 1000;
-  overflow-y: auto;
 `
 
 const Background = styled.div`
@@ -62,7 +58,6 @@ const Background = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  min-height: ${props => (props.columnStyle ? "800px" : "600px")};
   width: ${({ fullScreen, columnStyle }) =>
     fullScreen ? "100%" : columnStyle ? "600px" : "960px"};
   grid-template-columns: ${props => (props.columnStyle ? "100%" : "60% auto")};

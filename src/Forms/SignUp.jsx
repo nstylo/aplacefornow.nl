@@ -15,7 +15,7 @@ import {
   Link,
   RadioGroup,
   Radio,
-  useTheme,
+  useMediaQuery,
 } from "@material-ui/core"
 
 // custom components
@@ -37,7 +37,8 @@ export default () => {
   const [password, setPassword] = useState("")
   const [passwordConf, setPasswordConf] = useState("")
   const { activeModal, setActiveModal } = useContext(DialogContext)
-  const theme = useTheme()
+
+  const matches = useMediaQuery(theme => theme.breakpoints.down("xs"))
 
   return (
     <AuthDialog
@@ -48,17 +49,18 @@ export default () => {
         Sign Up
       </Typography>
       <FormBody>
-        <NameWrapper>
+        <NameWrapper matches={matches}>
           <TextField
             label="First Name"
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
+            style={{ flexGrow: 1 }}
           />
           <TextField
             label="Last Name"
             value={lastName}
             onChange={e => setLastName(e.target.value)}
-            style={{ width: "58%" }}
+            style={{ flexGrow: 6 }}
           />
         </NameWrapper>
         <RadioGroup
@@ -74,9 +76,6 @@ export default () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h4" style={{ color: theme.palette.grey[500] }}>
-              I want to be a:
-            </Typography>
             <FormControlLabel
               value="tentant"
               label={
@@ -184,12 +183,7 @@ export default () => {
           label={
             <>
               {"Accept "}
-              <Link
-                onClick={() => {
-                  alert("hey")
-                }}
-                style={{ fontSize: "20px", cursor: "pointer" }}
-              >
+              <Link onClick={() => {}} style={{ cursor: "pointer" }}>
                 terms and conditions
               </Link>
             </>
@@ -214,8 +208,16 @@ export default () => {
 
 const NameWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: ${props => (props.matches ? "column" : "row")};
   width: 100%;
+
+  & > div:first-of-type {
+    margin-right: ${props => (props.matches ? "20px" : 0)};
+  }
+
+  & > * {
+    padding: ${props => (props.matches ? "10px 0" : 0)};
+  }
 `
 
 const FormBody = styled.div`

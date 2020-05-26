@@ -43,7 +43,6 @@ export default () => {
             }}
             style={{
               textAlign: "right",
-              fontSize: "20px",
               cursor: "pointer",
               flexGrow: 2,
             }}

@@ -87,7 +87,7 @@ export default () => {
             onClick={() => {
               setActiveModal("forgot-password")
             }}
-            style={{ fontSize: "20px", cursor: "pointer" }}
+            style={{ cursor: "pointer" }}
           >
             Forgot Password
           </Link>
