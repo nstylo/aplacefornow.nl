@@ -243,6 +243,10 @@ export const theme = createMuiTheme({
       main: "#72C7B4",
       dark: "#64AD98",
     },
+    /*temporary*/
+    info: {
+      main: "#DBDBDB"
+    },
   },
   overrides: {
     MuiCssBaseline: {
