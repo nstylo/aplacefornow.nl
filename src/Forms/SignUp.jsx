@@ -212,7 +212,7 @@ const NameWrapper = styled.div`
   width: 100%;
 
   & > div:first-of-type {
-    margin-right: ${props => (props.matches ? "20px" : 0)};
+    margin-right: ${props => (props.matches ? 0 : "20px")};
   }
 
   & > * {
