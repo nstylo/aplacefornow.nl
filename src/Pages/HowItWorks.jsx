@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Grid, Typography} from "@material-ui/core"
+import { Grid, Typography, Tab, Tabs} from "@material-ui/core"
 
 import GreyClouds from "../Assets/GreyClouds.svg"
 import TenantStep1 from "../Assets/HowItWorks/TenantStep1.svg"
@@ -33,10 +33,6 @@ import GreyHostStep5 from "../Assets/HowItWorks/GreySteps/HostStep5.svg";
 import GreyHostStep6 from "../Assets/HowItWorks/GreySteps/HostStep6.svg";
 import GreyHostStep7 from "../Assets/HowItWorks/GreySteps/HostStep7.svg";
 
-
-import { ReactComponent as UTenantButton } from "../Assets/HowItWorks/TenantButton.svg"
-import { ReactComponent as UHostButton } from "../Assets/HowItWorks/HostButton.svg"
-
 import { useTheme } from "@material-ui/core/styles"
 import { breakpoints } from "../theme"
 
@@ -47,90 +43,54 @@ import { breakpoints } from "../theme"
 
 export default () => {
   return (
-    <Grid container>
-      <TenantButton/>
-      <HostButton/>
-      <Section left="160px" top="280px" bottom="360px">
+    <Container>
+    <Section xs={12} top={120} item>
         <Typography variant="h1" color="primary">
           How It Works
         </Typography>
+
         <P>
         A Place For Now is built on the idea of creating a platform 
         where the existing community can help students for a temporary 
         time period while they search for a permanent place to stay. 
         </P>
       </Section>
-      <Section left="160px">
-      <Grid container justify="space-evenly" alignItems="center" spacing={2}>
-        <StepImg img={TenantStep1} header={"step 1"}/>
-        <StepText header={"Create Your Profile"} text={StepTexts.TenantText1} color="primary" />
-        <StepText header={"Create Your Profile"} text={StepTexts.HostText1} color="secondary" />
-        <StepImg img={HostStep1} header={"step 1"}/>
-        <StepText header={"Browse the Options"} text={StepTexts.TenantText2} color="Primary" />
-        <StepImg img={TenantStep2} header={"step 2"}/>
-        <StepImg img={HostStep2} header={"step 2"}/>
-        <StepText header={"Post Your Room"} text={"Browse through the different offers made available by hosts and select a room that fits with your needs."} color="secondary" />
-        <StepImg img={TenantStep3} header={"step 3"}/>
-        <StepText header={"Get in touch"} text={"After selecting a room get in touch with the host. Talk freely through our chat service and get to know each other a little better."} color="primary" />
-        <StepText header={"Get in touch"} text={"After selecting a room get in touch with the host. Talk freely through our chat service and get to know each other a little better."} color="secondary" />
-        <StepImg img={HostStep3} header={"step 3"}/>
-        <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the host of the room."} color="Primary" />
-        <StepImg img={TenantStep4} header={"step 4"}/>
-        <StepImg img={HostStep4} header={"step 4"}/>
-        <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the tenant."} color="secondary" />\
-        <div><img src={WelcomeBirds} alt={"Welcome Birds"} /></div>
-        <Grid container justify="space-evenly" alignItems="center" spacing={1}>
-        <Grid item xs={3}  > 
-        <Typography variant="h3" color="primary">Connect</Typography>
-        <P>Meet your host and get to know both the city and each other. Get to see your room and get situated.</P>
-        </Grid>
-        </Grid>
-        <StepText header={"Saying goodbye :("} text={"After the time of your agreement has concluded it is time to say goodbye. Pay for your stay, say your goodbyes and maybe stay in touch."} color="primary" />
-        <StepImg img={TenantStep5} header={"step 5"}/>
-        <StepImg img={HostStep5} header={"step 5"}/>
-        <StepText header={"Support your tenant"} text={"After some time the agreement will conclude. Try to support your tenant within their sourch for a permanent solution. When the time comes say your goodbyes and maybe stay in touch"} color="secondary" />
-        <StepImg img={GreyClouds} header={"step 6"}/>
-        <StepText header={"Help somebody else!"} text={"After your tenant has moved out you can repost your room again an help out someone new!"} color="primary" />
-        <StepText header={"Repost your room"} text={"After your tenant has moved out you can repost your room again an help out someone new!"} color="secondary" />
-        <StepImg img={HostStep6} header={"step 6"}/>
-      </Grid>
+      <Section xs={12} top={200} item>
+
       </Section>
-    </Grid>
+      
+    </Container>
   )
 }
 
-const TenantButton = styled(UTenantButton)`
-  position: absolute;
-  top: 800px;
-  left: 350px;
+const StepTabs = styled(Tabs)`
+  
 
-  @media (min-width: 1920px) {
-    left: calc(350px + (100vw - 1920px) / 2);
   }
-
 `
-const HostButton = styled(UHostButton)`
-  position: absolute;
-  top:800px;
-  left:1265px;
+const StepTab = styled(Tab)`
 
-  @media (min-width: 1920px) {
-    left: calc(1265px + (100vw - 1920px) / 2);
-  }
 `
 
 
 const P = styled.p`
   width: ${props => props.width};
 `
-const Section = styled(Grid).attrs(props => ({
-  item: true,
-  xs: 12,
-}))`
-  padding-left: ${props => props.left};
-  padding-right: ${props => props.right};
-  padding-top: ${props => props.top};
-  padding-bottom: ${props => props.bottom};
+const Section = styled(Grid)`
+  position: relative;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: ${props => props.top}px;
+
+  @media (max-width: ${breakpoints.sm}px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (max-width: ${breakpoints.xxs}px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `
 
 const UStepImg = ({ img, header, className }) => {
@@ -163,4 +123,10 @@ const StepImg = styled(UStepImg)`
 
 const StepText = styled(UStepText)`
   
+  `
+
+  const Container = styled(Grid).attrs(() => ({
+    container: true,
+  }))`
+    overflow: hidden;
   `
