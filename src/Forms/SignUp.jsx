@@ -24,7 +24,11 @@ import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 
 // icons
-import { Visibility, VisibilityOff } from "@material-ui/icons"
+import {
+  Visibility,
+  VisibilityOff,
+  Close as CloseIcon,
+} from "@material-ui/icons"
 
 export default () => {
   const [firstName, setFirstName] = useState("")
@@ -45,10 +49,23 @@ export default () => {
       open={activeModal === "signup" ? true : false}
       setOpen={setActiveModal}
     >
-      <Typography variant="h2" color="primary" style={{ textAlign: "center" }}>
-        Sign Up
-      </Typography>
+      <IconButton
+        aria-label="close signup popup"
+        onClick={() => {
+          setActiveModal("none")
+        }}
+        style={{ position: "absolute", top: "8px", left: "1.5%" }}
+      >
+        <CloseIcon />
+      </IconButton>
       <FormBody>
+        <Typography
+          variant="h2"
+          color="primary"
+          style={{ textAlign: "center" }}
+        >
+          Sign Up
+        </Typography>
         <NameWrapper matches={matches}>
           <TextField
             label="First Name"
@@ -225,7 +242,7 @@ const FormBody = styled.div`
   flex-direction: column;
   height: auto;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 10px;
 
   & > * {
     padding: 10px 0;

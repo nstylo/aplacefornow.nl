@@ -14,11 +14,14 @@ import {
   Input,
   InputAdornment,
   IconButton,
-  Link,
 } from "@material-ui/core"
 
 // icons
-import { Visibility, VisibilityOff } from "@material-ui/icons"
+import {
+  Visibility,
+  VisibilityOff,
+  Close as CloseIcon,
+} from "@material-ui/icons"
 
 export default () => {
   const [password, setPassword] = useState("")
@@ -32,14 +35,23 @@ export default () => {
       open={activeModal === "reset-password" ? true : false}
       setOpen={setActiveModal}
     >
-      <Typography
-        variant="h2"
-        color="primary"
-        style={{ textAlign: "center", margin: "0 -20px" }}
+      <IconButton
+        aria-label="close password reset popup"
+        onClick={() => {
+          setActiveModal("none")
+        }}
+        style={{ position: "absolute", top: "8px", left: "1.5%" }}
       >
-        Reset Your Password
-      </Typography>
+        <CloseIcon />
+      </IconButton>
       <FormBody>
+        <Typography
+          variant="h2"
+          color="primary"
+          style={{ textAlign: "center", margin: "0 -20px" }}
+        >
+          Reset Your Password
+        </Typography>
         <Typography variant="body1">
           Enter your new password below. It must be different from your previous
           password.
@@ -127,7 +139,7 @@ const FormBody = styled.div`
   flex-direction: column;
   height: auto;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 10px;
 
   & > * {
     padding: 10px 0;

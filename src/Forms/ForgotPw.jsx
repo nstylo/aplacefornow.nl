@@ -7,7 +7,10 @@ import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 
 // material ui components
-import { Typography, TextField, Link } from "@material-ui/core"
+import { Typography, TextField, Link, IconButton } from "@material-ui/core"
+
+// icons
+import { ArrowBackIos as BackIcon } from "@material-ui/icons"
 
 export default () => {
   const [mail, setMail] = useState("")
@@ -18,14 +21,24 @@ export default () => {
       open={activeModal === "forgot-password" ? true : false}
       setOpen={setActiveModal}
     >
-      <Typography
-        variant="h2"
-        color="primary"
-        style={{ textAlign: "center", margin: "0 -20px" }}
+      <IconButton
+        aria-label="back to login"
+        onClick={() => {
+          setActiveModal("login")
+        }}
+        style={{ position: "absolute", top: "8px", left: "1.5%" }}
       >
-        Forgot Your Password?
-      </Typography>
+        <BackIcon style={{ width: "20px", height: "auto" }} />
+        <Typography variant="h5">Back</Typography>
+      </IconButton>
       <FormBody>
+        <Typography
+          variant="h2"
+          color="primary"
+          style={{ textAlign: "center", margin: "0 -20px 12px -20px" }}
+        >
+          Forgot Your Password?
+        </Typography>
         <Typography variant="body1">
           Enter the email address associated with your account. Click the link
           in the email we send you to reset your password.
@@ -68,7 +81,7 @@ const FormBody = styled.div`
   flex-direction: column;
   height: auto;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 10px;
 
   & > * {
     padding: 10px 0;
