@@ -17,7 +17,8 @@ import HostStep2 from "../Assets/HowItWorks/HostStep2.svg"
 import HostStep3 from "../Assets/HowItWorks/HostStep3.svg"
 import HostStep4 from "../Assets/HowItWorks/HostStep4.svg"
 import HostStep5 from "../Assets/HowItWorks/HostStep5.svg"
-import HostStep6 from "../Assets/HowItWorks/HostStep5.svg"
+import HostStep6 from "../Assets/HowItWorks/HostStep6.svg"
+import HostStep7 from "../Assets/HowItWorks/HostStep7.svg"
 import WelcomeBirds from "../Assets/WelcomeBirds.svg"
 import ParagraphRect from "../Assets/HowItWorks/ParagraphRect.svg"
 import StepTexts from "../Assets/HowItWorks/StepTexts.json"
@@ -154,45 +155,134 @@ export default () => {
             />
             <StepImg img={GreyHostStep1} header={"step 1"} />
             <StepText
-              header={"Create a profile"}
-              text={StepTexts.HostText1}
+              header={"Post your room"}
+              text={StepTexts.HostText2}
               color="textSecondary"
             />
-            <StepImg img={GreyHostStep1} header={"step 1"} />
+            <StepImg img={GreyHostStep2} header={"step 2"} />
             <StepText
-              header={"Create a profile"}
-              text={StepTexts.HostText1}
+              header={"Receive applications"}
+              text={StepTexts.HostText3}
               color="textSecondary"
             />
-            <StepImg img={GreyHostStep1} header={"step 1"} />
+            <StepImg img={GreyHostStep3} header={"step 3"} />
             <StepText
-              header={"Create a profile"}
-              text={StepTexts.HostText1}
+              header={"Confirm your choice"}
+              text={StepTexts.HostText4}
               color="textSecondary"
             />
-            <StepImg img={GreyHostStep1} header={"step 1"} />
+            <StepImg img={GreyHostStep4} header={"step 4"} />
             <StepText
-              header={"Create a profile"}
-              text={StepTexts.HostText1}
+              header={"Greet your tenant!"}
+              text={StepTexts.HostText5}
               color="textSecondary"
             />
-            <StepImg img={GreyHostStep1} header={"step 1"} />
+            <StepImg img={GreyHostStep5} header={"step 5"} />
             <StepText
-              header={"Create a profile"}
-              text={StepTexts.HostText1}
+              header={"The end!"}
+              text={StepTexts.HostText6}
               color="textSecondary"
             />
-            <StepImg img={GreyHostStep1} header={"step 1"} />
+            <StepImg img={GreyHostStep6} header={"step 6"} />
             <StepText
-              header={"Create a profile"}
-              text={StepTexts.HostText1}
+              header={"Repost your room!"}
+              text={StepTexts.HostText7}
               color="textSecondary"
             />
-            <StepImg img={GreyHostStep1} header={"step 1"} />
+            <StepImg img={GreyHostStep7} header={"step 7"} />
             
           </StepsSection>
         </TabPanel>
-        <TabPanel value={value} index={1}></TabPanel>
+        <TabPanel value={value} index={1}>
+        <StepsSection xs={6} top={10} container direction="row" justify-items="center">
+            <StepText
+              header={"Create a profile"}
+              text={StepTexts.TenantText1}
+              color="textSecondary"
+            />
+            <StepImg img={GreyTenantStep1} header={"step 1"} />
+            <StepText
+              header={"Choose your room"}
+              text={StepTexts.TenantText2}
+              color="textSecondary"
+            />
+            <StepImg img={GreyTenantStep2} header={"step 2"} />
+            <StepText
+              header={"Contact the host"}
+              text={StepTexts.TenantText3}
+              color="textSecondary"
+            />
+            <StepImg img={GreyTenantStep3} header={"step 3"} />
+            <StepText
+              header={"Confirm your choice"}
+              text={StepTexts.TenantText4}
+              color="textSecondary"
+            />
+            <StepImg img={GreyTenantStep4} header={"step 4"} />
+            <StepText
+              header={"Move in and have fun!"}
+              text={StepTexts.TenantText5}
+              color="textSecondary"
+            />
+            <StepImg img={GreyTenantStep5} header={"step 5"} />
+            <StepText
+              header={"The end!"}
+              text={StepTexts.TenantText6}
+              color="textSecondary"
+            />
+            <StepImg img={GreyTenantStep6} header={"step 6"} />
+            <StepText
+              header={"Become a host!"}
+              text={StepTexts.TenantText7}
+              color="textSecondary"
+            />
+            <StepImg img={GreyTenantStep7} header={"step 7"} />
+          </StepsSection>
+          <StepsSection xs={6} top={10} container direction="row" justify-items="center">
+          <StepText
+              header={"Create a profile"}
+              text={StepTexts.HostText1}
+              color="secondary"
+            />
+            <StepImg img={HostStep1} header={"step 1"} />
+            <StepText
+              header={"Post your room"}
+              text={StepTexts.HostText2}
+              color="secondary"
+            />
+            <StepImg img={HostStep2} header={"step 2"} />
+            <StepText
+              header={"Receive applications"}
+              text={StepTexts.HostText3}
+              color="secondary"
+            />
+            <StepImg img={HostStep3} header={"step 3"} />
+            <StepText
+              header={"Confirm your choice"}
+              text={StepTexts.HostText4}
+              color="secondary"
+            />
+            <StepImg img={HostStep4} header={"step 4"} />
+            <StepText
+              header={"Greet your tenant!"}
+              text={StepTexts.HostText5}
+              color="secondary"
+            />
+            <StepImg img={HostStep5} header={"step 5"} />
+            <StepText
+              header={"The end!"}
+              text={StepTexts.HostText6}
+              color="secondary"
+            />
+            <StepImg img={HostStep6} header={"step 6"} />
+            <StepText
+              header={"Repost your room!"}
+              text={StepTexts.HostText7}
+              color="secondary"
+            />
+            <StepImg img={HostStep2} header={"step 7"} />
+            </StepsSection>
+        </TabPanel>
       </Section>
     </Container>
   )
