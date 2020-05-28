@@ -4,7 +4,8 @@ import styled from "styled-components"
 import { Grid, Typography, Tab, Tabs, Box } from "@material-ui/core"
 import PropTypes from "prop-types"
 
-import GreyClouds from "../Assets/GreyClouds.svg"
+import GreyClouds, { ReactComponent } from "../Assets/GreyClouds.svg"
+import StepRect from "../Assets/HowItWorks/StepRect.svg"
 import TenantStep1 from "../Assets/HowItWorks/TenantStep1.svg"
 import TenantStep2 from "../Assets/HowItWorks/TenantStep2.svg"
 import TenantStep3 from "../Assets/HowItWorks/TenantStep3.svg"
@@ -108,42 +109,49 @@ export default () => {
               header={"Create a profile"}
               text={StepTexts.TenantText1}
               color="primary"
+              rectColor="#AD578D"
             />
             <StepImg img={TenantStep1} header={"step 1"} />
             <StepText
               header={"Choose your room"}
               text={StepTexts.TenantText2}
               color="primary"
+              rectColor="#AD578D"
             />
             <StepImg img={TenantStep2} header={"step 2"} />
             <StepText
               header={"Contact the host"}
               text={StepTexts.TenantText3}
               color="primary"
+              rectColor="#AD578D"
             />
             <StepImg img={TenantStep3} header={"step 3"} />
             <StepText
               header={"Confirm your choice"}
               text={StepTexts.TenantText4}
               color="primary"
+              rectColor="#AD578D"
             />
             <StepImg img={TenantStep4} header={"step 4"} />
             <StepText
               header={"Move in and have fun!"}
               text={StepTexts.TenantText5}
               color="primary"
+              rectColor="#AD578D"
             />
             <StepImg img={TenantStep5} header={"step 5"} />
             <StepText
               header={"The end!"}
               text={StepTexts.TenantText6}
               color="primary"
+              rectColor="#AD578D"
             />
             <StepImg img={TenantStep6} header={"step 6"} />
             <StepText
               header={"Become a host!"}
               text={StepTexts.TenantText7}
               color="primary"
+              rectColor="#AD578D"
             />
             <StepImg img={TenantStep7} header={"step 7"} />
           </StepsSection>
@@ -152,42 +160,49 @@ export default () => {
               header={"Create a profile"}
               text={StepTexts.HostText1}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep1} header={"step 1"} />
             <StepText
               header={"Post your room"}
               text={StepTexts.HostText2}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep2} header={"step 2"} />
             <StepText
               header={"Receive applications"}
               text={StepTexts.HostText3}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep3} header={"step 3"} />
             <StepText
               header={"Confirm your choice"}
               text={StepTexts.HostText4}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep4} header={"step 4"} />
             <StepText
               header={"Greet your tenant!"}
               text={StepTexts.HostText5}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep5} header={"step 5"} />
             <StepText
               header={"The end!"}
               text={StepTexts.HostText6}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep6} header={"step 6"} />
             <StepText
               header={"Repost your room!"}
               text={StepTexts.HostText7}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep7} header={"step 7"} />
             
@@ -199,42 +214,49 @@ export default () => {
               header={"Create a profile"}
               text={StepTexts.TenantText1}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyTenantStep1} header={"step 1"} />
             <StepText
               header={"Choose your room"}
               text={StepTexts.TenantText2}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyTenantStep2} header={"step 2"} />
             <StepText
               header={"Contact the host"}
               text={StepTexts.TenantText3}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyTenantStep3} header={"step 3"} />
             <StepText
               header={"Confirm your choice"}
               text={StepTexts.TenantText4}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyTenantStep4} header={"step 4"} />
             <StepText
               header={"Move in and have fun!"}
               text={StepTexts.TenantText5}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyTenantStep5} header={"step 5"} />
             <StepText
               header={"The end!"}
               text={StepTexts.TenantText6}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyTenantStep6} header={"step 6"} />
             <StepText
               header={"Become a host!"}
               text={StepTexts.TenantText7}
               color="textSecondary"
+              rectColor="#DBDBDB"
             />
             <StepImg img={GreyTenantStep7} header={"step 7"} />
           </StepsSection>
@@ -243,42 +265,49 @@ export default () => {
               header={"Create a profile"}
               text={StepTexts.HostText1}
               color="secondary"
+              rectColor="#72b7c4"
             />
             <StepImg img={HostStep1} header={"step 1"} />
             <StepText
               header={"Post your room"}
               text={StepTexts.HostText2}
               color="secondary"
+              rectColor="#72b7c4"
             />
             <StepImg img={HostStep2} header={"step 2"} />
             <StepText
               header={"Receive applications"}
               text={StepTexts.HostText3}
               color="secondary"
+              rectColor="#72b7c4"
             />
             <StepImg img={HostStep3} header={"step 3"} />
             <StepText
               header={"Confirm your choice"}
               text={StepTexts.HostText4}
               color="secondary"
+              rectColor="#72b7c4"
             />
             <StepImg img={HostStep4} header={"step 4"} />
             <StepText
               header={"Greet your tenant!"}
               text={StepTexts.HostText5}
               color="secondary"
+              rectColor="#72b7c4"
             />
             <StepImg img={HostStep5} header={"step 5"} />
             <StepText
               header={"The end!"}
               text={StepTexts.HostText6}
               color="secondary"
+              rectColor="#72b7c4"
             />
             <StepImg img={HostStep6} header={"step 6"} />
             <StepText
               header={"Repost your room!"}
               text={StepTexts.HostText7}
               color="secondary"
+              rectColor="#72b7c4"
             />
             <StepImg img={HostStep2} header={"step 7"} />
             </StepsSection>
@@ -331,10 +360,11 @@ const UStepImg = ({ img, header, className }) => {
   )
 }
 
-const UStepText = ({ header, text, color }) => {
+const UStepText = ({ header, text, color, rectColor}) => {
 
   return (
     <StepsSection xs={6} item >
+    <hr background-color={rectColor} color= {rectColor} border="none" width="50%" align="left"/>
       <Typography variant="h4" color={color}>
         {header}
       </Typography>
