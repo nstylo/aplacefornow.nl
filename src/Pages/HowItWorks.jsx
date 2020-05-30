@@ -89,7 +89,6 @@ export default () => {
         <Typography variant="h1" color="primary">
           How It Works
         </Typography>
-
         <P>
           A Place For Now is built on the idea of creating a platform where the
           existing community can help students for a temporary time period while
@@ -98,13 +97,14 @@ export default () => {
       </Section>
       <Section xs={12} top={50} item>
         <StepTabs value={value} onChange={handleChange} variant="fullWidth">
-          <Tab label="Tenants" {...a11yProps(0)} />
-          <Tab label="Hosts" {...a11yProps(1)} />
+          <Tab label="Tenant" {...a11yProps(0)} />
+          <Tab label="Host" {...a11yProps(1)} />
         </StepTabs>
       </Section>
-      <Section xs={12} top={50}>
+      <Section xs={12} top={40}>
         <TabPanel value={value} index={0}>
-          <StepsSection xs={6} top={10} container direction="row" justify-items="center">
+        <hr color="#AD578D" width="100%" size={5}/>
+          <StepsSection xs={6} top={50} container direction="row" justify-items="center">
             <StepText
               header={"Create a profile"}
               text={StepTexts.TenantText1}
@@ -209,6 +209,7 @@ export default () => {
           </StepsSection>
         </TabPanel>
         <TabPanel value={value} index={1}>
+        <hr color="#72b7c4" width="100%" size={5}/>
         <StepsSection xs={6} top={10} container direction="row" justify-items="center">
             <StepText
               header={"Create a profile"}
@@ -319,9 +320,9 @@ export default () => {
 
 const StepTabs = styled(Tabs)`
   
-
-  }
+    
 `
+
 
 const P = styled(Typography).attrs(() => ({
   variant: "body1",
@@ -349,12 +350,11 @@ const Section = styled(Grid)`
   }
 `
 const StepsSection = styled(Grid)`
-  position: relative;
 `
 
 const UStepImg = ({ img, header, className }) => {
   return (
-    <StepsSection xs={6} item>
+    <StepsSection xs={6} item >
       <img src={img} alt={"Image of" + header} />
     </StepsSection>
   )
@@ -363,8 +363,8 @@ const UStepImg = ({ img, header, className }) => {
 const UStepText = ({ header, text, color, rectColor}) => {
 
   return (
-    <StepsSection xs={6} item >
-    <hr background-color={rectColor} color= {rectColor} border="none" width="50%" align="left"/>
+    <StepsSection xs={6} item>
+    <hr background-color={rectColor} color= {rectColor} border="none" width="30%" align="left"/>
       <Typography variant="h4" color={color}>
         {header}
       </Typography>
