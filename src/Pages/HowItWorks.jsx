@@ -1,11 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Grid, Typography, Tab, Tabs, Box } from "@material-ui/core"
-import PropTypes from "prop-types"
+import { Grid, Typography, Tab, Tabs} from "@material-ui/core"
 
-import GreyClouds, { ReactComponent } from "../Assets/GreyClouds.svg"
-import StepRect from "../Assets/HowItWorks/StepRect.svg"
 import TenantStep1 from "../Assets/HowItWorks/TenantStep1.svg"
 import TenantStep2 from "../Assets/HowItWorks/TenantStep2.svg"
 import TenantStep3 from "../Assets/HowItWorks/TenantStep3.svg"
@@ -19,8 +16,6 @@ import HostStep3 from "../Assets/HowItWorks/HostStep3.svg"
 import HostStep4 from "../Assets/HowItWorks/HostStep4.svg"
 import HostStep5 from "../Assets/HowItWorks/HostStep5.svg"
 import HostStep6 from "../Assets/HowItWorks/HostStep6.svg"
-import HostStep7 from "../Assets/HowItWorks/HostStep7.svg"
-import WelcomeBirds from "../Assets/WelcomeBirds.svg"
 import ParagraphRect from "../Assets/HowItWorks/ParagraphRect.svg"
 import StepTexts from "../Assets/HowItWorks/StepTexts.json"
 import GreyTenantStep1 from "../Assets/HowItWorks/GreySteps/TenantStep1.svg"
@@ -37,37 +32,20 @@ import GreyHostStep4 from "../Assets/HowItWorks/GreySteps/HostStep4.svg"
 import GreyHostStep5 from "../Assets/HowItWorks/GreySteps/HostStep5.svg"
 import GreyHostStep6 from "../Assets/HowItWorks/GreySteps/HostStep6.svg"
 import GreyHostStep7 from "../Assets/HowItWorks/GreySteps/HostStep7.svg"
+import {ReactComponent as Circle} from "../Assets/HowItWorks/ellipse.svg"
+import Line from "../Assets/HowItWorks/line.svg"
 
-import { useTheme } from "@material-ui/core/styles"
 import { breakpoints } from "../theme"
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props
-
+  const { children, value, index} = props
   return (
     <div
       role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
     >
       {value === index && <Container>{children}</Container>}
     </div>
   )
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-}
-
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
-  }
 }
 
 export default () => {
@@ -76,12 +54,6 @@ export default () => {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-
-  const handleChangeIndex = (index) => {
-    setValue(index)
-  }
-
-  const theme = useTheme();
 
   return (
     <Container>
@@ -97,14 +69,21 @@ export default () => {
       </Section>
       <Section xs={12} top={50} item>
         <StepTabs value={value} onChange={handleChange} variant="fullWidth">
-          <Tab label="Tenant" {...a11yProps(0)} />
-          <Tab label="Host" {...a11yProps(1)} />
+          <Tab label="Tenant" />
+          <Tab label="Host"  />
         </StepTabs>
       </Section>
       <Section xs={12} top={40}>
         <TabPanel value={value} index={0}>
-        <hr color="#AD578D" width="100%" size={5}/>
-          <StepsSection xs={6} top={50} container direction="row" justify-items="center">
+          <hr color="#AD578D" width="100%" size={5} />
+          <StepsSection
+            lg={6}
+            md={12}
+            top={50}
+            container
+            direction="row"
+            justify-items="center"
+          >
             <StepText
               header={"Create a profile"}
               text={StepTexts.TenantText1}
@@ -155,8 +134,15 @@ export default () => {
             />
             <StepImg img={TenantStep7} header={"step 7"} />
           </StepsSection>
-          <StepsSection xs={6} top={10} container direction="row" justify-items="center">
-          <StepText
+          <StepsSection
+            lg={6}
+            md={12}
+            top={10}
+            container
+            direction="row"
+            justify-items="center"
+          >
+            <StepText
               header={"Create a profile"}
               text={StepTexts.HostText1}
               color="textSecondary"
@@ -205,12 +191,17 @@ export default () => {
               rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep7} header={"step 7"} />
-            
           </StepsSection>
         </TabPanel>
         <TabPanel value={value} index={1}>
-        <hr color="#72b7c4" width="100%" size={5}/>
-        <StepsSection xs={6} top={10} container direction="row" justify-items="center">
+        <hr color="#72b7c4" width="100%" size={5} />
+          <StepsSection
+            lg={6}
+            md={12}
+            container
+            direction="row"
+            justify-items="center"
+          >
             <StepText
               header={"Create a profile"}
               text={StepTexts.TenantText1}
@@ -261,8 +252,14 @@ export default () => {
             />
             <StepImg img={GreyTenantStep7} header={"step 7"} />
           </StepsSection>
-          <StepsSection xs={6} top={10} container direction="row" justify-items="center">
-          <StepText
+          <StepsSection
+            lg={6}
+            md={12}
+            container
+            direction="row"
+            justify-items="center"
+          > 
+            <StepText
               header={"Create a profile"}
               text={StepTexts.HostText1}
               color="secondary"
@@ -311,7 +308,7 @@ export default () => {
               rectColor="#72b7c4"
             />
             <StepImg img={HostStep2} header={"step 7"} />
-            </StepsSection>
+          </StepsSection>
         </TabPanel>
       </Section>
     </Container>
@@ -319,10 +316,8 @@ export default () => {
 }
 
 const StepTabs = styled(Tabs)`
-  
-    
+    indicatorColor: "#DBDBDB";
 `
-
 
 const P = styled(Typography).attrs(() => ({
   variant: "body1",
@@ -331,7 +326,6 @@ const P = styled(Typography).attrs(() => ({
   margin-top: 16px;
   margin-bottom: 24px;
   width: auto;
-  
 `
 const Section = styled(Grid)`
   position: relative;
@@ -349,22 +343,27 @@ const Section = styled(Grid)`
     padding-right: 20px;
   }
 `
-const StepsSection = styled(Grid)`
-`
+const StepsSection = styled(Grid)``
 
 const UStepImg = ({ img, header, className }) => {
   return (
-    <StepsSection xs={6} item >
+    <StepsSection xs={6} justify-items="center" item>
       <img src={img} alt={"Image of" + header} />
     </StepsSection>
   )
+
 }
 
-const UStepText = ({ header, text, color, rectColor}) => {
-
+const UStepText = ({ header, text, color, rectColor, className }) => {
   return (
-    <StepsSection xs={6} item>
-    <hr background-color={rectColor} color= {rectColor} border="none" width="30%" align="left"/>
+    <StepsSection xs={6} justify-items="center" item>
+      <hr
+        background-color={rectColor}
+        color={rectColor}
+        border="none"
+        width="30%"
+        align="left"
+      />
       <Typography variant="h4" color={color}>
         {header}
       </Typography>
@@ -373,15 +372,35 @@ const UStepText = ({ header, text, color, rectColor}) => {
   )
 }
 
+const UPath = ({ color}) => {
+  return (
+    <StepsSection xs={1} item>
+      
+    </StepsSection>
+  )
+}
+
+const Path = styled(UPath)`
+
+`
+
+
+
+
 const StepImg = styled(UStepImg)`
   img {
-    max-width: 100%;
-    max-height:100%
+    width: 100%;
+    height: auto;
   }
-  
-  `
 
-const StepText = styled(UStepText)``
+  @media (max-width: ${breakpoints.md}px) {
+    width: 300px;
+    height: auto;
+  }
+`
+
+const StepText = styled(UStepText)`
+`
 
 const Container = styled(Grid).attrs(() => ({
   container: true,
