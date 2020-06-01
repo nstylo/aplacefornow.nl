@@ -32,8 +32,10 @@ import GreyHostStep4 from "../Assets/HowItWorks/GreySteps/HostStep4.svg"
 import GreyHostStep5 from "../Assets/HowItWorks/GreySteps/HostStep5.svg"
 import GreyHostStep6 from "../Assets/HowItWorks/GreySteps/HostStep6.svg"
 import GreyHostStep7 from "../Assets/HowItWorks/GreySteps/HostStep7.svg"
-import {ReactComponent as Circle} from "../Assets/HowItWorks/ellipse.svg"
-import Line from "../Assets/HowItWorks/line.svg"
+import {ReactComponent as UTenantLine} from "../Assets/HowItWorks/TenantLine.svg"
+import {ReactComponent as UHostLine} from "../Assets/HowItWorks/HostLine.svg"
+import {ReactComponent as UGreyLine} from "../Assets/HowItWorks/GreyLine.svg"
+
 
 import { breakpoints } from "../theme"
 
@@ -77,8 +79,20 @@ export default () => {
         <TabPanel value={value} index={0}>
           <hr color="#AD578D" width="100%" size={5} />
           <StepsSection
-            lg={6}
-            md={12}
+            lg={1}
+            md={1}
+            sm={1}
+            top={50}
+            container
+            direction="row"
+            justify-items="center"
+          >
+          <TenantLine/>
+          </StepsSection>
+          <StepsSection
+            lg={5}
+            md={11}
+            sm={11}
             top={50}
             container
             direction="row"
@@ -134,9 +148,21 @@ export default () => {
             />
             <StepImg img={TenantStep7} header={"step 7"} />
           </StepsSection>
-          <StepsSection
-            lg={6}
-            md={12}
+          <GreyStepsSection
+            lg={1}
+            md={1}
+            sm={1}
+            top={50}
+            container
+            direction="row"
+            justify-items="center"
+          >
+          <GreyLine/>
+          </GreyStepsSection>
+          <GreyStepsSection
+            lg={5}
+            md={11}
+            sm={11}
             top={10}
             container
             direction="row"
@@ -191,13 +217,25 @@ export default () => {
               rectColor="#DBDBDB"
             />
             <StepImg img={GreyHostStep7} header={"step 7"} />
-          </StepsSection>
+          </GreyStepsSection>
         </TabPanel>
         <TabPanel value={value} index={1}>
         <hr color="#72b7c4" width="100%" size={5} />
-          <StepsSection
-            lg={6}
-            md={12}
+        <GreyStepsSection
+            lg={1}
+            md={1}
+            sm={1}
+            top={50}
+            container
+            direction="row"
+            justify-items="center"
+          >
+          <GreyLine/>
+        </GreyStepsSection>
+          <GreyStepsSection
+            lg={5}
+            md={11}
+            sm={11}
             container
             direction="row"
             justify-items="center"
@@ -251,10 +289,22 @@ export default () => {
               rectColor="#DBDBDB"
             />
             <StepImg img={GreyTenantStep7} header={"step 7"} />
-          </StepsSection>
+          </GreyStepsSection>
           <StepsSection
-            lg={6}
-            md={12}
+            lg={1}
+            md={1}
+            sm={1}
+            top={50}
+            container
+            direction="row"
+            justify-items="center"
+          >
+          <HostLine/>
+        </StepsSection>
+          <StepsSection
+            lg={5}
+            md={11}
+            sm={11}
             container
             direction="row"
             justify-items="center"
@@ -319,6 +369,41 @@ const StepTabs = styled(Tabs)`
     indicatorColor: "#DBDBDB";
 `
 
+const TenantLine = styled(UTenantLine)`
+  position: relative;
+  width: auto;
+  height: 90%;
+  z-index: -1;
+  top: 20px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    top: 50px;
+  }
+`
+
+const HostLine = styled(UHostLine)`
+  position: relative;
+  width: auto;
+  height: 90%;
+  z-index: -1;
+  top: 20px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    top: 50px;
+  }
+`
+const GreyLine = styled(UGreyLine)`
+  position: relative;
+  width: auto;
+  height: 90%;
+  z-index: -1;
+  top: 20px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    top: 50px;
+  }
+`
+
 const P = styled(Typography).attrs(() => ({
   variant: "body1",
 }))`
@@ -344,6 +429,12 @@ const Section = styled(Grid)`
   }
 `
 const StepsSection = styled(Grid)``
+
+const GreyStepsSection = styled(Grid)`
+  @media (max-width: ${breakpoints.lg}px) {
+    display:none;
+  }
+`
 
 const UStepImg = ({ img, header, className }) => {
   return (
@@ -372,18 +463,6 @@ const UStepText = ({ header, text, color, rectColor, className }) => {
   )
 }
 
-const UPath = ({ color}) => {
-  return (
-    <StepsSection xs={1} item>
-      
-    </StepsSection>
-  )
-}
-
-const Path = styled(UPath)`
-
-`
-
 
 
 
@@ -394,7 +473,7 @@ const StepImg = styled(UStepImg)`
   }
 
   @media (max-width: ${breakpoints.md}px) {
-    width: 300px;
+    width: auto;
     height: auto;
   }
 `
