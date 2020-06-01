@@ -3,35 +3,35 @@ import styled from "styled-components"
 
 import { Grid, Typography, Tab, Tabs} from "@material-ui/core"
 
-import TenantStep1 from "../Assets/HowItWorks/TenantStep1.svg"
-import TenantStep2 from "../Assets/HowItWorks/TenantStep2.svg"
-import TenantStep3 from "../Assets/HowItWorks/TenantStep3.svg"
-import TenantStep4 from "../Assets/HowItWorks/TenantStep4.svg"
-import TenantStep5 from "../Assets/HowItWorks/TenantStep5.svg"
-import TenantStep6 from "../Assets/HowItWorks/TenantStep6.svg"
-import TenantStep7 from "../Assets/HowItWorks/TenantStep7.svg"
-import HostStep1 from "../Assets/HowItWorks/HostStep1.svg"
-import HostStep2 from "../Assets/HowItWorks/HostStep2.svg"
-import HostStep3 from "../Assets/HowItWorks/HostStep3.svg"
-import HostStep4 from "../Assets/HowItWorks/HostStep4.svg"
-import HostStep5 from "../Assets/HowItWorks/HostStep5.svg"
-import HostStep6 from "../Assets/HowItWorks/HostStep6.svg"
+import TenantStep1 from "../Assets/HowItWorks/TenantStep1.png"
+import TenantStep2 from "../Assets/HowItWorks/TenantStep2.png"
+import TenantStep3 from "../Assets/HowItWorks/TenantStep3.png"
+import TenantStep4 from "../Assets/HowItWorks/TenantStep4.png"
+import TenantStep5 from "../Assets/HowItWorks/TenantStep5.png"
+import TenantStep6 from "../Assets/HowItWorks/TenantStep6.png"
+import TenantStep7 from "../Assets/HowItWorks/TenantStep7.png"
+import HostStep1 from "../Assets/HowItWorks/HostStep1.png"
+import HostStep2 from "../Assets/HowItWorks/HostStep2.png"
+import HostStep3 from "../Assets/HowItWorks/HostStep3.png"
+import HostStep4 from "../Assets/HowItWorks/HostStep4.png"
+import HostStep5 from "../Assets/HowItWorks/HostStep5.png"
+import HostStep6 from "../Assets/HowItWorks/HostStep6.png"
 import ParagraphRect from "../Assets/HowItWorks/ParagraphRect.svg"
 import StepTexts from "../Assets/HowItWorks/StepTexts.json"
-import GreyTenantStep1 from "../Assets/HowItWorks/GreySteps/TenantStep1.svg"
-import GreyTenantStep2 from "../Assets/HowItWorks/GreySteps/TenantStep2.svg"
-import GreyTenantStep3 from "../Assets/HowItWorks/GreySteps/TenantStep3.svg"
-import GreyTenantStep4 from "../Assets/HowItWorks/GreySteps/TenantStep4.svg"
-import GreyTenantStep5 from "../Assets/HowItWorks/GreySteps/TenantStep5.svg"
-import GreyTenantStep6 from "../Assets/HowItWorks/GreySteps/TenantStep6.svg"
-import GreyTenantStep7 from "../Assets/HowItWorks/GreySteps/TenantStep7.svg"
-import GreyHostStep1 from "../Assets/HowItWorks/GreySteps/HostStep1.svg"
-import GreyHostStep2 from "../Assets/HowItWorks/GreySteps/HostStep2.svg"
-import GreyHostStep3 from "../Assets/HowItWorks/GreySteps/HostStep3.svg"
-import GreyHostStep4 from "../Assets/HowItWorks/GreySteps/HostStep4.svg"
-import GreyHostStep5 from "../Assets/HowItWorks/GreySteps/HostStep5.svg"
-import GreyHostStep6 from "../Assets/HowItWorks/GreySteps/HostStep6.svg"
-import GreyHostStep7 from "../Assets/HowItWorks/GreySteps/HostStep7.svg"
+import GreyTenantStep1 from "../Assets/HowItWorks/GreySteps/TenantStep1.png"
+import GreyTenantStep2 from "../Assets/HowItWorks/GreySteps/TenantStep2.png"
+import GreyTenantStep3 from "../Assets/HowItWorks/GreySteps/TenantStep3.png"
+import GreyTenantStep4 from "../Assets/HowItWorks/GreySteps/TenantStep4.png"
+import GreyTenantStep5 from "../Assets/HowItWorks/GreySteps/TenantStep5.png"
+import GreyTenantStep6 from "../Assets/HowItWorks/GreySteps/TenantStep6.png"
+import GreyTenantStep7 from "../Assets/HowItWorks/GreySteps/TenantStep7.png"
+import GreyHostStep1 from "../Assets/HowItWorks/GreySteps/HostStep1.png"
+import GreyHostStep2 from "../Assets/HowItWorks/GreySteps/HostStep2.png"
+import GreyHostStep3 from "../Assets/HowItWorks/GreySteps/HostStep3.png"
+import GreyHostStep4 from "../Assets/HowItWorks/GreySteps/HostStep4.png"
+import GreyHostStep5 from "../Assets/HowItWorks/GreySteps/HostStep5.png"
+import GreyHostStep6 from "../Assets/HowItWorks/GreySteps/HostStep6.png"
+import GreyHostStep7 from "../Assets/HowItWorks/GreySteps/HostStep7.png"
 import {ReactComponent as UTenantLine} from "../Assets/HowItWorks/TenantLine.svg"
 import {ReactComponent as UHostLine} from "../Assets/HowItWorks/HostLine.svg"
 import {ReactComponent as UGreyLine} from "../Assets/HowItWorks/GreyLine.svg"
@@ -69,13 +69,13 @@ export default () => {
           they search for a permanent place to stay.
         </P>
       </Section>
-      <Section xs={12} top={50} item>
+      <Section xs={12} top={80} item>
         <StepTabs value={value} onChange={handleChange} variant="fullWidth">
           <Tab label="Tenant" />
           <Tab label="Host"  />
         </StepTabs>
       </Section>
-      <Section xs={12} top={40}>
+      <Section xs={12} top={80}>
         <TabPanel value={value} index={0}>
           <hr color="#AD578D" width="100%" size={5} />
           <StepsSection
@@ -85,7 +85,6 @@ export default () => {
             sm={1}
             xs={3}
             xxs={3}
-            top={50}
             container
             direction="row"
             justify-items="center"
@@ -99,7 +98,6 @@ export default () => {
             sm={11}
             xs={9}
             xxs={9}
-            top={50}
             container
             direction="row"
             justify-items="center"
@@ -156,12 +154,12 @@ export default () => {
             <StepImg img={TenantStep7} header={"step 7"} />
           </StepsSection>
           <GreyStepsSection
+            xl={1}
             lg={1}
             md={1}
             sm={1}
-            xs={1}
+            xs={3}
             xxs={3}
-            top={50}
             container
             direction="row"
             justify-items="center"
@@ -169,12 +167,12 @@ export default () => {
           <GreyLine/>
           </GreyStepsSection>
           <GreyStepsSection
+            xl={5}
             lg={5}
             md={11}
             sm={11}
-            xs={11}
+            xs={9}
             xxs={9}
-            top={10}
             container
             direction="row"
             justify-items="center"
@@ -234,12 +232,12 @@ export default () => {
         <TabPanel value={value} index={1}>
         <hr color="#72b7c4" width="100%" size={5} />
         <GreyStepsSection
+            xl={1}
             lg={1}
             md={1}
             sm={1}
-            xs={1}
+            xs={3}
             xxs={3}
-            top={50}
             container
             direction="row"
             justify-items="center"
@@ -247,10 +245,11 @@ export default () => {
           <GreyLine/>
         </GreyStepsSection>
           <GreyStepsSection
+            xl={5}
             lg={5}
             md={11}
             sm={11}
-            xs={11}
+            xs={9}
             xxs={9}
             container
             direction="row"
@@ -308,12 +307,12 @@ export default () => {
             <StepImg img={GreyTenantStep7} header={"step 7"} />
           </GreyStepsSection>
           <StepsSection
+            xl={1}
             lg={1}
             md={1}
             sm={1}
-            xs={1}
+            xs={3}
             xxs={3}
-            top={50}
             container
             direction="row"
             justify-items="center"
@@ -321,10 +320,11 @@ export default () => {
           <HostLine/>
         </StepsSection>
           <StepsSection
+            xl={5}
             lg={5}
             md={11}
             sm={11}
-            xs={11}
+            xs={9}
             xxs={9}
             container
             direction="row"
@@ -458,7 +458,7 @@ const GreyStepsSection = styled(Grid)`
   }
 `
 
-const UStepImg = ({ img, header, className }) => {
+const UStepImg = ({ img, header}) => {
   return (
     <StepsSection xl={6} lg={6} md={6} sm={6} xs={12} xxs={12} justify-items="center" item>
       <img src={img} alt={"Image of" + header} />
@@ -467,7 +467,7 @@ const UStepImg = ({ img, header, className }) => {
 
 }
 
-const UStepText = ({ header, text, color, rectColor, className }) => {
+const UStepText = ({ header, text, color, rectColor }) => {
   return (
     <StepsSection xl={6} lg={6} md={6} sm={6} xs={12} xxs={12} justify-items="center" item>
       <hr
@@ -489,7 +489,7 @@ const UStepText = ({ header, text, color, rectColor, className }) => {
 
 
 const StepImg = styled(UStepImg)`
-  max-width: 340px;
+ 
 `
 
 const StepText = styled(UStepText)`
