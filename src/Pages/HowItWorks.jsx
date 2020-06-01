@@ -79,9 +79,12 @@ export default () => {
         <TabPanel value={value} index={0}>
           <hr color="#AD578D" width="100%" size={5} />
           <StepsSection
+            xl={1}
             lg={1}
             md={1}
             sm={1}
+            xs={3}
+            xxs={3}
             top={50}
             container
             direction="row"
@@ -90,13 +93,17 @@ export default () => {
           <TenantLine/>
           </StepsSection>
           <StepsSection
+            xl={5}
             lg={5}
             md={11}
             sm={11}
+            xs={9}
+            xxs={9}
             top={50}
             container
             direction="row"
             justify-items="center"
+            alignItems="center"
           >
             <StepText
               header={"Create a profile"}
@@ -152,6 +159,8 @@ export default () => {
             lg={1}
             md={1}
             sm={1}
+            xs={1}
+            xxs={3}
             top={50}
             container
             direction="row"
@@ -163,10 +172,13 @@ export default () => {
             lg={5}
             md={11}
             sm={11}
+            xs={11}
+            xxs={9}
             top={10}
             container
             direction="row"
             justify-items="center"
+            alignItems="center"
           >
             <StepText
               header={"Create a profile"}
@@ -225,6 +237,8 @@ export default () => {
             lg={1}
             md={1}
             sm={1}
+            xs={1}
+            xxs={3}
             top={50}
             container
             direction="row"
@@ -236,9 +250,12 @@ export default () => {
             lg={5}
             md={11}
             sm={11}
+            xs={11}
+            xxs={9}
             container
             direction="row"
             justify-items="center"
+            alignItems="center"
           >
             <StepText
               header={"Create a profile"}
@@ -294,6 +311,8 @@ export default () => {
             lg={1}
             md={1}
             sm={1}
+            xs={1}
+            xxs={3}
             top={50}
             container
             direction="row"
@@ -305,9 +324,12 @@ export default () => {
             lg={5}
             md={11}
             sm={11}
+            xs={11}
+            xxs={9}
             container
             direction="row"
             justify-items="center"
+            alignItems="center"
           > 
             <StepText
               header={"Create a profile"}
@@ -377,7 +399,7 @@ const TenantLine = styled(UTenantLine)`
   top: 20px;
 
   @media (max-width: ${breakpoints.md}px) {
-    top: 50px;
+    top: 60px;
   }
 `
 
@@ -389,7 +411,7 @@ const HostLine = styled(UHostLine)`
   top: 20px;
 
   @media (max-width: ${breakpoints.md}px) {
-    top: 50px;
+    top: 60px;
   }
 `
 const GreyLine = styled(UGreyLine)`
@@ -400,7 +422,7 @@ const GreyLine = styled(UGreyLine)`
   top: 20px;
 
   @media (max-width: ${breakpoints.md}px) {
-    top: 50px;
+    top: 60px;
   }
 `
 
@@ -438,7 +460,7 @@ const GreyStepsSection = styled(Grid)`
 
 const UStepImg = ({ img, header, className }) => {
   return (
-    <StepsSection xs={6} justify-items="center" item>
+    <StepsSection xl={6} lg={6} md={6} sm={6} xs={12} xxs={12} justify-items="center" item>
       <img src={img} alt={"Image of" + header} />
     </StepsSection>
   )
@@ -447,7 +469,7 @@ const UStepImg = ({ img, header, className }) => {
 
 const UStepText = ({ header, text, color, rectColor, className }) => {
   return (
-    <StepsSection xs={6} justify-items="center" item>
+    <StepsSection xl={6} lg={6} md={6} sm={6} xs={12} xxs={12} justify-items="center" item>
       <hr
         background-color={rectColor}
         color={rectColor}
@@ -467,15 +489,7 @@ const UStepText = ({ header, text, color, rectColor, className }) => {
 
 
 const StepImg = styled(UStepImg)`
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-  @media (max-width: ${breakpoints.md}px) {
-    width: auto;
-    height: auto;
-  }
+  max-width: 340px;
 `
 
 const StepText = styled(UStepText)`
