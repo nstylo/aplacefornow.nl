@@ -34,8 +34,9 @@ export default () => {
   const [password, setPassword] = useState("")
   const { activeModal, setActiveModal } = useContext(DialogContext)
 
+  // TODO
   const handleLogin = async () => {
-    await login({ email, password })
+    await login({ method: "login", creds: { email, password } })
     setEmail("")
     setPassword("")
   }
