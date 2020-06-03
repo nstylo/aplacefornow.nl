@@ -34,6 +34,12 @@ export default () => {
   const [password, setPassword] = useState("")
   const { activeModal, setActiveModal } = useContext(DialogContext)
 
+  const handleLogin = async () => {
+    await login({ email, password })
+    setEmail("")
+    setPassword("")
+  }
+
   return (
     <AuthDialog
       open={activeModal === "login" ? true : false}
@@ -110,13 +116,7 @@ export default () => {
             Forgot Password
           </Link>
         </HelperBar>
-        <Button
-          onClick={async () =>
-            await login({ email: email, password: password })
-          }
-        >
-          Log in
-        </Button>
+        <Button onClick={handleLogin}>Log in</Button>
         <Typography variant="body1" style={{ paddingTop: "30px" }}>
           Don't have an account?
           <Link
