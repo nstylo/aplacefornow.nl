@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react"
 import styled from "styled-components"
+import { login } from "../Misc/Api"
 
 // material ui components
 import {
@@ -29,7 +30,7 @@ import {
 
 export default () => {
   const [isVisible, setVisible] = useState(false)
-  const [mail, setMail] = useState("")
+  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const { activeModal, setActiveModal } = useContext(DialogContext)
 
@@ -57,8 +58,8 @@ export default () => {
         </Typography>
         <TextField
           label="Email Address"
-          value={mail}
-          onChange={e => setMail(e.target.value)}
+          value={email}
+          onChange={e => setEmail(e.target.value)}
         />
         <FormControl variant="outlines">
           <InputLabel htmlFor="password-form">Password</InputLabel>
@@ -109,7 +110,13 @@ export default () => {
             Forgot Password
           </Link>
         </HelperBar>
-        <Button>Log in</Button>
+        <Button
+          onClick={async () =>
+            await login({ email: email, password: password })
+          }
+        >
+          Log in
+        </Button>
         <Typography variant="body1" style={{ paddingTop: "30px" }}>
           Don't have an account?
           <Link
