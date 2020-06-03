@@ -8,6 +8,8 @@ COPY . ./
 RUN ls
 RUN rm -rf package-lock.json
 RUN npm install
+# export api url
+ENV REACT_APP_API_URL https://a-place-for-now-268420.appspot.com/api/v1/
 RUN npm run-script build
 
 ## Server environment
