@@ -31,7 +31,7 @@ export default () => {
         <BackIcon style={{ width: "20px", height: "auto" }} />
         <Typography variant="h5">Back</Typography>
       </IconButton>
-      <FormBody>
+      <FormBody onSubmit={e => e.preventDefault()}>
         <Typography
           variant="h2"
           color="primary"
@@ -49,7 +49,7 @@ export default () => {
           onChange={e => setMail(e.target.value)}
         />
         <Wrapper>
-          <Button style={{ flexGrow: 5 }}>Confirm</Button>
+          <Button type="submit" style={{ flexGrow: 5 }}>Confirm</Button>
           <Link
             onClick={() => {
               setActiveModal("login")
@@ -76,7 +76,7 @@ const Wrapper = styled.div`
   margin-top: 20px;
 `
 
-const FormBody = styled.div`
+const FormBody = styled.form`
   display: flex;
   flex-direction: column;
   height: auto;

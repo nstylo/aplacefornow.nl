@@ -44,7 +44,7 @@ export default () => {
       >
         <CloseIcon />
       </IconButton>
-      <FormBody>
+      <FormBody onSubmit={e => e.preventDefault()}>
         <Typography
           variant="h2"
           color="primary"
@@ -128,13 +128,13 @@ export default () => {
             }
           />
         </FormControl>
-        <Button style={{ marginTop: "20px" }}>Confirm</Button>
+        <Button type="submit" style={{ marginTop: "20px" }}>Confirm</Button>
       </FormBody>
     </AuthDialog>
   )
 }
 
-const FormBody = styled.div`
+const FormBody = styled.form`
   display: flex;
   flex-direction: column;
   height: auto;

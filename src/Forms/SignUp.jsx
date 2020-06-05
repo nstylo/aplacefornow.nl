@@ -58,7 +58,7 @@ export default () => {
       >
         <CloseIcon />
       </IconButton>
-      <FormBody>
+      <FormBody onSubmit={e => e.preventDefault()}>
         <Typography
           variant="h2"
           color="primary"
@@ -206,7 +206,7 @@ export default () => {
             </>
           }
         />
-        <Button>Create Account</Button>
+        <Button type="submit">Create Account</Button>
         <Typography variant="body1" style={{ paddingTop: "30px" }}>
           Already have an account?
           <Link
@@ -237,7 +237,7 @@ const NameWrapper = styled.div`
   }
 `
 
-const FormBody = styled.div`
+const FormBody = styled.form`
   display: flex;
   flex-direction: column;
   height: auto;

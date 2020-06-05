@@ -8,7 +8,5 @@ export async function login(data = {}) {
       // set isAuthenticated
       response => console.log(response.json())
     )
-    .catch
-    // client side error
-    ()
+    .catch()
 }

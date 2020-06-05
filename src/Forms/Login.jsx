@@ -35,7 +35,8 @@ export default () => {
   const { activeModal, setActiveModal } = useContext(DialogContext)
 
   // TODO
-  const handleLogin = async () => {
+  const handleLogin = async e => {
+    e.preventDefault()
     await login({ method: "login", creds: { email, password } })
     setEmail("")
     setPassword("")
@@ -55,7 +56,7 @@ export default () => {
       >
         <CloseIcon />
       </IconButton>
-      <FormBody>
+      <FormBody onSubmit={handleLogin}>
         <Typography
           variant="h2"
           color="primary"
@@ -117,7 +118,7 @@ export default () => {
             Forgot Password
           </Link>
         </HelperBar>
-        <Button onClick={handleLogin}>Log in</Button>
+        <Button type="submit">Log in</Button>
         <Typography variant="body1" style={{ paddingTop: "30px" }}>
           Don't have an account?
           <Link
@@ -145,7 +146,7 @@ const HelperBar = styled.div`
   }
 `
 
-const FormBody = styled.div`
+const FormBody = styled.form`
   display: flex;
   flex-direction: column;
   height: auto;
