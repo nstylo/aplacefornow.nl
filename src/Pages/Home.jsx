@@ -13,9 +13,7 @@ export default () => {
           Welcome to A Place For Now!
         </Typography>
         <P>
-          This website is still under Development! Please check back in a few days.
-          While you are here, you can learn who we are and what we do in our "About Us"
-          page. 
+          This website is still under development! To get behind-the-scenes help and future updates, <a href={"https://forms.gle/ZfhRSX5t38yU6SjYA"}>sign up here!</a>
         </P>
         <WelcomeBirds/>
         </Section>
