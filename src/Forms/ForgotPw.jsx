@@ -5,6 +5,7 @@ import styled from "styled-components"
 import DialogContext from "../Misc/DialogContext"
 import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
+import Modal from "../Misc/Modal"
 
 // material ui components
 import { Typography, TextField, Link, IconButton } from "@material-ui/core"
@@ -17,54 +18,58 @@ export default () => {
   const { activeModal, setActiveModal } = useContext(DialogContext)
 
   return (
-    <AuthDialog
-      open={activeModal === "forgot-password" ? true : false}
-      setOpen={setActiveModal}
-    >
-      <IconButton
-        aria-label="back to login"
-        onClick={() => {
-          setActiveModal("login")
-        }}
-        style={{ position: "absolute", top: "8px", left: "1.5%" }}
+    <Modal>
+      <AuthDialog
+        open={activeModal === "forgotpw" ? true : false}
+        setOpen={setActiveModal}
       >
-        <BackIcon style={{ width: "20px", height: "auto" }} />
-        <Typography variant="h5">Back</Typography>
-      </IconButton>
-      <FormBody onSubmit={e => e.preventDefault()}>
-        <Typography
-          variant="h2"
-          color="primary"
-          style={{ textAlign: "center", margin: "0 -20px 12px -20px" }}
+        <IconButton
+          aria-label="back to login"
+          onClick={() => {
+            setActiveModal("login")
+          }}
+          style={{ position: "absolute", top: "8px", left: "1.5%" }}
         >
-          Forgot Your Password?
-        </Typography>
-        <Typography variant="body1">
-          Enter the email address associated with your account. Click the link
-          in the email we send you to reset your password.
-        </Typography>
-        <TextField
-          label="Email Address"
-          value={mail}
-          onChange={e => setMail(e.target.value)}
-        />
-        <Wrapper>
-          <Button type="submit" style={{ flexGrow: 5 }}>Confirm</Button>
-          <Link
-            onClick={() => {
-              setActiveModal("login")
-            }}
-            style={{
-              textAlign: "right",
-              cursor: "pointer",
-              flexGrow: 2,
-            }}
+          <BackIcon style={{ width: "20px", height: "auto" }} />
+          <Typography variant="h5">Back</Typography>
+        </IconButton>
+        <FormBody onSubmit={e => e.preventDefault()}>
+          <Typography
+            variant="h2"
+            color="primary"
+            style={{ textAlign: "center", margin: "0 -20px 12px -20px" }}
           >
-            Log In
-          </Link>
-        </Wrapper>
-      </FormBody>
-    </AuthDialog>
+            Forgot Your Password?
+          </Typography>
+          <Typography variant="body1">
+            Enter the email address associated with your account. Click the link
+            in the email we send you to reset your password.
+          </Typography>
+          <TextField
+            label="Email Address"
+            value={mail}
+            onChange={e => setMail(e.target.value)}
+          />
+          <Wrapper>
+            <Button type="submit" style={{ flexGrow: 5 }}>
+              Confirm
+            </Button>
+            <Link
+              onClick={() => {
+                setActiveModal("login")
+              }}
+              style={{
+                textAlign: "right",
+                cursor: "pointer",
+                flexGrow: 2,
+              }}
+            >
+              Log In
+            </Link>
+          </Wrapper>
+        </FormBody>
+      </AuthDialog>
+    </Modal>
   )
 }
 
