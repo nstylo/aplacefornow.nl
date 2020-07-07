@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import { Grid, Typography, Tab, Tabs} from "@material-ui/core"
 
+import { makeStyles } from '@material-ui/core/styles'
 import TenantStep1 from "../Assets/HowItWorks/TenantStep1.png"
 import TenantStep2 from "../Assets/HowItWorks/TenantStep2.png"
 import TenantStep3 from "../Assets/HowItWorks/TenantStep3.png"
@@ -49,14 +50,12 @@ function TabPanel(props) {
     </div>
   )
 }
-
 export default () => {
   const [value, setValue] = React.useState(0)
-
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-
+  const classes = useStyles();
   return (
     <Container>
       <Section xs={12} top={120} item>
@@ -70,10 +69,12 @@ export default () => {
         </P>
       </Section>
       <Section xs={12} top={80} item>
-        <StepTabs value={value} onChange={handleChange} variant="fullWidth">
+        <Tabs value={value} onChange={handleChange} variant="fullWidth" classes={{
+         root: classes.customTabRoot,
+         indicator: value ? classes.customTabIndicator1 : classes.customTabIndicator2}}>
           <Tab label="Tenant" />
           <Tab label="Host"  />
-        </StepTabs>
+        </Tabs>
       </Section>
       <Section xs={12} top={80}>
         <TabPanel value={value} index={0}>
@@ -387,9 +388,22 @@ export default () => {
   )
 }
 
-const StepTabs = styled(Tabs)`
-    indicatorColor: "#DBDBDB";
-`
+const useStyles = makeStyles(theme => ({
+  customTabRoot: {
+      color: "black",
+      backgroundColor: "transparent",
+  },
+  customTabIndicator2: {
+      backgroundColor: "#AD578D",
+      height: 5,
+      width: '100%',
+  },
+  customTabIndicator1: {
+    backgroundColor: "#72b7c4",
+    height: 5,
+    width: '100%',
+    },
+}));
 
 const TenantLine = styled(UTenantLine)`
   position: relative;
