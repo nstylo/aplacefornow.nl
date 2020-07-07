@@ -503,7 +503,7 @@ const UStepText = ({ header, text, color, rectColor }) => {
 
 
 const StepImg = styled(UStepImg)`
- 
+  margin-left:20px;
 `
 
 const StepText = styled(UStepText)`
