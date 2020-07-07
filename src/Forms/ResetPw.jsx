@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 // custom components
-import DialogContext from "../Misc/DialogContext"
 import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 import Modal from "../Misc/Modal"
+import { useQuery } from "../Misc/Hooks"
 
 // material ui components
 import {
@@ -29,18 +29,18 @@ export default () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false)
   const [confirmation, setConfirmation] = useState("")
   const [isConfirmationVisible, setConfirmationVisible] = useState(false)
-  const { activeModal, setActiveModal } = useContext(DialogContext)
+  const [params, setParams] = useQuery()
 
   return (
     <Modal>
       <AuthDialog
-        open={activeModal === "resetpw" ? true : false}
-        setOpen={setActiveModal}
+        open={params.get("modal") === "resetpw" ? true : false}
+        setOpen={() => setParams("modal", null)}
       >
         <IconButton
           aria-label="close password reset popup"
           onClick={() => {
-            setActiveModal("none")
+            setParams("modal", null)
           }}
           style={{ position: "absolute", top: "8px", left: "1.5%" }}
         >

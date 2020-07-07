@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 // custom components
-import DialogContext from "../Misc/DialogContext"
 import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 import Modal from "../Misc/Modal"
+import { useQuery } from "../Misc/Hooks"
 
 // material ui components
 import { Typography, TextField, Link, IconButton } from "@material-ui/core"
@@ -15,18 +15,18 @@ import { ArrowBackIos as BackIcon } from "@material-ui/icons"
 
 export default () => {
   const [mail, setMail] = useState("")
-  const { activeModal, setActiveModal } = useContext(DialogContext)
+  const [params, setParams] = useQuery()
 
   return (
     <Modal>
       <AuthDialog
-        open={activeModal === "forgotpw" ? true : false}
-        setOpen={setActiveModal}
+        open={params.get("modal") === "forgotpw" ? true : false}
+        setOpen={() => setParams("modal", null)}
       >
         <IconButton
           aria-label="back to login"
           onClick={() => {
-            setActiveModal("login")
+            setParams("modal", "login")
           }}
           style={{ position: "absolute", top: "8px", left: "1.5%" }}
         >
@@ -56,7 +56,7 @@ export default () => {
             </Button>
             <Link
               onClick={() => {
-                setActiveModal("login")
+                setParams("modal", "login")
               }}
               style={{
                 textAlign: "right",

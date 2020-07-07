@@ -1,14 +1,14 @@
-import React, { useContext } from "react"
+import React from "react"
+import { useQuery } from "./Hooks"
 import Login from "../Forms/Login"
 import SignUp from "../Forms/SignUp"
 import ResetPw from "../Forms/ResetPw"
 import ForgotPw from "../Forms/ForgotPw"
-import DialogContext from "./DialogContext"
 
 export default () => {
-  const { activeModal } = useContext(DialogContext)
+  const [params] = useQuery()
 
-  switch (activeModal) {
+  switch (params.get("modal")) {
     case "login":
       return <Login />
     case "signup":

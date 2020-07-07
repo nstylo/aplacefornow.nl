@@ -19,10 +19,10 @@ import {
 } from "@material-ui/core"
 
 // custom components
-import DialogContext from "../Misc/DialogContext"
 import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 import Modal from "../Misc/Modal"
+import { useQuery } from "../Misc/Hooks"
 
 // icons
 import {
@@ -41,20 +41,20 @@ export default () => {
   const [isConfVisible, setConfVisible] = useState(false)
   const [password, setPassword] = useState("")
   const [passwordConf, setPasswordConf] = useState("")
-  const { activeModal, setActiveModal } = useContext(DialogContext)
+  const [params, setParams] = useQuery()
 
   const matches = useMediaQuery(theme => theme.breakpoints.down("xs"))
 
   return (
     <Modal>
       <AuthDialog
-        open={activeModal === "signup" ? true : false}
-        setOpen={setActiveModal}
+        open={params.get("modal") === "signup" ? true : false}
+        setOpen={() => setParams("modal", null)}
       >
         <IconButton
           aria-label="close signup popup"
           onClick={() => {
-            setActiveModal("none")
+            setParams("modal", null)
           }}
           style={{ position: "absolute", top: "8px", left: "1.5%" }}
         >
@@ -213,7 +213,7 @@ export default () => {
             Already have an account?
             <Link
               onClick={() => {
-                setActiveModal("login")
+                setParams("modal", "login")
               }}
               style={{ paddingLeft: "10px", cursor: "pointer" }}
             >

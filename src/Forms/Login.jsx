@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { login } from "../Misc/Api"
 
@@ -17,10 +17,10 @@ import {
 } from "@material-ui/core"
 
 // custom components
-import DialogContext from "../Misc/DialogContext"
 import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 import Modal from "../Misc/Modal"
+import { useQuery } from "../Misc/Hooks"
 
 // icons
 import {
@@ -33,7 +33,7 @@ export default () => {
   const [isVisible, setVisible] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const { activeModal, setActiveModal } = useContext(DialogContext)
+  const [params, setParams] = useQuery()
 
   // TODO
   const handleLogin = async e => {
@@ -46,13 +46,13 @@ export default () => {
   return (
     <Modal>
       <AuthDialog
-        open={activeModal === "login" ? true : false}
-        setOpen={setActiveModal}
+        open={params.get("modal") === "login" ? true : false}
+        setOpen={() => setParams(("modal": null))}
       >
         <IconButton
           aria-label="close login popup"
           onClick={() => {
-            setActiveModal("none")
+            setParams("modal", null)
           }}
           style={{ position: "absolute", top: "8px", left: "1.5%" }}
         >
@@ -113,7 +113,7 @@ export default () => {
             />
             <Link
               onClick={() => {
-                setActiveModal("forgotpw")
+                setParams("modal", "forgotpw")
               }}
               style={{ cursor: "pointer" }}
             >
@@ -125,7 +125,7 @@ export default () => {
             Don't have an account?
             <Link
               onClick={() => {
-                setActiveModal("signup")
+                setParams("modal", "signup")
               }}
               style={{ paddingLeft: "10px", cursor: "pointer" }}
             >
