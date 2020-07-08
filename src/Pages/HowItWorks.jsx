@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Grid, Typography, Tab, Tabs} from "@material-ui/core"
+import { Grid, Typography, Tab, Tabs } from "@material-ui/core"
 
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from "@material-ui/core/styles"
 import TenantStep1 from "../Assets/HowItWorks/TenantStep1.png"
 import TenantStep2 from "../Assets/HowItWorks/TenantStep2.png"
 import TenantStep3 from "../Assets/HowItWorks/TenantStep3.png"
@@ -17,7 +17,6 @@ import HostStep3 from "../Assets/HowItWorks/HostStep3.png"
 import HostStep4 from "../Assets/HowItWorks/HostStep4.png"
 import HostStep5 from "../Assets/HowItWorks/HostStep5.png"
 import HostStep6 from "../Assets/HowItWorks/HostStep6.png"
-import ParagraphRect from "../Assets/HowItWorks/ParagraphRect.svg"
 import StepTexts from "../Assets/HowItWorks/StepTexts.json"
 import GreyTenantStep1 from "../Assets/HowItWorks/GreySteps/TenantStep1.png"
 import GreyTenantStep2 from "../Assets/HowItWorks/GreySteps/TenantStep2.png"
@@ -33,19 +32,16 @@ import GreyHostStep4 from "../Assets/HowItWorks/GreySteps/HostStep4.png"
 import GreyHostStep5 from "../Assets/HowItWorks/GreySteps/HostStep5.png"
 import GreyHostStep6 from "../Assets/HowItWorks/GreySteps/HostStep6.png"
 import GreyHostStep7 from "../Assets/HowItWorks/GreySteps/HostStep7.png"
-import {ReactComponent as UTenantLine} from "../Assets/HowItWorks/TenantLine.svg"
-import {ReactComponent as UHostLine} from "../Assets/HowItWorks/HostLine.svg"
-import {ReactComponent as UGreyLine} from "../Assets/HowItWorks/GreyLine.svg"
-
+import { ReactComponent as UTenantLine } from "../Assets/HowItWorks/TenantLine.svg"
+import { ReactComponent as UHostLine } from "../Assets/HowItWorks/HostLine.svg"
+import { ReactComponent as UGreyLine } from "../Assets/HowItWorks/GreyLine.svg"
 
 import { breakpoints } from "../theme"
 
 function TabPanel(props) {
-  const { children, value, index} = props
+  const { children, value, index } = props
   return (
-    <div
-      role="tabpanel"
-    >
+    <div role="tabpanel">
       {value === index && <Container>{children}</Container>}
     </div>
   )
@@ -55,13 +51,14 @@ export default () => {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <Container>
       <Section xs={12} top={120} item>
         <Typography variant="h1" color="primary">
           How It Works
         </Typography>
+
         <P>
           A Place For Now is built on the idea of creating a platform where the
           existing community can help students for a temporary time period while
@@ -69,11 +66,19 @@ export default () => {
         </P>
       </Section>
       <Section xs={12} top={80} item>
-        <Tabs value={value} onChange={handleChange} variant="fullWidth" classes={{
-         root: classes.customTabRoot,
-         indicator: value ? classes.customTabIndicator1 : classes.customTabIndicator2}}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="fullWidth"
+          classes={{
+            root: classes.customTabRoot,
+            indicator: value
+              ? classes.customTabIndicator1
+              : classes.customTabIndicator2,
+          }}
+        >
           <Tab label="Tenant" />
-          <Tab label="Host"  />
+          <Tab label="Host" />
         </Tabs>
       </Section>
       <Section xs={12} top={80}>
@@ -90,7 +95,7 @@ export default () => {
             direction="row"
             justify-items="center"
           >
-          <TenantLine/>
+            <TenantLine />
           </StepsSection>
           <StepsSection
             xl={5}
@@ -165,7 +170,7 @@ export default () => {
             direction="row"
             justify-items="center"
           >
-          <GreyLine/>
+            <GreyLine />
           </GreyStepsSection>
           <GreyStepsSection
             xl={5}
@@ -231,8 +236,8 @@ export default () => {
           </GreyStepsSection>
         </TabPanel>
         <TabPanel value={value} index={1}>
-        <hr color="#72b7c4" width="100%" size={5} />
-        <GreyStepsSection
+          <hr color="#72b7c4" width="100%" size={5} />
+          <GreyStepsSection
             xl={1}
             lg={1}
             md={1}
@@ -243,8 +248,8 @@ export default () => {
             direction="row"
             justify-items="center"
           >
-          <GreyLine/>
-        </GreyStepsSection>
+            <GreyLine />
+          </GreyStepsSection>
           <GreyStepsSection
             xl={5}
             lg={5}
@@ -318,8 +323,8 @@ export default () => {
             direction="row"
             justify-items="center"
           >
-          <HostLine/>
-        </StepsSection>
+            <HostLine />
+          </StepsSection>
           <StepsSection
             xl={5}
             lg={5}
@@ -331,7 +336,7 @@ export default () => {
             direction="row"
             justify-items="center"
             alignItems="center"
-          > 
+          >
             <StepText
               header={"Create a profile"}
               text={StepTexts.HostText1}
@@ -388,22 +393,22 @@ export default () => {
   )
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   customTabRoot: {
-      color: "black",
-      backgroundColor: "transparent",
+    color: "black",
+    backgroundColor: "transparent",
   },
   customTabIndicator2: {
-      backgroundColor: "#AD578D",
-      height: 5,
-      width: '100%',
+    backgroundColor: "#AD578D",
+    height: 5,
+    width: "100%",
   },
   customTabIndicator1: {
     backgroundColor: "#72b7c4",
     height: 5,
-    width: '100%',
-    },
-}));
+    width: "100%",
+  },
+}))
 
 const TenantLine = styled(UTenantLine)`
   position: relative;
@@ -448,6 +453,7 @@ const P = styled(Typography).attrs(() => ({
   margin-bottom: 24px;
   width: auto;
 `
+
 const Section = styled(Grid)`
   position: relative;
   padding-left: 80px;
@@ -468,22 +474,39 @@ const StepsSection = styled(Grid)``
 
 const GreyStepsSection = styled(Grid)`
   @media (max-width: ${breakpoints.lg}px) {
-    display:none;
+    display: none;
   }
 `
 
-const UStepImg = ({ img, header}) => {
+const UStepImg = ({ img, header }) => {
   return (
-    <StepsSection xl={6} lg={6} md={6} sm={6} xs={12} xxs={12} justify-items="center" item>
+    <StepsSection
+      xl={6}
+      lg={6}
+      md={6}
+      sm={6}
+      xs={12}
+      xxs={12}
+      justify-items="center"
+      item
+    >
       <img src={img} alt={"Image of" + header} />
     </StepsSection>
   )
-
 }
 
 const UStepText = ({ header, text, color, rectColor }) => {
   return (
-    <StepsSection xl={6} lg={6} md={6} sm={6} xs={12} xxs={12} justify-items="center" item>
+    <StepsSection
+      xl={6}
+      lg={6}
+      md={6}
+      sm={6}
+      xs={12}
+      xxs={12}
+      justify-items="center"
+      item
+    >
       <hr
         background-color={rectColor}
         color={rectColor}
@@ -499,15 +522,9 @@ const UStepText = ({ header, text, color, rectColor }) => {
   )
 }
 
+const StepImg = styled(UStepImg)``
 
-
-
-const StepImg = styled(UStepImg)`
-  margin-left:20px;
-`
-
-const StepText = styled(UStepText)`
-`
+const StepText = styled(UStepText)``
 
 const Container = styled(Grid).attrs(() => ({
   container: true,
