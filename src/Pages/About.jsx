@@ -10,11 +10,11 @@ import { ReactComponent as Circles } from "../Assets/About/Circles.svg"
 import { ReactComponent as UBranchWithEggs } from "../Assets/About/BranchWithEggs.svg"
 import { ReactComponent as UBranchWithBirds } from "../Assets/About/BranchWithBirds.svg"
 import { ReactComponent as UCloud } from "../Assets/About/Cloud.svg"
-import { useTheme } from "@material-ui/core/styles"
 
+import { useTheme } from "@material-ui/core/styles"
 import { breakpoints } from "../theme"
 
-// for testing purposes
+// team pics
 import Mika from "../Assets/Photos/mika.jpg"
 import Aniruddh from "../Assets/Photos/aniruddh.jpg"
 import Atharva from "../Assets/Photos/atharva.jpg"
@@ -31,8 +31,7 @@ import Mihnea from "../Assets/Photos/mihnea.jpg"
 import Nicolas from "../Assets/Photos/nicolas.jpg"
 import Niklas from "../Assets/Photos/niklas.jpg"
 import Simon from "../Assets/Photos/simon.jpg"
-import Ave from "../Assets/Photos/ave.jpg"
-import Joep from "../Assets/Photos/joep.jpg"
+import NoPic from "../Assets/Photos/nopic.jpg"
 
 export default () => {
   return (
