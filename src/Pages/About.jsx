@@ -224,7 +224,7 @@ export default () => {
         container
       >
         {team.map(({ name, pos, img }) => (
-          <Avatar name={name} pos={pos} img={img} />
+          <Avatar id={name} name={name} pos={pos} img={img} />
         ))}
       </Section>
     </Container>
