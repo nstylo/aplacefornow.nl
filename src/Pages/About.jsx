@@ -338,36 +338,22 @@ const Section = styled(Grid)`
 `
 
 const UValueCard = ({ header, children, svg, className }) => {
-  const theme = useTheme()
-
   return (
-    <Grid item xs={12} sm={6} md={3} className={className}>
+    <Grid item xs={9} sm={6} md={4} lg={4} xl={3} className={className}>
       {svg}
-      <div
-        className="deco"
-        // TODO: inline style should generally prevented
-        style={{ backgroundColor: theme.palette.primary.main }}
-      />
-      <Typography variant="h6">{header}</Typography>
+      <Typography variant="h6" color="primary">
+        {header}
+      </Typography>
       <P>{children}</P>
     </Grid>
   )
 }
 
-// TODO: improve responsiveness
 const ValueCard = styled(UValueCard)`
-  .deco {
-    margin-top: calc(10px + 5vw);
-    margin-bottom: 25px;
-    width: 10vw;
-    max-width: 180px;
-    height: calc(3px + 0.15vw);
-  }
-
   svg {
     width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   @media (max-width: ${breakpoints.md}px) {
@@ -403,8 +389,7 @@ const Avatar = styled(UAvatar)`
   .deco {
     margin-top: 16px;
     margin-bottom: 5px;
-    width: 10vw;
-    max-width: 160px;
+    width: 60%;
     height: calc(3px + 0.1vw);
   }
 `
