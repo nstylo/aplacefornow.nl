@@ -33,6 +33,99 @@ import Niklas from "../Assets/Photos/niklas.jpg"
 import Simon from "../Assets/Photos/simon.jpg"
 import NoPic from "../Assets/Photos/nopic.jpg"
 
+const team = [
+  {
+    name: "Aniruddh",
+    pos: "Head of Marketing",
+    img: Aniruddh,
+  },
+  {
+    name: "Asaf",
+    pos: "Chairman",
+    img: Asaf,
+  },
+  {
+    name: "Atharva",
+    pos: "Treasurer",
+    img: Atharva,
+  },
+  {
+    name: "Ave",
+    pos: "Backend Developer",
+    img: NoPic,
+  },
+  {
+    name: "Bárbara",
+    pos: "Secretary",
+    img: Barbara,
+  },
+  {
+    name: "Delal",
+    pos: "Security Expert",
+    img: Delal,
+  },
+  {
+    name: "Ece",
+    pos: "Head of Social Media",
+    img: Ece,
+  },
+  {
+    name: "Emma",
+    pos: "UX Researcher",
+    img: Emma,
+  },
+  {
+    name: "Emre",
+    pos: "Frontend Developer",
+    img: Emre,
+  },
+  {
+    name: "Gijs",
+    pos: "Process Improvement Extraordinaire",
+    img: Gijs,
+  },
+  {
+    name: "João",
+    pos: "External Affairs Associate",
+    img: Joao,
+  },
+  {
+    name: "Joep",
+    pos: "Head of Externam Affairs",
+    img: NoPic,
+  },
+  {
+    name: "Michael",
+    pos: "External Affairs Associate",
+    img: Michael,
+  },
+  {
+    name: "Mihnea",
+    pos: "Head of Design and UX",
+    img: Mihnea,
+  },
+  {
+    name: "Mika",
+    pos: "UX Researcher",
+    img: Mika,
+  },
+  {
+    name: "Nicolas",
+    pos: "Backend Developer",
+    img: Nicolas,
+  },
+  {
+    name: "Niklas",
+    pos: "Frontend Developer",
+    img: Niklas,
+  },
+  {
+    name: "Simon",
+    pos: "UX Researcher",
+    img: Simon,
+  },
+]
+
 export default () => {
   return (
     <Container>
@@ -130,32 +223,9 @@ export default () => {
         item
         container
       >
-        <Avatar img={Aniruddh} name="Aniruddh" pos="Head of Marketing" />
-        <Avatar img={Asaf} name="Asaf" pos="Chairman" />
-        <Avatar img={Atharva} name="Atharva" pos="Teasurer" />
-        <Avatar img={Ave} name="Ave" pos="Backend Developer" />
-        <Avatar img={Barbara} name="Bárbara" pos="Secretary" />
-        <Avatar img={Delal} name="Delal" pos="Backend Developer" />
-        <Avatar img={Ece} name="Ece" pos="Head of Social Media" />
-        <Avatar img={Emma} name="Emma" pos="UX Researcher" />
-        <Avatar img={Emre} name="Emre" pos="Frontend Developer" />
-        <Avatar
-          img={Gijs}
-          name="Gijs"
-          pos="Process Improvement Extraordinaire"
-        />
-        <Avatar img={Joao} name="João" pos="External Affairs Associate" />
-        <Avatar img={Joep} name="Joep" pos="Head of External Affairs" />
-        <Avatar img={Michael} name="Michael" pos="External Affairs Associate" />
-        <Avatar img={Mihnea} name="Mihnea" pos="Head of Design and UX" />
-        <Avatar img={Mika} name="Mika" pos="UX Researcher" />
-        <Avatar
-          img={Nicolas}
-          name="Nicolas"
-          pos="Backend and Frontend Developer"
-        />
-        <Avatar img={Niklas} name="Niklas" pos="Frontend Developer" />
-        <Avatar img={Simon} name="Simon" pos="UX Researcher" />
+        {team.map(({ name, pos, img }) => (
+          <Avatar name={name} pos={pos} img={img} />
+        ))}
       </Section>
     </Container>
   )
