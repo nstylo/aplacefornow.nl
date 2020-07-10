@@ -5,8 +5,9 @@ import styled from "styled-components"
 import { Grid, Typography } from "@material-ui/core"
 
 // visual stuff
-import { ReactComponent as Rectangles } from "../Assets/About/Rectangles.svg"
-import { ReactComponent as Circles } from "../Assets/About/Circles.svg"
+import { ReactComponent as Empathy } from "../Assets/About/Empathy.svg"
+import { ReactComponent as Honesty } from "../Assets/About/Honesty.svg"
+import { ReactComponent as Commitment } from "../Assets/About/Commitment.svg"
 import { ReactComponent as UBranchWithEggs } from "../Assets/About/BranchWithEggs.svg"
 import { ReactComponent as UBranchWithBirds } from "../Assets/About/BranchWithBirds.svg"
 import { ReactComponent as UCloud } from "../Assets/About/Cloud.svg"
@@ -164,20 +165,20 @@ export default () => {
         </P>
       </Section>
       <Section top={100} spacing={6} item container justify="space-evenly">
-        <ValueCard rect header="Empathy">
+        <ValueCard svg={<Empathy />} header="Empathy">
           We empathize and recognize the problems students face while looking
           for long term housing that does not feel like a compromise. Many of
           our team members, their friends, and family members have faced
           problems with finding a place to stay in the first year of university.
         </ValueCard>
-        <ValueCard header="Commitment">
+        <ValueCard svg={<Commitment />} header="Commitment">
           As students ourselves, we are committed to improving our fellow
           students’ livelihoods. We have already spent countless hours designing
           and developing a platform that can serve our users, and we do not
           intend on stopping. We are passionate about improving the lives of
           others, while simultaneously improving ourselves and our abilities.
         </ValueCard>
-        <ValueCard rect header="Honesty">
+        <ValueCard svg={<Honesty />} header="Honesty">
           We maintain honesty with all our efforts and remain transparent about
           our actions to our users. Protecting our users from fraudulent
           behaviour remains one of our top priorities and we have put in place
@@ -336,12 +337,12 @@ const Section = styled(Grid)`
   }
 `
 
-const UValueCard = ({ header, children, rect, className }) => {
+const UValueCard = ({ header, children, svg, className }) => {
   const theme = useTheme()
 
   return (
     <Grid item xs={12} sm={6} md={3} className={className}>
-      {rect ? <Rectangles /> : <Circles />}
+      {svg}
       <div
         className="deco"
         // TODO: inline style should generally prevented
