@@ -117,7 +117,7 @@ export default () => {
               }}
               style={{ cursor: "pointer" }}
             >
-              Forgot Password
+              <Typography variant="body1">Forgot Password</Typography>
             </Link>
           </HelperBar>
           <Button type="submit">Log in</Button>

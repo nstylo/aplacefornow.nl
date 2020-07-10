@@ -31,7 +31,7 @@ export default () => {
           style={{ position: "absolute", top: "8px", left: "1.5%" }}
         >
           <BackIcon style={{ width: "20px", height: "auto" }} />
-          <Typography variant="h5">Back</Typography>
+          <Typography variant="body2">Back</Typography>
         </IconButton>
         <FormBody onSubmit={e => e.preventDefault()}>
           <Typography
@@ -64,7 +64,7 @@ export default () => {
                 flexGrow: 2,
               }}
             >
-              Log In
+              <Typography variant="body1">Log In</Typography>
             </Link>
           </Wrapper>
         </FormBody>
