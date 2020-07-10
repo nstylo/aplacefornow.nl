@@ -1,200 +1,533 @@
 import React from "react"
 import styled from "styled-components"
-import { spacing } from '@material-ui/system';
 
-import { Grid, Typography, Paper } from "@material-ui/core"
-import { useTheme } from "@material-ui/core/styles"
+import { Grid, Typography, Tab, Tabs } from "@material-ui/core"
 
-import GreyClouds from "../Assets/GreyClouds.svg"
-import TenantStep1 from "../Assets/TenantStep1.svg"
-import TenantStep2 from "../Assets/TenantStep2.svg"
-import TenantStep3 from "../Assets/TenantStep3.svg"
-import TenantStep4 from "../Assets/TenantStep4.svg"
-import TenantStep5 from "../Assets/TenantStep5.svg"
-import HostStep1 from "../Assets/HostStep1.svg"
-import HostStep2 from "../Assets/HostStep2.svg"
-import HostStep3 from "../Assets/HostStep3.svg"
-import HostStep4 from "../Assets/HostStep4.svg"
-import HostStep5 from "../Assets/HostStep5.svg"
-import HostStep6 from "../Assets/HostStep5.svg"
-import WelcomeBirds from "../Assets/WelcomeBirds.svg"
+import { makeStyles } from "@material-ui/core/styles"
+import TenantStep1 from "../Assets/HowItWorks/TenantStep1.png"
+import TenantStep2 from "../Assets/HowItWorks/TenantStep2.png"
+import TenantStep3 from "../Assets/HowItWorks/TenantStep3.png"
+import TenantStep4 from "../Assets/HowItWorks/TenantStep4.png"
+import TenantStep5 from "../Assets/HowItWorks/TenantStep5.png"
+import TenantStep6 from "../Assets/HowItWorks/TenantStep6.png"
+import TenantStep7 from "../Assets/HowItWorks/TenantStep7.png"
+import HostStep1 from "../Assets/HowItWorks/HostStep1.png"
+import HostStep2 from "../Assets/HowItWorks/HostStep2.png"
+import HostStep3 from "../Assets/HowItWorks/HostStep3.png"
+import HostStep4 from "../Assets/HowItWorks/HostStep4.png"
+import HostStep5 from "../Assets/HowItWorks/HostStep5.png"
+import HostStep6 from "../Assets/HowItWorks/HostStep6.png"
+import StepTexts from "../Assets/HowItWorks/StepTexts.json"
+import GreyTenantStep1 from "../Assets/HowItWorks/GreySteps/TenantStep1.png"
+import GreyTenantStep2 from "../Assets/HowItWorks/GreySteps/TenantStep2.png"
+import GreyTenantStep3 from "../Assets/HowItWorks/GreySteps/TenantStep3.png"
+import GreyTenantStep4 from "../Assets/HowItWorks/GreySteps/TenantStep4.png"
+import GreyTenantStep5 from "../Assets/HowItWorks/GreySteps/TenantStep5.png"
+import GreyTenantStep6 from "../Assets/HowItWorks/GreySteps/TenantStep6.png"
+import GreyTenantStep7 from "../Assets/HowItWorks/GreySteps/TenantStep7.png"
+import GreyHostStep1 from "../Assets/HowItWorks/GreySteps/HostStep1.png"
+import GreyHostStep2 from "../Assets/HowItWorks/GreySteps/HostStep2.png"
+import GreyHostStep3 from "../Assets/HowItWorks/GreySteps/HostStep3.png"
+import GreyHostStep4 from "../Assets/HowItWorks/GreySteps/HostStep4.png"
+import GreyHostStep5 from "../Assets/HowItWorks/GreySteps/HostStep5.png"
+import GreyHostStep6 from "../Assets/HowItWorks/GreySteps/HostStep6.png"
+import GreyHostStep7 from "../Assets/HowItWorks/GreySteps/HostStep7.png"
+import { ReactComponent as UTenantLine } from "../Assets/HowItWorks/TenantLine.svg"
+import { ReactComponent as UHostLine } from "../Assets/HowItWorks/HostLine.svg"
+import { ReactComponent as UGreyLine } from "../Assets/HowItWorks/GreyLine.svg"
 
-import { ReactComponent as UParagraphRect } from "../Assets/ParagraphRect.svg"
-import { ReactComponent as UTenantButton } from "../Assets/TenantButton.svg"
-import { ReactComponent as UHostButton } from "../Assets/HostButton.svg"
-import { ReactComponent as UTenantPath } from "../Assets/TenantPath.svg"
-import { ReactComponent as UHostPath } from "../Assets/HostPath.svg"
-import { ReactComponent as UIntersectionCircles } from "../Assets/IntersectionCircles.svg"
+import { breakpoints } from "../theme"
 
-
-
-
-
-export default () => {
+function TabPanel(props) {
+  const { children, value, index } = props
   return (
-    <Grid container>
-      <TenantButton/>
-      <HostButton/>
-      <ParagraphRect/>
-      <TenantPath/>
-      <HostPath/>
-      <IntersectionCircles/>
-      <Section left="160px" top="280px" bottom="360px">
+    <div role="tabpanel">
+      {value === index && <Container>{children}</Container>}
+    </div>
+  )
+}
+export default () => {
+  const [value, setValue] = React.useState(0)
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
+  const classes = useStyles()
+  return (
+    <Container>
+      <Section xs={12} top={120} item>
         <Typography variant="h1" color="primary">
           How It Works
         </Typography>
+
         <P>
-        A Place For Now is built on the idea of creating a platform 
-        where the existing community can help students for a temporary 
-        time period while they search for a permanent place to stay. 
+          A Place For Now is built on the idea of creating a platform where the
+          existing community can help students for a temporary time period while
+          they search for a permanent place to stay.
         </P>
       </Section>
-      <Section left="160px">
-      <Grid container justify="space-evenly" alignItems="center" spacing={2}>
-        <StepImg img={TenantStep1} header={"step 1"}/>
-        <StepText header={"Create Your Profile"} text={"Create a free A Place For Now profile using your student email to get started. You can start creating your profile here."} color="primary" />
-        <StepText header={"Create Your Profile"} text={"Create a free A Place For Now profile using your student email to get started. You can start creating your profile here."} color="secondary" />
-        <StepImg img={HostStep1} header={"step 1"}/>
-        <StepText header={"Browse the Options"} text={"Browse through the different offers made available by hosts and select a room that fits with your needs."} color="Primary" />
-        <StepImg img={TenantStep2} header={"step 2"}/>
-        <StepImg img={HostStep2} header={"step 2"}/>
-        <StepText header={"Post Your Room"} text={"Browse through the different offers made available by hosts and select a room that fits with your needs."} color="secondary" />
-        <StepImg img={TenantStep3} header={"step 3"}/>
-        <StepText header={"Get in touch"} text={"After selecting a room get in touch with the host. Talk freely through our chat service and get to know each other a little better."} color="primary" />
-        <StepText header={"Get in touch"} text={"After selecting a room get in touch with the host. Talk freely through our chat service and get to know each other a little better."} color="secondary" />
-        <StepImg img={HostStep3} header={"step 3"}/>
-        <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the host of the room."} color="Primary" />
-        <StepImg img={TenantStep4} header={"step 4"}/>
-        <StepImg img={HostStep4} header={"step 4"}/>
-        <StepText header={"Confirm agreement"} text={"Discuss the terms of the agreement for the stay. When everything is in order confirm the agreement with the tenant."} color="secondary" />\
-        <div><img src={WelcomeBirds} alt={"Welcome Birds"} /></div>
-        <Grid container justify="space-evenly" alignItems="center" spacing={1}>
-        <Grid item xs={3}  > 
-        <Typography variant="h3" color="primary">Connect</Typography>
-        <P>Meet your host and get to know both the city and each other. Get to see your room and get situated.</P>
-        </Grid>
-        </Grid>
-        <StepText header={"Saying goodbye :("} text={"After the time of your agreement has concluded it is time to say goodbye. Pay for your stay, say your goodbyes and maybe stay in touch."} color="primary" />
-        <StepImg img={TenantStep5} header={"step 5"}/>
-        <StepImg img={HostStep5} header={"step 5"}/>
-        <StepText header={"Support your tenant"} text={"After some time the agreement will conclude. Try to support your tenant within their sourch for a permanent solution. When the time comes say your goodbyes and maybe stay in touch"} color="secondary" />
-        <StepImg img={GreyClouds} header={"step 6"}/>
-        <StepText header={"Help somebody else!"} text={"After your tenant has moved out you can repost your room again an help out someone new!"} color="primary" />
-        <StepText header={"Repost your room"} text={"After your tenant has moved out you can repost your room again an help out someone new!"} color="secondary" />
-        <StepImg img={HostStep6} header={"step 6"}/>
-      </Grid>
+      <Section xs={12} top={80} item>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="fullWidth"
+          classes={{
+            root: classes.customTabRoot,
+            indicator: value
+              ? classes.customTabIndicator1
+              : classes.customTabIndicator2,
+          }}
+        >
+          <Tab label="Tenant" />
+          <Tab label="Host" />
+        </Tabs>
       </Section>
-    </Grid>
+      <Section xs={12} top={80}>
+        <TabPanel value={value} index={0}>
+          <hr color="#AD578D" width="100%" size={5} />
+          <StepsSection
+            xl={1}
+            lg={1}
+            md={1}
+            sm={1}
+            xs={3}
+            xxs={3}
+            container
+            direction="row"
+            justify-items="center"
+          >
+            <TenantLine />
+          </StepsSection>
+          <StepsSection
+            xl={5}
+            lg={5}
+            md={11}
+            sm={11}
+            xs={9}
+            xxs={9}
+            container
+            direction="row"
+            justify-items="center"
+            alignItems="center"
+          >
+            <StepText
+              header={"Create a profile"}
+              text={StepTexts.TenantText1}
+              color="primary"
+              rectColor="#AD578D"
+            />
+            <StepImg img={TenantStep1} header={"step 1"} />
+            <StepText
+              header={"Choose your room"}
+              text={StepTexts.TenantText2}
+              color="primary"
+              rectColor="#AD578D"
+            />
+            <StepImg img={TenantStep2} header={"step 2"} />
+            <StepText
+              header={"Contact the host"}
+              text={StepTexts.TenantText3}
+              color="primary"
+              rectColor="#AD578D"
+            />
+            <StepImg img={TenantStep3} header={"step 3"} />
+            <StepText
+              header={"Confirm your choice"}
+              text={StepTexts.TenantText4}
+              color="primary"
+              rectColor="#AD578D"
+            />
+            <StepImg img={TenantStep4} header={"step 4"} />
+            <StepText
+              header={"Move in and have fun!"}
+              text={StepTexts.TenantText5}
+              color="primary"
+              rectColor="#AD578D"
+            />
+            <StepImg img={TenantStep5} header={"step 5"} />
+            <StepText
+              header={"The end!"}
+              text={StepTexts.TenantText6}
+              color="primary"
+              rectColor="#AD578D"
+            />
+            <StepImg img={TenantStep6} header={"step 6"} />
+            <StepText
+              header={"Become a host!"}
+              text={StepTexts.TenantText7}
+              color="primary"
+              rectColor="#AD578D"
+            />
+            <StepImg img={TenantStep7} header={"step 7"} />
+          </StepsSection>
+          <GreyStepsSection
+            xl={1}
+            lg={1}
+            md={1}
+            sm={1}
+            xs={3}
+            xxs={3}
+            container
+            direction="row"
+            justify-items="center"
+          >
+            <GreyLine />
+          </GreyStepsSection>
+          <GreyStepsSection
+            xl={5}
+            lg={5}
+            md={11}
+            sm={11}
+            xs={9}
+            xxs={9}
+            container
+            direction="row"
+            justify-items="center"
+            alignItems="center"
+          >
+            <StepText
+              header={"Create a profile"}
+              text={StepTexts.HostText1}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyHostStep1} header={"step 1"} />
+            <StepText
+              header={"Post your room"}
+              text={StepTexts.HostText2}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyHostStep2} header={"step 2"} />
+            <StepText
+              header={"Receive applications"}
+              text={StepTexts.HostText3}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyHostStep3} header={"step 3"} />
+            <StepText
+              header={"Confirm your choice"}
+              text={StepTexts.HostText4}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyHostStep4} header={"step 4"} />
+            <StepText
+              header={"Greet your tenant!"}
+              text={StepTexts.HostText5}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyHostStep5} header={"step 5"} />
+            <StepText
+              header={"The end!"}
+              text={StepTexts.HostText6}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyHostStep6} header={"step 6"} />
+            <StepText
+              header={"Repost your room!"}
+              text={StepTexts.HostText7}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyHostStep7} header={"step 7"} />
+          </GreyStepsSection>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <hr color="#72b7c4" width="100%" size={5} />
+          <GreyStepsSection
+            xl={1}
+            lg={1}
+            md={1}
+            sm={1}
+            xs={3}
+            xxs={3}
+            container
+            direction="row"
+            justify-items="center"
+          >
+            <GreyLine />
+          </GreyStepsSection>
+          <GreyStepsSection
+            xl={5}
+            lg={5}
+            md={11}
+            sm={11}
+            xs={9}
+            xxs={9}
+            container
+            direction="row"
+            justify-items="center"
+            alignItems="center"
+          >
+            <StepText
+              header={"Create a profile"}
+              text={StepTexts.TenantText1}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyTenantStep1} header={"step 1"} />
+            <StepText
+              header={"Choose your room"}
+              text={StepTexts.TenantText2}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyTenantStep2} header={"step 2"} />
+            <StepText
+              header={"Contact the host"}
+              text={StepTexts.TenantText3}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyTenantStep3} header={"step 3"} />
+            <StepText
+              header={"Confirm your choice"}
+              text={StepTexts.TenantText4}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyTenantStep4} header={"step 4"} />
+            <StepText
+              header={"Move in and have fun!"}
+              text={StepTexts.TenantText5}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyTenantStep5} header={"step 5"} />
+            <StepText
+              header={"The end!"}
+              text={StepTexts.TenantText6}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyTenantStep6} header={"step 6"} />
+            <StepText
+              header={"Become a host!"}
+              text={StepTexts.TenantText7}
+              color="textSecondary"
+              rectColor="#DBDBDB"
+            />
+            <StepImg img={GreyTenantStep7} header={"step 7"} />
+          </GreyStepsSection>
+          <StepsSection
+            xl={1}
+            lg={1}
+            md={1}
+            sm={1}
+            xs={3}
+            xxs={3}
+            container
+            direction="row"
+            justify-items="center"
+          >
+            <HostLine />
+          </StepsSection>
+          <StepsSection
+            xl={5}
+            lg={5}
+            md={11}
+            sm={11}
+            xs={9}
+            xxs={9}
+            container
+            direction="row"
+            justify-items="center"
+            alignItems="center"
+          >
+            <StepText
+              header={"Create a profile"}
+              text={StepTexts.HostText1}
+              color="secondary"
+              rectColor="#72b7c4"
+            />
+            <StepImg img={HostStep1} header={"step 1"} />
+            <StepText
+              header={"Post your room"}
+              text={StepTexts.HostText2}
+              color="secondary"
+              rectColor="#72b7c4"
+            />
+            <StepImg img={HostStep2} header={"step 2"} />
+            <StepText
+              header={"Receive applications"}
+              text={StepTexts.HostText3}
+              color="secondary"
+              rectColor="#72b7c4"
+            />
+            <StepImg img={HostStep3} header={"step 3"} />
+            <StepText
+              header={"Confirm your choice"}
+              text={StepTexts.HostText4}
+              color="secondary"
+              rectColor="#72b7c4"
+            />
+            <StepImg img={HostStep4} header={"step 4"} />
+            <StepText
+              header={"Greet your tenant!"}
+              text={StepTexts.HostText5}
+              color="secondary"
+              rectColor="#72b7c4"
+            />
+            <StepImg img={HostStep5} header={"step 5"} />
+            <StepText
+              header={"The end!"}
+              text={StepTexts.HostText6}
+              color="secondary"
+              rectColor="#72b7c4"
+            />
+            <StepImg img={HostStep6} header={"step 6"} />
+            <StepText
+              header={"Repost your room!"}
+              text={StepTexts.HostText7}
+              color="secondary"
+              rectColor="#72b7c4"
+            />
+            <StepImg img={HostStep2} header={"step 7"} />
+          </StepsSection>
+        </TabPanel>
+      </Section>
+    </Container>
   )
 }
 
-const ParagraphRect = styled(UParagraphRect)`
-  position: absolute;
-  top: 430px;
-`
-const TenantButton = styled(UTenantButton)`
-  position: absolute;
-  top: 800px;
-  left: 350px;
+const useStyles = makeStyles((theme) => ({
+  customTabRoot: {
+    color: "black",
+    backgroundColor: "transparent",
+  },
+  customTabIndicator2: {
+    backgroundColor: "#AD578D",
+    height: 5,
+    width: "100%",
+  },
+  customTabIndicator1: {
+    backgroundColor: "#72b7c4",
+    height: 5,
+    width: "100%",
+  },
+}))
 
-  @media (min-width: 1920px) {
-    left: calc(350px + (100vw - 1920px) / 2);
+const TenantLine = styled(UTenantLine)`
+  position: relative;
+  width: auto;
+  height: 90%;
+  z-index: -1;
+  top: 20px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    top: 60px;
   }
-
 `
-const HostButton = styled(UHostButton)`
-  position: absolute;
-  top:800px;
-  left:1265px;
 
-  @media (min-width: 1920px) {
-    left: calc(1265px + (100vw - 1920px) / 2);
+const HostLine = styled(UHostLine)`
+  position: relative;
+  width: auto;
+  height: 90%;
+  z-index: -1;
+  top: 20px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    top: 60px;
+  }
+`
+const GreyLine = styled(UGreyLine)`
+  position: relative;
+  width: auto;
+  height: 90%;
+  z-index: -1;
+  top: 20px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    top: 60px;
   }
 `
 
-
-const P = styled.p`
-  width: ${props => props.width};
-`
-const Section = styled(Grid).attrs(props => ({
-  item: true,
-  xs: 12,
+const P = styled(Typography).attrs(() => ({
+  variant: "body1",
 }))`
-  padding-left: ${props => props.left};
-  padding-right: ${props => props.right};
-  padding-top: ${props => props.top};
-  padding-bottom: ${props => props.bottom};
+  text-align: justify;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  width: auto;
 `
 
+const Section = styled(Grid)`
+  position: relative;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: ${(props) => props.top}px;
 
+  @media (max-width: ${breakpoints.sm}px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 
+  @media (max-width: ${breakpoints.xxs}px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+`
+const StepsSection = styled(Grid)``
 
+const GreyStepsSection = styled(Grid)`
+  @media (max-width: ${breakpoints.lg}px) {
+    display: none;
+  }
+`
 
-
-{/* Idea for DRY implementation, very difficult to do because of structure
-of the page.*/}
-
-const UStepImg = ({ img, header, className }) => {
-  const theme = useTheme()
-
+const UStepImg = ({ img, header }) => {
   return (
-    <Grid item xs={3} className={className } >
-    <img src={img} alt={"Image of" + header} />
-    </Grid>
+    <StepsSection
+      xl={6}
+      lg={6}
+      md={6}
+      sm={6}
+      xs={12}
+      xxs={12}
+      justify-items="center"
+      item
+    >
+      <img src={img} alt={"Image of" + header} />
+    </StepsSection>
   )
 }
 
-const UStepText = ({ header, text, color, className }) => {
-  const theme = useTheme()
-
+const UStepText = ({ header, text, color, rectColor }) => {
   return (
-    <Grid item xs={3} className={className} >
-    <Typography variant="h3" color={color}>{header}</Typography>
-    <P>{text}</P>
-    </Grid>
+    <StepsSection
+      xl={6}
+      lg={6}
+      md={6}
+      sm={6}
+      xs={12}
+      xxs={12}
+      justify-items="center"
+      item
+    >
+      <hr
+        background-color={rectColor}
+        color={rectColor}
+        border="none"
+        width="30%"
+        align="left"
+      />
+      <Typography variant="h4" color={color}>
+        {header}
+      </Typography>
+      <P>{text}</P>
+    </StepsSection>
   )
 }
 
-const StepImg = styled(UStepImg)`
-  img {
-    width: 80%;
-    max-height:100%
-    float: left;
-  }
-  
-  `
+const StepImg = styled(UStepImg)``
 
-const StepText = styled(UStepText)`
-  
-  `
-  const TenantPath = styled(UTenantPath)`
-  position: absolute;
-  top:1070px;
-  left:255px;
-  z-index:-1;
+const StepText = styled(UStepText)``
 
-  @media (min-width: 1920px) {
-    left: calc(155px + (100vw - 1920px) / 2);
-  }
-`
-const HostPath = styled(UHostPath)`
-  position: absolute;
-  top:1070px;
-  left:954.84px;
-  z-index:-1;
-
-  @media (min-width: 1920px) {
-    left: calc(954.84px + (100vw - 1920px) / 2);
-  }
-`
-const IntersectionCircles = styled(UIntersectionCircles)`
-  position: absolute;
-  top:915px;
-  left:168px;
-  z-index:-1;
-
-
-  @media (min-width: 1920px) {
-    left: calc(168px + (100vw - 1920px) / 2);
-  }
+const Container = styled(Grid).attrs(() => ({
+  container: true,
+}))`
+  overflow: hidden;
 `

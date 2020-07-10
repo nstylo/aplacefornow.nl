@@ -10,12 +10,121 @@ import { ReactComponent as Circles } from "../Assets/About/Circles.svg"
 import { ReactComponent as UBranchWithEggs } from "../Assets/About/BranchWithEggs.svg"
 import { ReactComponent as UBranchWithBirds } from "../Assets/About/BranchWithBirds.svg"
 import { ReactComponent as UCloud } from "../Assets/About/Cloud.svg"
-import { useTheme } from "@material-ui/core/styles"
 
+import { useTheme } from "@material-ui/core/styles"
 import { breakpoints } from "../theme"
 
-// for testing purposes
-import Mika from "../Assets/Photos/Mika.png"
+// team pics
+import Mika from "../Assets/Photos/mika.jpg"
+import Aniruddh from "../Assets/Photos/aniruddh.jpg"
+import Atharva from "../Assets/Photos/atharva.jpg"
+import Barbara from "../Assets/Photos/bárbara.jpg"
+import Delal from "../Assets/Photos/delal.jpg"
+import Ece from "../Assets/Photos/ece.jpg"
+import Emma from "../Assets/Photos/emma.jpg"
+import Emre from "../Assets/Photos/emre.jpg"
+import Gijs from "../Assets/Photos/gijs.jpg"
+import Asaf from "../Assets/Photos/asaf.jpg"
+import Joao from "../Assets/Photos/joão.jpg"
+import Michael from "../Assets/Photos/michael.jpg"
+import Mihnea from "../Assets/Photos/mihnea.jpg"
+import Nicolas from "../Assets/Photos/nicolas.jpg"
+import Niklas from "../Assets/Photos/niklas.jpg"
+import Simon from "../Assets/Photos/simon.jpg"
+import NoPic from "../Assets/Photos/nopic.jpg"
+
+const team = [
+  {
+    name: "Aniruddh",
+    pos: "Head of Marketing",
+    img: Aniruddh,
+  },
+  {
+    name: "Asaf",
+    pos: "Chairman",
+    img: Asaf,
+  },
+  {
+    name: "Atharva",
+    pos: "Treasurer",
+    img: Atharva,
+  },
+  {
+    name: "Ave",
+    pos: "Backend Developer",
+    img: NoPic,
+  },
+  {
+    name: "Bárbara",
+    pos: "Secretary",
+    img: Barbara,
+  },
+  {
+    name: "Delal",
+    pos: "Security Expert",
+    img: Delal,
+  },
+  {
+    name: "Ece",
+    pos: "Head of Social Media",
+    img: Ece,
+  },
+  {
+    name: "Emma",
+    pos: "UX Researcher",
+    img: Emma,
+  },
+  {
+    name: "Emre",
+    pos: "Frontend Developer",
+    img: Emre,
+  },
+  {
+    name: "Gijs",
+    pos: "Process Improvement Extraordinaire",
+    img: Gijs,
+  },
+  {
+    name: "João",
+    pos: "External Affairs Associate",
+    img: Joao,
+  },
+  {
+    name: "Joep",
+    pos: "Head of Externam Affairs",
+    img: NoPic,
+  },
+  {
+    name: "Michael",
+    pos: "External Affairs Associate",
+    img: Michael,
+  },
+  {
+    name: "Mihnea",
+    pos: "Head of Design and UX",
+    img: Mihnea,
+  },
+  {
+    name: "Mika",
+    pos: "UX Researcher",
+    img: Mika,
+  },
+  {
+    name: "Nicolas",
+    pos: "Backend Developer",
+    img: Nicolas,
+  },
+  {
+    name: "Niklas",
+    pos: "Frontend Developer",
+    img: Niklas,
+  },
+  {
+    name: "Simon",
+    pos: "UX Researcher",
+    img: Simon,
+  },
+]
 
 export default () => {
   return (
@@ -25,14 +134,18 @@ export default () => {
           About us
         </Typography>
         <P>
-          A Place For Now is a non-profit startup aimed to create a community
-          based solution providing students with temporary and affordable
-          housing while they look for permanent solutions. Who better to tackle
-          problems face than a student team? We started out with three people
-          and now have over fifteen student members with a shared mission:
+          A Place For Now is a non-profit startup aiming to create a
+          community-based solution providing students with temporary and
+          affordable housing while they looking for permanent housing solutions.
+          New students arrive at their university cities and don't always find
+          housing. Often, students all over the Netherlands only find housing
+          weeks or months after the school year begins! Who better to tackle
+          problems than a student team? We started out with three people and now
+          have over fifteen student members with a shared mission:
         </P>
         <Typography variant="subtitle2">
-          “Enhance the wellbeing of students and the community surrounding it.”
+          “Enhance the wellbeing of students and the community surrounding
+          them.”
         </Typography>
         <Cloud1 width="65%" />
         <Cloud2 width="45%" />
@@ -43,20 +156,35 @@ export default () => {
           Values
         </Typography>
         <P>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          As a team aiming to bring good into the world, we've got to set some
+          ground rules! Our values represent the way in which we aim to behave
+          every day and in every step of the way. We are constantly improving,
+          so we may better help you or someone you know. Here's what we're
+          about:
         </P>
       </Section>
-      <Section top={100} spacing={6} item container>
-        <ValueCard rect></ValueCard>
-        <ValueCard></ValueCard>
-        <ValueCard rect></ValueCard>
-        <ValueCard></ValueCard>
+      <Section top={100} spacing={6} item container justify="space-evenly">
+        <ValueCard rect header="Empathy">
+          We empathize and recognize the problems students face while looking
+          for long term housing that does not feel like a compromise. Many of
+          our team members, their friends, and family members have faced
+          problems with finding a place to stay in the first year of university.
+        </ValueCard>
+        <ValueCard header="Commitment">
+          As students ourselves, we are committed to improving our fellow
+          students’ livelihoods. We have already spent countless hours designing
+          and developing a platform that can serve our users, and we do not
+          intend on stopping. We are passionate about improving the lives of
+          others, while simultaneously improving ourselves and our abilities.
+        </ValueCard>
+        <ValueCard rect header="Honesty">
+          We maintain honesty with all our efforts and remain transparent about
+          our actions to our users. Protecting our users from fraudulent
+          behaviour remains one of our top priorities and we have put in place
+          various safeguards to ensure honesty from all users. We demand crystal
+          clear communication internally, and we plan to remain consistent in
+          this aspect.
+        </ValueCard>
       </Section>
       <Section top={160} wrap="wrap" item container>
         <Grid sm={12} md={7} item>
@@ -64,10 +192,13 @@ export default () => {
             Meet the team
           </Typography>
           <P>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Each one of our team members is continuously looking to improve
+            themselves and the world. A Place For Now is a manifestation of some
+            smart and motivated individuals seeing how far they can take their
+            abilities. As Peter Parker once stated: "With great power comes
+            great responsibility," and we're aiming all of our powers at
+            improving our community members' livelihoods. Here are the wonderful
+            faces behind the project:
           </P>
         </Grid>
         <Grid
@@ -92,18 +223,9 @@ export default () => {
         item
         container
       >
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
-        <Avatar img={Mika} name="Mika de Gooijer" pos="UI/UX Designer" />
+        {team.map(({ name, pos, img }) => (
+          <Avatar name={name} pos={pos} img={img} />
+        ))}
       </Section>
     </Container>
   )
@@ -214,7 +336,7 @@ const Section = styled(Grid)`
   }
 `
 
-const UValueCard = ({ rect, className }) => {
+const UValueCard = ({ header, children, rect, className }) => {
   const theme = useTheme()
 
   return (
@@ -225,13 +347,8 @@ const UValueCard = ({ rect, className }) => {
         // TODO: inline style should generally prevented
         style={{ backgroundColor: theme.palette.primary.main }}
       />
-      <Typography variant="h6">Value here</Typography>
-      <P>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </P>
+      <Typography variant="h6">{header}</Typography>
+      <P>{children}</P>
     </Grid>
   )
 }
@@ -278,9 +395,8 @@ const Avatar = styled(UAvatar)`
   max-width: 350px;
   img {
     border-radius: 50px;
-    width: 100%;
-    height: auto;
-    max-width: 350px;
+    height: 300px;
+    width: 300px;
   }
 
   .deco {
