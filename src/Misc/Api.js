@@ -1,29 +1,12 @@
-import { useContext } from "react"
-
-export async function login() {
-  const { context } = useContext()
-
-  await fetch("/login")
+export async function login(data = {}) {
+  await fetch(`${process.env.REACT_APP_API_URL}login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
     .then(
       // set isAuthenticated
-      response => response.json()
+      response => console.log(response.json())
     )
-    .catch(
-      // client side error
-      response => response.json()
-    )
-}
-
-export async function logout() {
-  const { context } = useContext()
-
-  await fetch("/login")
-    .then(
-      // set isAuthenticated
-      response => response.json()
-    )
-    .catch(
-      // client side error
-      response => response.json()
-    )
+    .catch()
 }

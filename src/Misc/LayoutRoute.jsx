@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react"
-import DialogContext from "./DialogContext"
+import React, { useState, useEffect } from "react"
 import { Route, useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { ReactComponent as Logo } from "../Assets/Logo.svg"
 import { breakpoints } from "../theme"
+import { useQuery } from "./Hooks"
 
 import {
   AppBar,
@@ -72,14 +72,14 @@ const HideOnScroll = ({ children }) => {
 export default ({ children, ...props }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [isOpen, setOpen] = useState(false)
-  const { setActiveModal } = useContext(DialogContext)
+  let history = useHistory()
+  const [params, setParams] = useQuery()
   const theme = useTheme()
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
   })
   const matches = useMediaQuery(`(min-width: ${breakpoints.mds}px)`)
-  let history = useHistory()
 
   useEffect(() => {
     switch (history.location.pathname) {
@@ -124,7 +124,7 @@ export default ({ children, ...props }) => {
   }
 
   const handleLogin = event => {
-    setActiveModal("login")
+    setParams("modal", "login")
   }
 
   return (
