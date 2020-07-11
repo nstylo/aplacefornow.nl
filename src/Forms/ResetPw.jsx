@@ -24,6 +24,7 @@ export default () => {
       <AuthDialog
         open={params.get("modal") === "resetpw" ? true : false}
         setOpen={() => setParams("modal", null)}
+        onSubmit={e => e.preventDefault()} // TODO: handle reset
       >
         <IconButton
           aria-label="close password reset popup"
@@ -34,47 +35,33 @@ export default () => {
         >
           <CloseIcon />
         </IconButton>
-        <FormBody onSubmit={e => e.preventDefault()}>
-          <Typography
-            variant="h2"
-            color="primary"
-            style={{ textAlign: "center", margin: "0 -20px" }}
-          >
-            Reset Your Password
-          </Typography>
-          <Typography variant="body1">
-            Enter your new password below. It must be different from your
-            previous password.
-          </Typography>
-          <PasswordTextField
-            id="password"
-            label="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-          <PasswordTextField
-            id="password confirmation"
-            label="Password Confirmation"
-            value={confirmation}
-            onChange={e => setConfirmation(e.target.value)}
-          />
-          <Button type="submit" style={{ marginTop: "20px" }}>
-            Confirm
-          </Button>
-        </FormBody>
+        <Typography
+          variant="h2"
+          color="primary"
+          style={{ textAlign: "center", margin: "0 -20px" }}
+        >
+          Reset Your Password
+        </Typography>
+        <Typography variant="body1">
+          Enter your new password below. It must be different from your previous
+          password.
+        </Typography>
+        <PasswordTextField
+          id="password"
+          label="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+        <PasswordTextField
+          id="password confirmation"
+          label="Password Confirmation"
+          value={confirmation}
+          onChange={e => setConfirmation(e.target.value)}
+        />
+        <Button type="submit" style={{ marginTop: "20px" }}>
+          Confirm
+        </Button>
       </AuthDialog>
     </Modal>
   )
 }
-
-const FormBody = styled.form`
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  width: 100%;
-  padding-top: 10px;
-
-  & > * {
-    padding: 10px 0;
-  }
-`

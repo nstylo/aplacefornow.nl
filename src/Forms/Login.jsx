@@ -25,6 +25,7 @@ import { Close as CloseIcon } from "@material-ui/icons"
 export default () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [disabled, setDisabled] = useState(false)
   const [params, setParams] = useQuery()
   const [error, setError] = useState(null)
 
@@ -41,6 +42,7 @@ export default () => {
       <AuthDialog
         open={params.get("modal") === "login" ? true : false}
         setOpen={() => setParams(("modal": null))}
+        onSubmit={handleLogin}
       >
         <IconButton
           aria-label="close login popup"
@@ -51,57 +53,59 @@ export default () => {
         >
           <CloseIcon />
         </IconButton>
-        <FormBody onSubmit={handleLogin}>
-          <Typography
-            variant="h2"
-            color="primary"
-            style={{ textAlign: "center" }}
+        <Typography
+          variant="h2"
+          color="primary"
+          style={{ textAlign: "center" }}
+        >
+          Log In
+        </Typography>
+        <TextField
+          id="email"
+          value={email}
+          error={error ? true : false}
+          disabled={disabled}
+          helperText={error}
+          label="Email Address"
+          onChange={e => setEmail(e.target.value)}
+        />
+        <PasswordTextField
+          id="password"
+          value={password}
+          error={error ? true : false}
+          disabled={disabled}
+          helperText={error}
+          label="Password"
+          onChange={e => setPassword(e.target.value)}
+        />
+        <HelperBar>
+          <FormControlLabel
+            control={<Checkbox color="primary" disabled={disabled} />}
+            label="Remember me"
+          />
+          <Link
+            onClick={() => {
+              setParams("modal", "forgotpw")
+            }}
+            style={{ cursor: "pointer" }}
           >
-            Log In
-          </Typography>
-          <TextField
-            id="email"
-            value={email}
-            error={error ? true : false}
-            helperText={error}
-            label="Email Address"
-            onChange={e => setEmail(e.target.value)}
-          />
-          <PasswordTextField
-            id="password"
-            value={password}
-            error={error ? true : false}
-            helperText={error}
-            label="Password"
-            onChange={e => setPassword(e.target.value)}
-          />
-          <HelperBar>
-            <FormControlLabel
-              control={<Checkbox color="primary" />}
-              label="Remember me"
-            />
-            <Link
-              onClick={() => {
-                setParams("modal", "forgotpw")
-              }}
-              style={{ cursor: "pointer" }}
-            >
-              <Typography variant="body1">Forgot Password</Typography>
-            </Link>
-          </HelperBar>
-          <Button type="submit">Log in</Button>
-          <Typography variant="body1" style={{ paddingTop: "30px" }}>
-            Don't have an account?
-            <Link
-              onClick={() => {
-                setParams("modal", "signup")
-              }}
-              style={{ paddingLeft: "10px", cursor: "pointer" }}
-            >
-              Sign Up
-            </Link>
-          </Typography>
-        </FormBody>
+            <Typography variant="body1">Forgot Password</Typography>
+          </Link>
+        </HelperBar>
+        <Button type="submit" disabled={disabled}>
+          Log in
+        </Button>
+        <Typography variant="body1" style={{ paddingTop: "30px" }}>
+          Don't have an account?
+          <Link
+            onClick={() => {
+              setParams("modal", "signup")
+            }}
+            style={{ paddingLeft: "10px", cursor: "pointer" }}
+          >
+            Sign Up
+          </Link>
+        </Typography>
       </AuthDialog>
     </Modal>
   )
@@ -118,14 +122,3 @@ const HelperBar = styled.div`
   }
 `
 
-const FormBody = styled.form`
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  width: 100%;
-  padding-top: 10px;
-
-  & > * {
-    padding: 10px 0;
-  }
-`
