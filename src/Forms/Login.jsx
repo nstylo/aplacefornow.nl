@@ -6,11 +6,7 @@ import { login } from "../Misc/Api"
 import {
   Typography,
   TextField,
-  Input,
-  InputLabel,
   FormControlLabel,
-  FormControl,
-  InputAdornment,
   IconButton,
   Checkbox,
   Link,
@@ -21,19 +17,16 @@ import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
+import { PasswordTextField } from "../Basic/Basics"
 
 // icons
-import {
-  Visibility,
-  VisibilityOff,
-  Close as CloseIcon,
-} from "@material-ui/icons"
+import { Close as CloseIcon } from "@material-ui/icons"
 
 export default () => {
-  const [isVisible, setVisible] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [params, setParams] = useQuery()
+  const [error, setError] = useState(null)
 
   // TODO
   const handleLogin = async e => {
@@ -67,45 +60,21 @@ export default () => {
             Log In
           </Typography>
           <TextField
-            label="Email Address"
+            id="email"
             value={email}
+            error={error ? true : false}
+            helperText={error}
+            label="Email Address"
             onChange={e => setEmail(e.target.value)}
           />
-          <FormControl variant="outlines">
-            <InputLabel htmlFor="password-form">Password</InputLabel>
-            <Input
-              id="password-form"
-              value={password}
-              type={isVisible ? "text" : "password"}
-              onChange={e => setPassword(e.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={() => setVisible(!isVisible)}
-                    onMouseDown={e => e.preventDefault()}
-                    style={{ marginBottom: "16px" }}
-                  >
-                    {isVisible ? (
-                      <Visibility
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                        }}
-                      />
-                    ) : (
-                      <VisibilityOff
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                        }}
-                      />
-                    )}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
+          <PasswordTextField
+            id="password"
+            value={password}
+            error={error ? true : false}
+            helperText={error}
+            label="Password"
+            onChange={e => setPassword(e.target.value)}
+          />
           <HelperBar>
             <FormControlLabel
               control={<Checkbox color="primary" />}

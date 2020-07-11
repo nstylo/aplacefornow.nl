@@ -5,11 +5,7 @@ import styled from "styled-components"
 import {
   Typography,
   TextField,
-  FormControl,
-  InputLabel,
-  Input,
   IconButton,
-  InputAdornment,
   Checkbox,
   FormControlLabel,
   Link,
@@ -23,13 +19,10 @@ import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
+import { PasswordTextField } from "../Basic/Basics"
 
 // icons
-import {
-  Visibility,
-  VisibilityOff,
-  Close as CloseIcon,
-} from "@material-ui/icons"
+import { Close as CloseIcon } from "@material-ui/icons"
 
 export default () => {
   const [firstName, setFirstName] = useState("")
@@ -37,8 +30,6 @@ export default () => {
   const [role, setRole] = useState("")
   const [mail, setMail] = useState("")
   const [mailConf, setMailConf] = useState("")
-  const [isVisible, setVisible] = useState(false)
-  const [isConfVisible, setConfVisible] = useState(false)
   const [password, setPassword] = useState("")
   const [passwordConf, setPasswordConf] = useState("")
   const [params, setParams] = useQuery()
@@ -116,87 +107,29 @@ export default () => {
             </div>
           </RadioGroup>
           <TextField
-            label="Email Address"
+            id="email"
             value={mail}
+            label="Email Admdress"
             onChange={e => setMail(e.target.value)}
           />
           <TextField
-            label="Email Confirmation"
+            id="email confirmation"
             value={mailConf}
+            label="Email Confirmation"
             onChange={e => setMailConf(e.target.value)}
           />
-          <FormControl variant="outlines">
-            <InputLabel htmlFor="password-form">Password</InputLabel>
-            <Input
-              id="password-form"
-              value={password}
-              type={isVisible ? "text" : "password"}
-              onChange={e => setPassword(e.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={() => setVisible(!isVisible)}
-                    onMouseDown={e => e.preventDefault()}
-                    style={{ marginBottom: "16px" }}
-                  >
-                    {isVisible ? (
-                      <Visibility
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                        }}
-                      />
-                    ) : (
-                      <VisibilityOff
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                        }}
-                      />
-                    )}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
-          <FormControl variant="outlines">
-            <InputLabel htmlFor="password-conf-form">
-              Password Confirmation
-            </InputLabel>
-            <Input
-              id="password-conf-form"
-              value={passwordConf}
-              type={isConfVisible ? "text" : "password"}
-              onChange={e => setPasswordConf(e.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password confirmation visibility"
-                    onClick={() => setConfVisible(!isConfVisible)}
-                    onMouseDown={e => e.preventDefault()}
-                    style={{ marginBottom: "16px" }}
-                  >
-                    {isConfVisible ? (
-                      <Visibility
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                        }}
-                      />
-                    ) : (
-                      <VisibilityOff
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                        }}
-                      />
-                    )}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
+          <PasswordTextField
+            id="password"
+            value={password}
+            label="Password"
+            onChange={e => setPassword(e.target.value)}
+          />
+          <PasswordTextField
+            id="password confirmation"
+            value={passwordConf}
+            label="Password Confirmation"
+            onChange={e => setPasswordConf(e.target.value)}
+          />
           <FormControlLabel
             control={<Checkbox color="primary" />}
             label={
