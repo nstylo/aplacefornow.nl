@@ -1,13 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
-import { useTheme, Dialog } from "@material-ui/core"
+import { Dialog } from "@material-ui/core"
 import { breakpoints } from "../theme"
 
 import { ReactComponent as UCloud } from "../Assets/Auth/Cloud.svg"
 
 export default ({ children, open, setOpen }) => {
-  const theme = useTheme()
   // add 64 px because of dialog margins to avoid x overflow
   const matches = useMediaQuery(`(max-width: ${breakpoints.md + 64}px)`)
   const fullScreen = useMediaQuery(`(max-width: ${breakpoints.sm + 64}px)`)
