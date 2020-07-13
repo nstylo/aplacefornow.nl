@@ -92,7 +92,12 @@ export default () => {
             <Typography variant="body1">Forgot Password</Typography>
           </Link>
         </HelperBar>
-        <Button type="submit" disabled={disabled}>
+        <Button
+          variant="outlined"
+          color="primary"
+          type="submit"
+          disabled={disabled}
+        >
           Log in
         </Button>
         <Typography variant="body1" style={{ paddingTop: "30px" }}>
@@ -121,4 +126,3 @@ const HelperBar = styled.div`
     max-height: 32px;
   }
 `
-

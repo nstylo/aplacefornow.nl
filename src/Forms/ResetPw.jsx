@@ -58,7 +58,12 @@ export default () => {
           value={confirmation}
           onChange={e => setConfirmation(e.target.value)}
         />
-        <Button type="submit" style={{ marginTop: "20px" }}>
+        <Button
+          variant="outlined"
+          color="primary"
+          type="submit"
+          style={{ marginTop: "30px" }}
+        >
           Confirm
         </Button>
       </AuthDialog>

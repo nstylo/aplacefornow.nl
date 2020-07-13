@@ -141,7 +141,9 @@ export default () => {
             </>
           }
         />
-        <Button type="submit">Create Account</Button>
+        <Button variant="outlined" color="primary" type="submit">
+          Create Account
+        </Button>
         <Typography variant="body1" style={{ paddingTop: "30px" }}>
           Already have an account?
           <Link

@@ -8,7 +8,6 @@ import { useQuery } from "./Hooks"
 import {
   AppBar,
   Toolbar as UToolbar,
-  Button,
   IconButton,
   Drawer,
   Tabs,
@@ -19,6 +18,9 @@ import {
   Zoom,
   Fab,
 } from "@material-ui/core"
+
+// custom components
+import { Button } from "../Basic/Basics"
 
 // make things reactive
 import useMediaQuery from "@material-ui/core/useMediaQuery"
@@ -202,7 +204,12 @@ const UNav = ({ className, theme, handleLogin, ...props }) => {
         <Tab label="how it works" />
         <Tab label="about us" />
       </Tabs>
-      <Button className={className} color="primary" onClick={handleLogin}>
+      <Button
+        className={className}
+        variant="outlined"
+        color="primary"
+        onClick={handleLogin}
+      >
         Log in
       </Button>
     </>

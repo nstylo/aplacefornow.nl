@@ -230,8 +230,9 @@ export const theme = createMuiTheme({
       fontStyle: "italic",
     },
     button: {
-      fontSize: "18px",
+      fontSize: "24px",
       fontWeight: "700",
+      textTransform: "none",
     },
   },
   palette: {
