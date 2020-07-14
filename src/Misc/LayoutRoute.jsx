@@ -78,10 +78,6 @@ export default ({ children, ...props }) => {
   const history = useHistory()
   const [params, setParams] = useQuery()
   const theme = useTheme()
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  })
   const matches = useMediaQuery(`(min-width: ${breakpoints.mds}px)`)
 
   useEffect(() => {
@@ -176,6 +172,7 @@ export default ({ children, ...props }) => {
                     >
                       <Nav
                         orientation="vertical"
+                        textColor="primary"
                         indicatorColor="primary"
                         value={activeTab}
                         onChange={handleTabbing}
@@ -193,7 +190,7 @@ export default ({ children, ...props }) => {
                       onClick={() => setOpen(!isOpen)}
                       style={{ padding: 0 }}
                     >
-                      <MenuIcon />
+                      <MenuIcon style={{ color: theme.palette.primary.main }} />
                     </IconButton>
                   </>
                 )}
