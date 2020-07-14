@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
 import {
@@ -11,8 +11,16 @@ import {
   Button as IButton,
 } from "@material-ui/core"
 
+import { Skeleton } from "@material-ui/lab"
+
 // icons
 import { Visibility, VisibilityOff } from "@material-ui/icons"
+
+/******************************************************************************
+ *
+ * Basic building blocks
+ *
+ ******************************************************************************/
 
 const UButton = ({ children, className, ...props }) => {
   return (
@@ -30,6 +38,12 @@ export const Button = styled(UButton)`
     border-width: 1.5px;
   }
 `
+
+/******************************************************************************
+ *
+ * Form stuff
+ *
+ ******************************************************************************/
 
 export const PasswordTextField = ({
   helperText,
@@ -79,5 +93,52 @@ export const PasswordTextField = ({
       />
       {error ? <FormHelperText error>{helperText}</FormHelperText> : null}
     </FormControl>
+  )
+}
+
+/******************************************************************************
+ *
+ * Image stuff
+ *
+ ******************************************************************************/
+
+export const Image = styled.img`
+  object-fit: cover;
+  width: 100%;
+`
+
+const RemoteImageContainer = styled.div`
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+`
+
+export const URemoteImage = ({ id }) => {
+  const [isLoaded, setLoaded] = useState(false)
+  const [source, setSource] = useState("")
+
+  useEffect(() => {
+    const getImage = async () =>
+      fetch("https://dummyimage.com/600x400/000/fff") // TODO: use our api
+        .then(response => response.blob())
+        .then(img => {
+          const url = URL.createObjectURL(img)
+          setSource(url)
+          setLoaded(true)
+        })
+
+    getImage()
+  }, [])
+
+  return (
+    <RemoteImageContainer>
+      {isLoaded ? (
+        <Image src={source} />
+      ) : (
+        <Skeleton variant="rect" width="100%" height="100%" />
+      )}
+    </RemoteImageContainer>
   )
 }
