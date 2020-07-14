@@ -11,7 +11,7 @@ import {
   IconButton,
   Drawer,
   Tabs,
-  Tab,
+  Tab as ITab,
   useTheme,
   useScrollTrigger,
   Slide,
@@ -28,6 +28,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 // icons
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp"
 import MenuIcon from "@material-ui/icons/Menu"
+import { makeStyles } from "@material-ui/styles"
 
 const UScrollTop = ({ className }) => {
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 })
@@ -134,22 +135,33 @@ export default ({ children, ...props }) => {
       <div id="back-to-top-anchor" />
       <Grid>
         <HideOnScroll>
-          <AppBar position="fixed" elevation={trigger ? 4 : 0}>
+          <AppBar
+            style={{
+              backgroundColor: "#fafafa",
+              borderRadius: "0 0 25px 25px",
+            }} // make dynamic
+            position="fixed"
+            elevation={4}
+          >
             <Toolbar>
               <Logo
-                style={{ height: "50px", width: "50px", cursor: "pointer" }}
+                style={{
+                  width: "160px",
+                  cursor: "pointer",
+                }}
                 onClick={() => history.push("/")}
               />
               <Container>
                 {matches ? (
                   <Nav
                     orientation="horizontal"
+                    textColor="primary"
+                    indicatorColor="primary"
                     value={activeTab}
                     onChange={handleTabbing}
                     TabIndicatorProps={{
                       style: {
-                        height: 3,
-                        backgroundColor: theme.palette.grey[50],
+                        height: 5,
                       },
                     }}
                     theme={theme}
@@ -196,15 +208,38 @@ export default ({ children, ...props }) => {
   )
 }
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    minHeight: "84px",
+  },
+  textColorPrimary: {
+    color: theme.palette.primary.light,
+  },
+}))
+
+const Tab = props => {
+  const classes = useStyles()
+  return (
+    <ITab
+      classes={{
+        textColorPrimary: classes.textColorPrimary,
+        root: classes.root,
+      }}
+      {...props}
+    />
+  )
+}
+
 const UNav = ({ className, theme, handleLogin, ...props }) => {
   return (
     <>
       <Tabs {...props}>
-        <Tab label="home" />
-        <Tab label="how it works" />
-        <Tab label="about us" />
+        <Tab label="Home" />
+        <Tab label="How it works" />
+        <Tab label="About us" />
       </Tabs>
       <Button
+        style={{ height: "46px" }}
         className={className}
         variant="outlined"
         color="primary"
@@ -216,21 +251,15 @@ const UNav = ({ className, theme, handleLogin, ...props }) => {
   )
 }
 
-// TODO: hover
 const Nav = styled(UNav)`
   padding: 0 30px;
   margin: ${props =>
     props.orientation === "horizontal" ? "4px 0 4px 30px" : "20px 6px 0 6px"};
-  background-color: ${props => props.theme.palette.grey[50]};
-
-  :hover {
-    background-color: ${props => props.theme.palette.grey[50]};
-  }
 `
 
 const Toolbar = styled(UToolbar)`
   @media (min-width: ${breakpoints.sm}px) {
-    min-height: 54px;
+    min-height: 84px;
   }
 `
 
@@ -238,6 +267,7 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  align-items: center;
 `
 
 const Grid = styled.div`
