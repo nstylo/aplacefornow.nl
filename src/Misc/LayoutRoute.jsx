@@ -274,6 +274,8 @@ const Grid = styled.div`
 `
 
 const Item = styled.div`
-  grid-column-start: 2;
-  grid-column-end: 3;
+  @media (min-width: ${breakpoints.xl}px) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
 `
