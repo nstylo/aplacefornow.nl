@@ -255,9 +255,7 @@ const Nav = styled(UNav)`
 `
 
 const Toolbar = styled(UToolbar)`
-  @media (min-width: ${breakpoints.sm}px) {
-    min-height: 84px;
-  }
+  min-height: 84px;
 `
 
 const Container = styled.div`
