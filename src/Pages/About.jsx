@@ -131,32 +131,30 @@ export default () => {
         item
         container
       >
-        <Avatar img={Aniruddh} name="Aniruddh" pos="Head of Marketing" />
-        <Avatar img={Asaf} name="Asaf" pos="Chairman" />
-        <Avatar img={Atharva} name="Atharva" pos="Teasurer" />
-        <Avatar img={Ave} name="Ave" pos="Backend Developer" />
-        <Avatar img={Barbara} name="Bárbara" pos="Secretary" />
-        <Avatar img={Delal} name="Delal" pos="Backend Developer" />
-        <Avatar img={Ece} name="Ece" pos="Head of Social Media" />
-        <Avatar img={Emma} name="Emma" pos="UX Researcher" />
-        <Avatar img={Emre} name="Emre" pos="Frontend Developer" />
+        <Avatar img={Aniruddh} name="Aniruddh" pos="Chief Marketing Officer(CMO)" />
+        <Avatar img={Asaf} name="Asaf" pos="Chief Executive Officer (CEO)" />
+        <Avatar img={Atharva} name="Atharva" pos="Chief Financial Officer(CFO)" />
+        <Avatar img={Barbara} name="Bárbara" pos="Chief Operations Officer(COO)" />
+        <Avatar img={Delal} name="Delal" pos="Cybersecurity Bird" />
+        <Avatar img={Ece} name="Ece" pos="Social Media Bird" />
+        <Avatar img={Emma} name="Emma" pos="Design Bird" />
+        <Avatar img={Emre} name="Emre" pos="Frontend Bird" />
         <Avatar
           img={Gijs}
           name="Gijs"
-          pos="Process Improvement Extraordinaire"
+          pos="External Affairs Bird"
         />
-        <Avatar img={Joao} name="João" pos="External Affairs Associate" />
-        <Avatar img={Joep} name="Joep" pos="Head of External Affairs" />
-        <Avatar img={Michael} name="Michael" pos="External Affairs Associate" />
-        <Avatar img={Mihnea} name="Mihnea" pos="Head of Design and UX" />
-        <Avatar img={Mika} name="Mika" pos="UX Researcher" />
+        <Avatar img={Joao} name="João" pos="External Affairs Bird" />
+        <Avatar img={Michael} name="Michael" pos="External Affairs Bird" />
+        <Avatar img={Mihnea} name="Mihnea" pos="Chief Design Officer(CDO)" />
+        <Avatar img={Mika} name="Mika" pos="Design Bird" />
         <Avatar
           img={Nicolas}
           name="Nicolas"
-          pos="Backend and Frontend Developer"
+          pos="Backend Bird"
         />
-        <Avatar img={Niklas} name="Niklas" pos="Frontend Developer" />
-        <Avatar img={Simon} name="Simon" pos="UX Researcher" />
+        <Avatar img={Niklas} name="Niklas" pos="Frontend Bird" />
+        <Avatar img={Simon} name="Simon" pos="Design Bird" />
       </Section>
     </Container>
   )
