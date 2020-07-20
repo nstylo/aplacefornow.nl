@@ -6,11 +6,7 @@ import { login } from "../Misc/Api"
 import {
   Typography,
   TextField,
-  Input,
-  InputLabel,
   FormControlLabel,
-  FormControl,
-  InputAdornment,
   IconButton,
   Checkbox,
   Link,
@@ -21,19 +17,17 @@ import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "../Basic/Basics"
 import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
+import { PasswordTextField } from "../Basic/Basics"
 
 // icons
-import {
-  Visibility,
-  VisibilityOff,
-  Close as CloseIcon,
-} from "@material-ui/icons"
+import { Close as CloseIcon } from "@material-ui/icons"
 
 export default () => {
-  const [isVisible, setVisible] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [disabled, setDisabled] = useState(false)
   const [params, setParams] = useQuery()
+  const [error, setError] = useState(null)
 
   // TODO
   const handleLogin = async e => {
@@ -48,6 +42,7 @@ export default () => {
       <AuthDialog
         open={params.get("modal") === "login" ? true : false}
         setOpen={() => setParams(("modal": null))}
+        onSubmit={handleLogin}
       >
         <IconButton
           aria-label="close login popup"
@@ -58,81 +53,59 @@ export default () => {
         >
           <CloseIcon />
         </IconButton>
-        <FormBody onSubmit={handleLogin}>
-          <Typography
-            variant="h2"
-            color="primary"
-            style={{ textAlign: "center" }}
-          >
-            Log In
-          </Typography>
-          <TextField
-            label="Email Address"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+        <Typography
+          variant="h2"
+          color="primary"
+          style={{ textAlign: "center" }}
+        >
+          Log In
+        </Typography>
+        <TextField
+          id="email"
+          value={email}
+          error={error ? true : false}
+          disabled={disabled}
+          helperText={error}
+          label="Email Address"
+          onChange={e => setEmail(e.target.value)}
+        />
+        <PasswordTextField
+          id="password"
+          value={password}
+          error={error ? true : false}
+          disabled={disabled}
+          helperText={error}
+          label="Password"
+          onChange={e => setPassword(e.target.value)}
+        />
+        <HelperBar>
+          <FormControlLabel
+            control={<Checkbox color="primary" disabled={disabled} />}
+            label="Remember me"
           />
-          <FormControl variant="outlines">
-            <InputLabel htmlFor="password-form">Password</InputLabel>
-            <Input
-              id="password-form"
-              value={password}
-              type={isVisible ? "text" : "password"}
-              onChange={e => setPassword(e.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={() => setVisible(!isVisible)}
-                    onMouseDown={e => e.preventDefault()}
-                    style={{ marginBottom: "16px" }}
-                  >
-                    {isVisible ? (
-                      <Visibility
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                        }}
-                      />
-                    ) : (
-                      <VisibilityOff
-                        style={{
-                          width: "26px",
-                          height: "26px",
-                        }}
-                      />
-                    )}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
-          <HelperBar>
-            <FormControlLabel
-              control={<Checkbox color="primary" />}
-              label="Remember me"
-            />
-            <Link
-              onClick={() => {
-                setParams("modal", "forgotpw")
-              }}
-              style={{ cursor: "pointer" }}
-            >
-              Forgot Password
-            </Link>
-          </HelperBar>
-          <Button type="submit">Log in</Button>
-          <Typography variant="body1" style={{ paddingTop: "30px" }}>
-            Don't have an account?
-            <Link
-              onClick={() => {
-                setParams("modal", "signup")
-              }}
-              style={{ paddingLeft: "10px", cursor: "pointer" }}
-            >
-              Sign Up
-            </Link>
-          </Typography>
-        </FormBody>
+          <Link
+            onClick={() => {
+              setParams("modal", "forgotpw")
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            <Typography variant="body1">Forgot Password</Typography>
+          </Link>
+        </HelperBar>
+        <Button type="submit" disabled={disabled}>
+          Log in
+        </Button>
+        <Typography variant="body1" style={{ paddingTop: "30px" }}>
+          Don't have an account?
+          <Link
+            onClick={() => {
+              setParams("modal", "signup")
+            }}
+            style={{ paddingLeft: "10px", cursor: "pointer" }}
+          >
+            Sign Up
+          </Link>
+        </Typography>
       </AuthDialog>
     </Modal>
   )
@@ -149,14 +122,3 @@ const HelperBar = styled.div`
   }
 `
 
-const FormBody = styled.form`
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  width: 100%;
-  padding-top: 10px;
-
-  & > * {
-    padding: 10px 0;
-  }
-`

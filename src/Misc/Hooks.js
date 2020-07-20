@@ -5,6 +5,8 @@ export function useQuery(name) {
   let params = new URLSearchParams(useLocation().search)
 
   function setParams(name, value) {
+    // null or undefined are used to delete a param
+    // could also add delParams(..) function
     if (value === null || value === undefined) {
       params.delete(name)
     } else {

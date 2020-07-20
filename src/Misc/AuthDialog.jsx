@@ -1,13 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
-import { useTheme, Dialog } from "@material-ui/core"
+import { Dialog } from "@material-ui/core"
 import { breakpoints } from "../theme"
 
 import { ReactComponent as UCloud } from "../Assets/Auth/Cloud.svg"
 
-export default ({ children, open, setOpen }) => {
-  const theme = useTheme()
+export default ({ children, open, setOpen, onSubmit }) => {
   // add 64 px because of dialog margins to avoid x overflow
   const matches = useMediaQuery(`(max-width: ${breakpoints.md + 64}px)`)
   const fullScreen = useMediaQuery(`(max-width: ${breakpoints.sm + 64}px)`)
@@ -20,7 +19,10 @@ export default ({ children, open, setOpen }) => {
       onClose={() => setOpen("none")}
     >
       <Grid columnStyle={matches} fullScreen={fullScreen}>
-        <Form fullScreen={fullScreen}>{children}</Form>
+        {/* TODO: make form a basic component */}
+        <Form fullScreen={fullScreen} onSubmit={onSubmit}>
+          {children}
+        </Form>
         <Background columnStyle={matches}>
           <Cloud top="-10px" right="-30px" />
           <Cloud top="180px" right="160px" />
@@ -39,10 +41,19 @@ const Cloud = styled(UCloud)`
   height: auto;
 `
 
-const Form = styled.div`
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
   background: white;
   padding: 52px ${props => (props.fullScreen ? "28px" : "64px")};
+  padding-top: 62px;
   z-index: 1000;
+
+  & > * {
+    padding: 10px 0;
+  }
 `
 
 const Background = styled.div`

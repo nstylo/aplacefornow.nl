@@ -203,11 +203,11 @@ export const theme = createMuiTheme({
       fontWeight: "700",
     },
     h5: {
-      fontSize: "20px",
+      fontSize: "22px",
       fontWeight: "700",
     },
     h6: {
-      fontSize: "20px",
+      fontSize: "24px",
       fontWeight: "700",
       fontStyle: "italic",
     },
@@ -215,8 +215,12 @@ export const theme = createMuiTheme({
       fontSize: "20px",
       fontWeight: "400",
     },
+    body2: {
+      fontSize: "20px",
+      fontWeight: "700",
+    },
     subtitle1: {
-      fontSize: "18px",
+      fontSize: "20px",
       fontWeight: "300",
       fontStyle: "italic",
     },
@@ -246,7 +250,7 @@ export const theme = createMuiTheme({
     },
     /*temporary*/
     info: {
-      main: "#DBDBDB"
+      main: "#DBDBDB",
     },
   },
   overrides: {

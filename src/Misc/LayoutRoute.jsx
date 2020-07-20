@@ -72,7 +72,7 @@ const HideOnScroll = ({ children }) => {
 export default ({ children, ...props }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [isOpen, setOpen] = useState(false)
-  let history = useHistory()
+  const history = useHistory()
   const [params, setParams] = useQuery()
   const theme = useTheme()
   const trigger = useScrollTrigger({
