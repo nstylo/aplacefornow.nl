@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { theme } from "../theme"
-import { makeStyles } from "@material-ui/core"
+import styled from "styled-components"
 
 import {
   FormControl,
@@ -11,28 +10,26 @@ import {
   IconButton,
   Button as IButton,
 } from "@material-ui/core"
-//
+
 // icons
 import { Visibility, VisibilityOff } from "@material-ui/icons"
 
-const useStyles = makeStyles({
-  root: {
-    background: theme.palette.primary.main,
-    color: "#FAFAFA", // TODO: make styling more consistent with e.g. overrides
-    "&:hover": {
-      backgroundColor: theme.palette.primary.light,
-    },
-  },
-})
-
-export const Button = ({ children, ...props }) => {
-  const classes = useStyles()
+const UButton = ({ children, className, ...props }) => {
   return (
-    <IButton className={classes.root} {...props}>
+    <IButton className={className} {...props}>
       {children}
     </IButton>
   )
 }
+
+export const Button = styled(UButton)`
+  border-radius: 35px;
+  border-width: 1.5px;
+
+  :hover {
+    border-width: 1.5px;
+  }
+`
 
 export const PasswordTextField = ({
   helperText,

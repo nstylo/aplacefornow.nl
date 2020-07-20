@@ -51,7 +51,12 @@ export default () => {
           onChange={e => setMail(e.target.value)}
         />
         <Wrapper>
-          <Button type="submit" style={{ flexGrow: 5 }}>
+          <Button
+            variant="outlined"
+            color="primary"
+            type="submit"
+            style={{ flexGrow: 5 }}
+          >
             Confirm
           </Button>
           <Link
