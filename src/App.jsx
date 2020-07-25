@@ -15,6 +15,7 @@ import ModalRoot from "./Misc/ModalRoot"
 
 // routes
 import LayoutRoute from "./Misc/LayoutRoute"
+import Footer from "./Misc/Footer"
 // import { ProtectedRoute } from "./Misc/ProtectedRoute"
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </ThemeProvider>
   )
 }
