@@ -1,6 +1,7 @@
 import React, { useState /*, useEffect */ } from "react"
 import styled from "styled-components"
 import { Typography } from "@material-ui/core"
+import { SRLWrapper, useLightbox } from "simple-react-lightbox"
 
 import {
   FormControl,
@@ -177,15 +178,19 @@ const ClickableImage = ({ text, onClick, ...props }) => (
 
 // TODO: check for less than three images
 export const Gallery = ({ images, ...props }) => {
+  const { openLightbox } = useLightbox()
+
   return (
     <GalleryContainer {...props}>
-      <Image src={images[0]} alt="" />
-      <Image src={images[1]} alt="" />
+      <Image src={images[0].src} alt="" />
+      <Image src={images[1].src} alt="" />
       <ClickableImage
-        src={images[2]}
+        src={images[2].src}
         text={"+ " + (images.length - 2) + " photos"}
         alt=""
+        onClick={() => openLightbox(2)}
       />
+      <SRLWrapper images={images} />
     </GalleryContainer>
   )
 }
