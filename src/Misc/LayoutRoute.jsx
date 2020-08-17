@@ -73,7 +73,7 @@ const HideOnScroll = ({ children }) => {
 }
 
 export default ({ children, ...props }) => {
-  const [activeTab, setActiveTab] = useState(0)
+  const [activeTab, setActiveTab] = useState(null) // default is no tab selected
   const [isOpen, setOpen] = useState(false)
   const history = useHistory()
   const [params, setParams] = useQuery()
@@ -92,7 +92,6 @@ export default ({ children, ...props }) => {
         setActiveTab(2)
         break
       default:
-        setActiveTab(0)
     }
   }, [history.location.pathname])
 
