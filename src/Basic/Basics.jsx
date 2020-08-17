@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState /*, useEffect */ } from "react"
 import styled from "styled-components"
+import { Typography } from "@material-ui/core"
 
 import {
   FormControl,
@@ -11,7 +12,7 @@ import {
   Button as IButton,
 } from "@material-ui/core"
 
-import { Skeleton } from "@material-ui/lab"
+// import { Skeleton } from "@material-ui/lab"
 
 // icons
 import { Visibility, VisibilityOff } from "@material-ui/icons"
@@ -105,40 +106,86 @@ export const PasswordTextField = ({
 export const Image = styled.img`
   object-fit: cover;
   width: 100%;
-`
-
-const RemoteImageContainer = styled.div`
-  display: flex;
-  border-radius: 15px;
-  overflow: hidden;
   height: 100%;
-  width: 100%;
+  border-radius: 15px;
 `
 
-export const URemoteImage = ({ id }) => {
-  const [isLoaded, setLoaded] = useState(false)
-  const [source, setSource] = useState("")
+const GalleryContainer = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 60% auto;
+  grid-template-rows: 50% 50%;
+  height: 400px;
+  position: relative;
 
-  useEffect(() => {
-    const getImage = async () =>
-      fetch("https://dummyimage.com/600x400/000/fff") // TODO: use our api
-        .then(response => response.blob())
-        .then(img => {
-          const url = URL.createObjectURL(img)
-          setSource(url)
-          setLoaded(true)
-        })
+  & > :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
 
-    getImage()
-  }, [])
+  & > :nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
 
+  & > :nth-child(3) {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+`
+
+const ClickableImageWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ${props => (props.onClick ? "pointer" : "default")};
+`
+
+const UClickableImage = styled.img`
+  position: absolute;
+  object-fit: cover;
+  filter: blur(2px) brightness(70%);
+  width: 105%;
+  height: 105%;
+`
+
+const ImageText = styled(Typography).attrs(props => ({
+  variant: props.variant,
+  color: props.color,
+}))`
+  position: absolute;
+  z-index: 10;
+`
+
+const ClickableImage = ({ text, onClick, ...props }) => (
+  <ClickableImageWrapper onClick={onClick}>
+    <UClickableImage {...props} />
+    <ImageText variant="h4" color="textSecondary">
+      {text}
+    </ImageText>
+  </ClickableImageWrapper>
+)
+
+// TODO: check for less than three images
+export const Gallery = ({ images, ...props }) => {
   return (
-    <RemoteImageContainer>
-      {isLoaded ? (
-        <Image src={source} />
-      ) : (
-        <Skeleton variant="rect" width="100%" height="100%" />
-      )}
-    </RemoteImageContainer>
+    <GalleryContainer {...props}>
+      <Image src={images[0]} alt="" />
+      <Image src={images[1]} alt="" />
+      <ClickableImage
+        src={images[2]}
+        text={"+ " + (images.length - 2) + " photos"}
+        alt=""
+      />
+    </GalleryContainer>
   )
 }
