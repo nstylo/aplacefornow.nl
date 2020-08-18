@@ -112,13 +112,18 @@ export const Image = styled.img`
   border-radius: 15px;
 `
 
+// TODO: aspect ratio not perfect, also width/height on responsiveness needs
+// tweaking
 const GalleryContainer = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 60% auto;
   grid-template-rows: 50% 50%;
-  height: 400px;
+  width: 100%;
+  height: calc(100vw * 0.5625);
+  max-height: 600px;
   position: relative;
+  margin-bottom: 20px;
 
   & > :nth-child(1) {
     grid-column-start: 1;
@@ -179,6 +184,7 @@ const ClickableImage = ({ text, onClick, ...props }) => (
 
 // TODO: check for less than three images
 export const Gallery = ({ images, ...props }) => {
+  // check https://github.com/michelecocuccio/simple-react-lightbox
   const { openLightbox } = useLightbox()
 
   return (
