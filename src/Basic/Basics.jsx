@@ -2,6 +2,7 @@ import React, { useState /*, useEffect */ } from "react"
 import styled from "styled-components"
 import { Typography } from "@material-ui/core"
 import { SRLWrapper, useLightbox } from "simple-react-lightbox"
+import { theme } from "../theme"
 
 import {
   FormControl,
@@ -194,3 +195,31 @@ export const Gallery = ({ images, ...props }) => {
     </GalleryContainer>
   )
 }
+
+const UTag = ({ className, text }) => <div className={className}>{text}</div>
+
+export const Tag = styled(UTag)`
+  border-radius: 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  padding: 5px;
+  padding-right: 15px;
+  width: max-content;
+  background-color: ${props =>
+    props.color === "secondary"
+      ? theme.palette.secondary.main
+      : theme.palette.primary.main};
+
+  ::before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 12px 0 6px;
+    -moz-border-radius: 7.5px;
+    -webkit-border-radius: 7.5px;
+    border-radius: 7.5px;
+    background-color: white;
+  }
+`
