@@ -235,7 +235,7 @@ const UNav = ({ className, theme, handleLogin, ...props }) => {
         <Tab label="About us" />
       </Tabs>
       <Button
-        style={{ height: "46px" }}
+        style={{ height: "46px", whiteSpace: "nowrap" }}
         className={className}
         variant="outlined"
         color="primary"
