@@ -202,15 +202,20 @@ export const Gallery = ({ images, ...props }) => {
   )
 }
 
-const UTag = ({ className, text }) => <div className={className}>{text}</div>
+const UTag = ({ className, text, ...props }) => (
+  <div className={className} {...props}>
+    {text}
+  </div>
+)
 
 export const Tag = styled(UTag)`
   border-radius: 20px;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   padding: 5px;
   padding-right: 15px;
+  white-space: nowrap;
   width: max-content;
   background-color: ${props =>
     props.color === "secondary"
