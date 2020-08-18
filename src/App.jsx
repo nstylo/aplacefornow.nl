@@ -11,6 +11,7 @@ import { theme } from "./theme"
 import Home from "./Pages/Home"
 import About from "./Pages/About"
 import HowItWorks from "./Pages/HowItWorks"
+import ListingsPage from "./Pages/ListingsPage"
 import NoMatch from "./Pages/404.jsx"
 import ModalRoot from "./Misc/ModalRoot"
 
@@ -34,6 +35,9 @@ function App() {
             </LayoutRoute>
             <LayoutRoute exact path="/how-it-works">
               <HowItWorks />
+            </LayoutRoute>
+            <LayoutRoute exact path="/listing/:id">
+              <ListingsPage />
             </LayoutRoute>
             <Route path="*">
               <NoMatch />
