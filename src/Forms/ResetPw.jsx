@@ -1,12 +1,10 @@
 import React, { useState } from "react"
-import styled from "styled-components"
 
 // custom components
 import AuthDialog from "../Misc/AuthDialog"
-import { Button } from "../Basic/Basics"
+import { Button, PasswordTextField } from "lib"
 import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
-import { PasswordTextField } from "../Basic/Basics"
 
 // material ui components
 import { Typography, IconButton } from "@material-ui/core"

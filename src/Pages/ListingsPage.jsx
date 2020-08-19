@@ -1,6 +1,6 @@
 import React from "react"
 import { useParams } from "react-router-dom"
-import { Gallery, Tag, Button } from "../Basic/Basics"
+import { Gallery, Tag, Button } from "lib"
 import { Typography, Avatar } from "@material-ui/core"
 import styled from "styled-components"
 

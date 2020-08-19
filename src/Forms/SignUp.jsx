@@ -16,10 +16,9 @@ import {
 
 // custom components
 import AuthDialog from "../Misc/AuthDialog"
-import { Button } from "../Basic/Basics"
+import { Button, PasswordTextField } from "lib"
 import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
-import { PasswordTextField } from "../Basic/Basics"
 
 // icons
 import { Close as CloseIcon } from "@material-ui/icons"

@@ -20,7 +20,7 @@ import {
 } from "@material-ui/core"
 
 // custom components
-import { Button } from "../Basic/Basics"
+import { Button } from "lib"
 
 // make things reactive
 import useMediaQuery from "@material-ui/core/useMediaQuery"
