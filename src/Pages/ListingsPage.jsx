@@ -1,6 +1,6 @@
 import React from "react"
 import { useParams } from "react-router-dom"
-import { Gallery, Tag, Button } from "lib"
+import { Gallery, Tag, Button, Attribute } from "lib"
 import { Typography, Avatar } from "@material-ui/core"
 import styled from "styled-components"
 
@@ -37,6 +37,9 @@ export default () => {
         tags={["Student", "Calm", "Musician", "Moview fanatic", "Dutch"]}
         introtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus."
       />
+      <Attribute type="family_home" />
+      <Attribute type="no_smoking" />
+      <Attribute type="hangers" />
     </div>
   )
 }
