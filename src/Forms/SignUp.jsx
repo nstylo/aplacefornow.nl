@@ -109,7 +109,7 @@ export default () => {
         <TextField
           id="email"
           value={mail}
-          label="Email Admdress"
+          label="Email Address"
           onChange={e => setMail(e.target.value)}
         />
         <TextField
