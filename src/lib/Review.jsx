@@ -30,11 +30,7 @@ export const Review = ({
   ...props
 }) => {
   return (
-    <Card
-      elevation={10}
-      {...props}
-      style={{ display: "flex", padding: "36px" }}
-    >
+    <Card elevation={4} {...props} style={{ display: "flex", padding: "36px" }}>
       <Avatar
         src={avatar}
         alt={name}
