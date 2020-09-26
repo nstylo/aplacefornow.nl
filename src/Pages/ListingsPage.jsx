@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import { useParams } from "react-router-dom"
-import { Gallery, Tag, Button, Attribute, Review, Rating } from "lib"
-import { Typography, Avatar, Card, CardContent } from "@material-ui/core"
+import { Gallery, Tag, Button, Attribute, Review, Rating, Separator } from "lib"
+import { Typography, Avatar, Card } from "@material-ui/core"
 import { Star } from "@material-ui/icons"
 import styled from "styled-components"
 import DatePicker from "react-datepicker"
+import { theme } from "theme"
 import _ from "lodash"
 
 import "lib/react-datepicker.css"
@@ -14,77 +15,88 @@ import {
   dateDiffInDays,
 } from "helpers"
 
+const PageWrapper = styled.div`
+  margin-top: 120px;
+`
+
+const SectionWrapper = styled.div`
+  & > * {
+    margin: 30px 0;
+  }
+`
+
 export default () => {
   const { id } = useParams()
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(null)
 
   return (
-    <div>
-      <div style={{ marginTop: "200px " }}>
-        {id}
-        <Gallery
-          images={[
+    <PageWrapper>
+      <Typography variant="h2" color="primary">
+        Nice family home with one spare room
+      </Typography>
+      <SectionWrapper>
+        <GallerySection />
+        <Separator />
+        <IntroSection
+          avatar="https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg"
+          hostname="Niklas Stylianou"
+          since="January 2020"
+          tags={["Student", "Calm", "Musician", "Moview fanatic", "Dutch"]}
+          introtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus."
+        />
+        <Separator />
+        <DescriptionSection
+          attributes={{
+            facilities: [
+              "family_home",
+              "seperate_bedroom",
+              "hangers",
+              "air_conditioner",
+            ],
+            houserules: ["no_smoking", "no_animals", "own_key"],
+          }}
+          introtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus."
+        />
+        <Separator />
+        <SettlementSection
+          startDate={startDate}
+          setStartDate={setStartDate}
+          endDate={endDate}
+          setEndDate={setEndDate}
+        />
+        <Separator />
+        <ReviewSection
+          reviews={[
             {
-              src:
+              avatar:
                 "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+              name: "Niklas Stylianou",
+              date: "January 2020",
+              rating: 4.5,
+              since: "August 2020",
+              text:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus.",
             },
             {
-              src:
+              avatar:
                 "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
-            },
-            {
-              src:
-                "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+              name: "Niklas Stylianou",
+              date: "January 2020",
+              rating: 4.5,
+              since: "August 2020",
+              text:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus.",
             },
           ]}
         />
-      </div>
-      <PriceLocation price={13} location="Rochumsbuurt, Eindhoven" />
-      <Separator />
-      <Introduction
-        avatar="https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg"
-        hostname="Niklas Stylianou"
-        since="January 2020"
-        tags={["Student", "Calm", "Musician", "Moview fanatic", "Dutch"]}
-        introtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus."
-      />
-      <Attribute type="family_home" />
-      <Attribute type="no_smoking" />
-      <Attribute type="hangers" />
-      <DatePicker
-        selected={startDate}
-        onChange={dates => {
-          const [start, end] = dates
-          setStartDate(start)
-          setEndDate(end)
-        }}
-        startDate={startDate}
-        endDate={endDate}
-        selectsRange
-        inline
-      />
-      <SettlementView
-        arrivalDate={startDate}
-        departureDate={endDate}
-        pricePerNight={12}
-      />
-      <ReviewSection />
-      <Review
-        avatar="https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg"
-        name="Niklas Stylianou"
-        date="January 2020"
-        rating={4.5}
-        since="August 2020"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus."
-        style={{ margin: "100px" }}
-      />
-    </div>
+      </SectionWrapper>
+    </PageWrapper>
   )
 }
 
-const PriceLocation = ({ price, location }) => (
-  <div>
+const PriceLocation = ({ price, location, ...props }) => (
+  <div {...props}>
     <Typography variant="h3" color="primary">
       {price}€ / Night
     </Typography>
@@ -92,9 +104,33 @@ const PriceLocation = ({ price, location }) => (
   </div>
 )
 
-const Separator = styled.hr`
-  border-top: 1px solid #dbdbdb;
-`
+const GallerySection = () => (
+  <section>
+    <Gallery
+      images={[
+        {
+          src:
+            "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+        },
+        {
+          src:
+            "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+        },
+        {
+          src:
+            "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+        },
+      ]}
+    />
+    <PriceLocation
+      price={13}
+      location="Rochumsbuurt, Eindhoven"
+      style={{
+        paddingTop: "20px",
+      }}
+    />
+  </section>
+)
 
 const IntroductionHeader = ({ avatar, hostname, since, tags, ...props }) => {
   return (
@@ -132,9 +168,9 @@ const IntroductionHeader = ({ avatar, hostname, since, tags, ...props }) => {
   )
 }
 
-const Introduction = ({ avatar, hostname, since, tags, introtext }) => {
+const IntroSection = ({ avatar, hostname, since, tags, introtext }) => {
   return (
-    <div>
+    <section>
       <IntroductionHeader
         avatar={avatar}
         hostname={hostname}
@@ -160,21 +196,58 @@ const Introduction = ({ avatar, hostname, since, tags, introtext }) => {
       >
         See profile
       </Button>
-    </div>
+    </section>
   )
 }
 
-const Grid = styled.div``
-const Row = styled.div`
+const Rules = styled.div`
   display: flex;
-`
-const Col = styled.div`
-  flex: ${props => (props.size ? props.size : 1)};
+  width: 100%;
+  padding-top: 36px;
 `
 
-const DateView = ({ header, date, subscript }) => {
+const RulesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`
+
+const DescriptionSection = ({ introtext, attributes }) => (
+  <section>
+    <Typography variant="h3" color="primary">
+      Description
+    </Typography>
+    <Typography
+      variant="body1"
+      color="textPrimary"
+      style={{ paddingTop: "16px " }}
+    >
+      {introtext}
+    </Typography>
+    <Rules>
+      <RulesContainer>
+        <Typography variant="h3" color="primary">
+          Facilities
+        </Typography>
+        {attributes.facilities.map(type => (
+          <Attribute type={type} style={{ marginTop: "12px" }} />
+        ))}
+      </RulesContainer>
+      <RulesContainer>
+        <Typography variant="h3" color="primary">
+          Houserules
+        </Typography>
+        {attributes.houserules.map(type => (
+          <Attribute type={type} style={{ marginTop: "12px" }} />
+        ))}
+      </RulesContainer>
+    </Rules>
+  </section>
+)
+
+const DateView = ({ header, date, subscript, ...props }) => {
   return (
-    <div>
+    <>
       <Typography variant="subtitle1" color="textPrimary">
         {header}
       </Typography>
@@ -184,16 +257,42 @@ const DateView = ({ header, date, subscript }) => {
       <Typography variant="subtitle1" color="primary">
         {subscript}
       </Typography>
-    </div>
+    </>
   )
 }
 
-const SettlementView = ({
+const Grid = styled.div``
+const Row = styled.div`
+  display: flex;
+`
+const Col = styled.div`
+  flex: ${props => (props.size ? props.size : 1)};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+const CardContent = styled.div``
+
+const Circle = styled.div`
+  position: absolute;
+  border-radius: 50%;
+  top: 20px;
+  left: 45.5%;
+  width: 76px;
+  height: 76px;
+  background-color: ${theme.palette.primary.light};
+  filter: opacity(30%);
+`
+
+const Settlement = ({
   arrivalDate,
   departureDate,
   pricePerNight,
   avatarTenant,
   avatarHost,
+  ...props
 }) => {
   const numberOfNights = dateDiffInDays(
     arrivalDate,
@@ -203,18 +302,25 @@ const SettlementView = ({
   const priceOfStay = numberOfNights * pricePerNight
 
   return (
-    <Card elevation={10}>
+    <Card elevation={4} {...props}>
       <CardContent>
         <Grid>
           <Row>
-            <Col>
+            <Col
+              style={{ borderBottom: "solid 1px #dbdbdb", padding: "12px 0" }}
+            >
               <DateView
                 header="Date of arrival"
                 date={dateToSlashedString(arrivalDate)}
                 subscript="Estimated date of arrival"
               />
             </Col>
-            <Col>
+            <Col
+              style={{
+                borderBottom: "solid 1px #dbdbdb",
+                borderLeft: "solid 1px #dbdbdb",
+              }}
+            >
               <DateView
                 header="Date of departure"
                 date={dateToSlashedString(
@@ -223,6 +329,34 @@ const SettlementView = ({
                 subscript="Estimated date of departure"
               />
             </Col>
+          </Row>
+          <Row style={{ minHeight: "120px", position: "relative" }}>
+            {/* TODO: this is really not scalable. */}
+            <Avatar
+              src={avatarHost}
+              alt="host"
+              style={{
+                position: "absolute",
+                top: "20px",
+                left: "39.5%",
+                width: "76px",
+                height: "76px",
+                zIndex: 10,
+              }}
+            />
+            <Circle />
+            <Avatar
+              src={avatarTenant}
+              alt="tenant"
+              style={{
+                position: "absolute",
+                top: "20px",
+                right: "39.5%",
+                width: "76px",
+                height: "76px",
+                zIndex: 10,
+              }}
+            />
           </Row>
           <Row>
             <Col>
@@ -250,11 +384,67 @@ const SettlementView = ({
               </Typography>
             </Col>
           </Row>
+          <Row>
+            <Col style={{ margin: "20px 0" }}>
+              <Button
+                style={{
+                  height: "46px",
+                  whiteSpace: "nowrap",
+                  padding: "0 60px",
+                }}
+                variant="contained"
+                color="primary"
+              >
+                Contact host
+              </Button>
+              <Typography variant="subtitle1" color="textPrimary">
+                This is not a reservation
+              </Typography>
+            </Col>
+          </Row>
         </Grid>
       </CardContent>
     </Card>
   )
 }
+
+const SettlementWrapper = styled.div`
+  display: flex;
+
+  & > * {
+    flex-grow: 1;
+  }
+`
+
+const SettlementSection = ({
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate,
+}) => (
+  <section>
+    <SettlementWrapper>
+      <DatePicker
+        selected={startDate}
+        onChange={dates => {
+          const [start, end] = dates
+          setStartDate(start)
+          setEndDate(end)
+        }}
+        startDate={startDate}
+        endDate={endDate}
+        selectsRange
+        inline
+      />
+      <Settlement
+        arrivalDate={startDate}
+        departureDate={endDate}
+        pricePerNight={12}
+        style={{ flexGrow: 2 }}
+      />
+    </SettlementWrapper>
+  </section>
+)
 
 const CategoryContainer = styled.div`
   display: flex;
@@ -314,6 +504,16 @@ const ReviewSummary = ({ categories, rating, nrofReviews }) => {
   )
 }
 
+const ReviewBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+
+  & > * {
+    margin: 20px 0;
+  }
+`
+
 const ReviewSection = ({ reviews }) => {
   return (
     <div>
@@ -328,6 +528,19 @@ const ReviewSection = ({ reviews }) => {
         rating={4.78}
         nrofReviews={31}
       />
+      <ReviewBody>
+        {reviews.map(({ avatar, name, date, rating, since, text, style }) => (
+          <Review
+            avatar={avatar}
+            name={name}
+            date={date}
+            rating={rating}
+            since={since}
+            text={text}
+            style={{ margin: "100px" }}
+          />
+        ))}
+      </ReviewBody>
     </div>
   )
 }

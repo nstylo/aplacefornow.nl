@@ -41,7 +41,7 @@ const types = {
   },
 }
 
-export const Attribute = ({ type }) => {
+export const Attribute = ({ type, ...props }) => {
   const details = types[type]
   let icon
 
@@ -72,7 +72,7 @@ export const Attribute = ({ type }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       {icon}
       <div style={{ marginLeft: "42px" }}>
         <Typography variant="h5" color="textPrimary">
