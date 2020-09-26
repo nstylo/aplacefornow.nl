@@ -1,6 +1,4 @@
 import React, { useState } from "react"
-import styled from "styled-components"
-
 import {
   FormControl,
   InputLabel,
@@ -8,28 +6,9 @@ import {
   InputAdornment,
   FormHelperText,
   IconButton,
-  Button as IButton,
 } from "@material-ui/core"
 
-// icons
 import { Visibility, VisibilityOff } from "@material-ui/icons"
-
-const UButton = ({ children, className, ...props }) => {
-  return (
-    <IButton className={className} {...props}>
-      {children}
-    </IButton>
-  )
-}
-
-export const Button = styled(UButton)`
-  border-radius: 35px;
-  border-width: 1.5px;
-
-  :hover {
-    border-width: 1.5px;
-  }
-`
 
 export const PasswordTextField = ({
   helperText,

@@ -278,7 +278,7 @@ export const theme = createMuiTheme({
 
 // mobile is scaled down to 0.8
 theme.typography.h1 = {
-  ...theme.typography.h2,
+  ...theme.typography.h1,
   [theme.breakpoints.down("xs")]: {
     fontSize: "52.1px",
   },
@@ -292,7 +292,7 @@ theme.typography.h2 = {
 }
 
 theme.typography.h3 = {
-  ...theme.typography.h2,
+  ...theme.typography.h3,
   [theme.breakpoints.down("xs")]: {
     fontSize: "32px",
   },

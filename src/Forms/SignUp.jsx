@@ -16,10 +16,9 @@ import {
 
 // custom components
 import AuthDialog from "../Misc/AuthDialog"
-import { Button } from "../Basic/Basics"
+import { Button, PasswordTextField } from "lib"
 import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
-import { PasswordTextField } from "../Basic/Basics"
 
 // icons
 import { Close as CloseIcon } from "@material-ui/icons"
@@ -109,7 +108,7 @@ export default () => {
         <TextField
           id="email"
           value={mail}
-          label="Email Admdress"
+          label="Email Address"
           onChange={e => setMail(e.target.value)}
         />
         <TextField
