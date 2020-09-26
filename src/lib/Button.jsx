@@ -12,9 +12,9 @@ const UButton = ({ children, className, ...props }) => {
 
 export const Button = styled(UButton)`
   border-radius: 35px;
-  border-width: 1.5px;
+  border-width: 2.5px;
 
   :hover {
-    border-width: 1.5px;
+    border-width: 2.5px;
   }
 `
