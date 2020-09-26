@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { useParams } from "react-router-dom"
-import { Gallery, Tag, Button, Attribute } from "lib"
+import { Gallery, Tag, Button, Attribute, Review, Rating } from "lib"
 import { Typography, Avatar, Card, CardContent } from "@material-ui/core"
+import { Star } from "@material-ui/icons"
 import styled from "styled-components"
 import DatePicker from "react-datepicker"
+import _ from "lodash"
 
 import "lib/react-datepicker.css"
 import {
@@ -66,6 +68,16 @@ export default () => {
         arrivalDate={startDate}
         departureDate={endDate}
         pricePerNight={12}
+      />
+      <ReviewSection />
+      <Review
+        avatar="https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg"
+        name="Niklas Stylianou"
+        date="January 2020"
+        rating={4.5}
+        since="August 2020"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus."
+        style={{ margin: "100px" }}
       />
     </div>
   )
@@ -241,5 +253,81 @@ const SettlementView = ({
         </Grid>
       </CardContent>
     </Card>
+  )
+}
+
+const CategoryContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  min-width: ${props => props.minWidth};
+  max-width: ${props => props.maxWidth};
+`
+
+const ReviewCategory = ({ name, rating }) => {
+  return (
+    <CategoryContainer minWidth="300px" maxWidth="400px">
+      <Typography variant="body1">{name}</Typography>
+      <CategoryContainer minWidth="180px" maxWidth="180px">
+        <Rating disabled precision={0.5} defaultValue={rating} size="small" />
+        <Typography variant="body1">{rating}</Typography>
+      </CategoryContainer>
+    </CategoryContainer>
+  )
+}
+
+const CategorySummary = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 100px;
+  flex-wrap: wrap;
+`
+
+const CategoryHeader = styled.div`
+  display: flex;
+  align-item: center;
+  margin: 20px 0;
+
+  & > * {
+    margin-right: 10px;
+  }
+`
+
+const ReviewSummary = ({ categories, rating, nrofReviews }) => {
+  return (
+    <div>
+      <Typography variant="h3" color="primary">
+        Reviews
+      </Typography>
+      <CategoryHeader>
+        <Star style={{ fill: "#ffb400" }} />
+        <Typography
+          style={{ display: "flex", alignItems: "center" }}
+          variant="h5"
+        >{`${rating} (${nrofReviews} reviews)`}</Typography>
+      </CategoryHeader>
+      <CategorySummary>
+        {categories.map(({ name, rating }) => (
+          <ReviewCategory name={name} rating={rating} />
+        ))}
+      </CategorySummary>
+    </div>
+  )
+}
+
+const ReviewSection = ({ reviews }) => {
+  return (
+    <div>
+      <ReviewSummary
+        categories={[
+          { name: "Price-Quality ratio", rating: "3.17" },
+          { name: "Communication", rating: "4.22" },
+          { name: "Location", rating: "2.10" },
+          { name: "Support", rating: "4.34" },
+          { name: "Cleanliness", rating: "4.77" },
+        ]}
+        rating={4.78}
+        nrofReviews={31}
+      />
+    </div>
   )
 }
