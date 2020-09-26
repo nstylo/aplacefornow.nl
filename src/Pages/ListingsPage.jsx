@@ -1,10 +1,21 @@
 import React, { useState } from "react"
 import { useParams } from "react-router-dom"
-import { Gallery, Tag, Button, Attribute, Review, Rating, Separator } from "lib"
+import {
+  Gallery,
+  Tag,
+  Button,
+  Attribute,
+  Review,
+  Rating,
+  Separator,
+  MarkerIcon,
+} from "lib"
 import { Typography, Avatar, Card } from "@material-ui/core"
 import { Star } from "@material-ui/icons"
 import styled from "styled-components"
 import DatePicker from "react-datepicker"
+import { Map as IMap, Marker, Popup, TileLayer } from "react-leaflet"
+import "leaflet/dist/leaflet.css"
 import { theme } from "theme"
 import _ from "lodash"
 
@@ -65,6 +76,8 @@ export default () => {
           endDate={endDate}
           setEndDate={setEndDate}
         />
+        <Separator />
+        <MapSection position={[51.505, -0.09]} />
         <Separator />
         <ReviewSection
           reviews={[
@@ -445,6 +458,28 @@ const SettlementSection = ({
         style={{ flexGrow: 2 }}
       />
     </SettlementWrapper>
+  </section>
+)
+
+const Map = styled(IMap)`
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  margin-top: 20px;
+`
+
+const MapSection = ({ position }) => (
+  <section>
+    <Typography variant="h3" color="primary">
+      Location
+    </Typography>
+    <Map center={position} zoom={13}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      />
+      <Marker position={position} icon={MarkerIcon} />
+    </Map>
   </section>
 )
 

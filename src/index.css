@@ -7,3 +7,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* remove background and border from leaflet marker */
+.leaflet-div-icon {
+  background: unset !important;
+  border: unset !important;
+}
