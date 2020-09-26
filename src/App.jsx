@@ -12,6 +12,7 @@ import Home from "./Pages/Home"
 import About from "./Pages/About"
 import HowItWorks from "./Pages/HowItWorks"
 import ListingsPage from "./Pages/ListingsPage"
+import BrowsingPage from "./Pages/BrowsingPage"
 import NoMatch from "./Pages/404.jsx"
 import ModalRoot from "./Misc/ModalRoot"
 
@@ -38,6 +39,9 @@ function App() {
             </LayoutRoute>
             <LayoutRoute exact path="/listing/:id">
               <ListingsPage />
+            </LayoutRoute>
+            <LayoutRoute exact path="/browse/">
+              <BrowsingPage />
             </LayoutRoute>
             <Route path="*">
               <NoMatch />
