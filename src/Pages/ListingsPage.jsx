@@ -39,7 +39,7 @@ export default () => {
         <GallerySection />
         <Separator />
         <IntroSection
-          avatar="https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg"
+          avatar=""
           hostname="Niklas Stylianou"
           since="January 2020"
           tags={["Student", "Calm", "Musician", "Moview fanatic", "Dutch"]}
@@ -69,8 +69,7 @@ export default () => {
         <ReviewSection
           reviews={[
             {
-              avatar:
-                "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+              avatar: "",
               name: "Niklas Stylianou",
               date: "January 2020",
               rating: 4.5,
@@ -79,8 +78,7 @@ export default () => {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim faucibus morbi tellus sed at arcu eu lobortis non. At mus felis vel tellus.",
             },
             {
-              avatar:
-                "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+              avatar: "",
               name: "Niklas Stylianou",
               date: "January 2020",
               rating: 4.5,
@@ -110,15 +108,19 @@ const GallerySection = () => (
       images={[
         {
           src:
-            "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+            "https://cdn.archilovers.com/projects/c_383_9ec19d18-107e-41f9-bddf-4fc03411b2b5.jpg",
         },
         {
           src:
-            "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+            "https://cdn.archilovers.com/projects/c_383_0ae4fd71-61a0-434b-9689-9525dd57b9aa.jpg",
         },
         {
           src:
-            "https://image.shutterstock.com/z/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg",
+            "https://cdn.archilovers.com/projects/c_383_1d327551-45b1-401b-b281-3cb7dc6f271f.jpg",
+        },
+        {
+          src:
+            "https://cdn.archilovers.com/projects/c_383_57d7daff-e586-4a1b-83b3-8d5bf0f8e070.jpg",
         },
       ]}
     />
