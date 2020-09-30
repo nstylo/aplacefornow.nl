@@ -1,4 +1,5 @@
 # A Place For now: frontend repository
+install packages with npm install
 
 run the development server with `npm start`.
 
