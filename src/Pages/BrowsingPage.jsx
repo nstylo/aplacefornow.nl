@@ -1,7 +1,23 @@
 import React from "react"
 import styled from "styled-components"
-import { Card, Typography, Avatar } from "@material-ui/core"
-import { Tag, Rating } from "lib"
+import {
+  Card,
+  Paper,
+  Typography,
+  Avatar,
+  InputBase,
+  Divider,
+  IconButton,
+  Link,
+} from "@material-ui/core"
+import { Tag, Rating, Button as IButton } from "lib"
+
+import {
+  Search as SearchIcon,
+  Sort as SortIcon,
+  FilterList as FilterListIcon,
+  Map as MapIcon,
+} from "@material-ui/icons"
 
 const AdCard = styled(Card).attrs(() => ({
   elevation: 2,
@@ -106,7 +122,6 @@ const AdSection = styled.div`
   justify-content: center;
   align-content: space-between;
   width: 100%;
-  margin-top: 160px;
 
   & > * {
     margin: 16px 16px;
@@ -114,18 +129,108 @@ const AdSection = styled.div`
 `
 // TODO align last item to the left, probably needs a hack
 
+const OptionSection = styled.div`
+  width: 100%;
+  margin-bottom: 60px;
+`
+
+const OptionRow = styled.div`
+  display: flex;
+  width: 100%;
+
+  & > * {
+    margin: 16px 3px;
+  }
+`
+
+const SearchBar = () => {
+  return (
+    <Paper
+      component="form"
+      style={{
+        padding: "2px 4px",
+        display: "flex",
+        alignItems: "center",
+        height: "64px",
+        width: "850px",
+        borderRadius: "20px",
+      }}
+    >
+      <InputBase
+        placeholder="City or university"
+        inputProps={{ "aria-label": "TODO" }}
+        style={{ flex: 2, paddingLeft: "12px" }}
+      />
+      <Divider
+        orientation="vertical"
+        style={{ margin: "4px", height: "80%" }}
+      />
+      <InputBase
+        placeholder="Check in - Check out"
+        inputProps={{ "aria-label": "TODO" }}
+        style={{ flex: 1, paddingLeft: "12px" }}
+      />
+      <IconButton type="submit" style={{ padding: "10px" }} aria-label="search">
+        <SearchIcon />
+      </IconButton>
+    </Paper>
+  )
+}
+
+const Button = styled(IButton).attrs(() => ({
+  variant: "outlined",
+  color: "primary",
+}))`
+  line-height: unset;
+  padding: 0 38px;
+  font-weight: 600;
+`
+
 export default () => {
   return (
-    <AdSection>
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-      <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
-    </AdSection>
+    <div style={{ marginTop: "160px" }}>
+      <OptionSection>
+        <OptionRow>
+          <SearchBar />
+          <Link
+            variant="subtitle2"
+            component="button"
+            style={{
+              marginLeft: "auto",
+              display: "flex",
+              alignItems: "center",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <MapIcon style={{ marginRight: "10px ", padding: "3px" }} />
+            Show map view
+          </Link>
+        </OptionRow>
+        <OptionRow>
+          <Button>Type of place</Button>
+          <Button>Price</Button>
+          <Button>Distance</Button>
+          <Button>
+            More filters
+            <FilterListIcon style={{ marginLeft: "10px " }} />
+          </Button>
+          <Button style={{ marginLeft: "auto" }}>
+            Sort
+            <SortIcon style={{ marginLeft: "10px " }} />
+          </Button>
+        </OptionRow>
+      </OptionSection>
+      <AdSection>
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+        <Ad location="Eindhoven" text="Cozy Room" rating={4.5} price={12} />
+      </AdSection>
+    </div>
   )
 }
