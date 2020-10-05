@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { login } from "../Misc/Api"
+import { useHistory } from "react-router-dom"
 
 // material ui components
 import {
@@ -28,12 +29,26 @@ export default () => {
   const [params, setParams] = useQuery()
   const [error, setError] = useState(null)
 
+  let history = useHistory()
+
   // TODO
   const handleLogin = async e => {
     e.preventDefault()
-    await login({ method: "login", creds: { email, password } })
-    setEmail("")
-    setPassword("")
+    const response = await login({ email, password })
+
+    switch (response.name) {
+      case "LOGIN_OK":
+        setEmail("")
+        setPassword("")
+        history.push("/browse")
+        break
+      case "INVALID_CREDENTIALS":
+        // TODO: use backend error message?
+        setError("Wrong password and/or email address.")
+        break
+      default:
+        setError("Something went wrong, please try again.")
+    }
   }
 
   return (
