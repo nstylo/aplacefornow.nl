@@ -1,8 +1,9 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { Router, Route, Switch } from "react-router-dom"
 import { ThemeProvider } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Lightbox from "simple-react-lightbox"
+import history from "./history"
 
 // theme
 import { theme } from "./theme"
@@ -18,13 +19,12 @@ import ModalRoot from "./Misc/ModalRoot"
 
 // routes
 import LayoutRoute from "./Misc/LayoutRoute"
-// import { ProtectedRoute } from "./Misc/ProtectedRoute"
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Lightbox>
-        <Router>
+        <Router history={history}>
           <CssBaseline />
           <ModalRoot />
           <Switch>

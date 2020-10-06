@@ -22,7 +22,7 @@ import { useQuery } from "../Misc/Hooks"
 // icons
 import { Close as CloseIcon } from "@material-ui/icons"
 
-export default () => {
+export default ({ routeTo }) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [disabled, setDisabled] = useState(false)
@@ -40,7 +40,13 @@ export default () => {
       case "LOGIN_OK":
         setEmail("")
         setPassword("")
-        history.push("/browse")
+
+        if (routeTo) {
+          history.push(routeTo)
+        } else {
+          history.push("/browse")
+        }
+
         break
       case "INVALID_CREDENTIALS":
         // TODO: use backend error message?
