@@ -122,6 +122,7 @@ export default ({ children, ...props }) => {
   }
 
   const handleLogin = event => {
+    setParams("routeTo", "/browse")
     setParams("modal", "login")
   }
 

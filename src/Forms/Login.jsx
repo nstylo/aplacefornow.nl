@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { login } from "../Misc/Api"
+import { useHistory } from "react-router-dom"
 
 // material ui components
 import {
@@ -21,19 +22,39 @@ import { useQuery } from "../Misc/Hooks"
 // icons
 import { Close as CloseIcon } from "@material-ui/icons"
 
-export default () => {
+export default ({ routeTo }) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [disabled, setDisabled] = useState(false)
   const [params, setParams] = useQuery()
   const [error, setError] = useState(null)
 
+  let history = useHistory()
+
   // TODO
   const handleLogin = async e => {
     e.preventDefault()
-    await login({ method: "login", creds: { email, password } })
-    setEmail("")
-    setPassword("")
+    const response = await login({ email, password })
+
+    switch (response.name) {
+      case "LOGIN_OK":
+        setEmail("")
+        setPassword("")
+
+        if (routeTo) {
+          history.push(routeTo)
+        } else {
+          history.push("/browse")
+        }
+
+        break
+      case "INVALID_CREDENTIALS":
+        // TODO: use backend error message?
+        setError("Wrong password and/or email address.")
+        break
+      default:
+        setError("Something went wrong, please try again.")
+    }
   }
 
   return (

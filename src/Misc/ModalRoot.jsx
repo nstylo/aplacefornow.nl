@@ -10,7 +10,7 @@ export default () => {
 
   switch (params.get("modal")) {
     case "login":
-      return <Login />
+      return <Login routeTo={params.get("routeTo")} />
     case "signup":
       return <SignUp />
     case "resetpw":
