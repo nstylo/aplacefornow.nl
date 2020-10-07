@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { signUp } from "../Misc/Api"
+import { useHistory } from "react-router-dom"
 
 // material ui components
 import {
@@ -26,21 +28,49 @@ import { Close as CloseIcon } from "@material-ui/icons"
 export default () => {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
-  const [role, setRole] = useState("")
+  const [role, setRole] = useState("STUDENT") // STUDENT <or> HOST
   const [mail, setMail] = useState("")
   const [mailConf, setMailConf] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConf, setPasswordConf] = useState("")
+  const [errors, setErrors] = useState({})
   const [params, setParams] = useQuery()
-
+  let history = useHistory()
   const matches = useMediaQuery(theme => theme.breakpoints.down("xs"))
+
+  const handleSignUp = async e => {
+    e.preventDefault()
+    const response = await signUp({
+      email: mail,
+      password,
+      confEmail: mailConf,
+      confPassword: passwordConf,
+      name: firstName,
+      surname: lastName,
+      type: role,
+    })
+
+    console.log(response)
+
+    switch (response.name) {
+      case "USER_CREATED":
+        history.push("/?modal=login")
+        break
+      case "USER_EXISTS":
+        setErrors() // TODO
+        break
+      default:
+      // should never happen
+      // TODO: maybe setError?
+    }
+  }
 
   return (
     <Modal>
       <AuthDialog
         open={params.get("modal") === "signup" ? true : false}
         setOpen={() => setParams("modal", null)}
-        onSubmit={e => e.preventDefault()} // TODO: handle signup
+        onSubmit={handleSignUp}
       >
         <IconButton
           aria-label="close signup popup"
@@ -86,7 +116,7 @@ export default () => {
             }}
           >
             <FormControlLabel
-              value="tentant"
+              value="STUDENT"
               label={
                 <Typography variant="h4" color="primary">
                   Tentant
@@ -95,7 +125,7 @@ export default () => {
               control={<Radio color="primary" />}
             />
             <FormControlLabel
-              value="host"
+              value="HOST"
               label={
                 <Typography variant="h4" color="secondary">
                   Host
