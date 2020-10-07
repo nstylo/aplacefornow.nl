@@ -9,7 +9,7 @@ import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
 
 // material ui components
-import { Typography, TextField, Link, IconButton } from "@material-ui/core"
+import { Typography, TextField, Link } from "@material-ui/core"
 
 // icons
 import { ArrowBackIos as BackIcon } from "@material-ui/icons"
@@ -47,17 +47,14 @@ export default () => {
         open={params.get("modal") === "forgotpw" ? true : false}
         setOpen={() => setParams("modal", null)}
         onSubmit={handleForgotPassword}
+        onClose={() => setParams("modal", "login")}
+        closeButton={
+          <>
+            <BackIcon style={{ width: "20px", height: "auto" }} />
+            <Typography variant="body2">Back</Typography>
+          </>
+        }
       >
-        <IconButton
-          aria-label="back to login"
-          onClick={() => {
-            setParams("modal", "login")
-          }}
-          style={{ position: "absolute", top: "8px", left: "1.5%" }}
-        >
-          <BackIcon style={{ width: "20px", height: "auto" }} />
-          <Typography variant="body2">Back</Typography>
-        </IconButton>
         <Typography
           variant="h2"
           color="primary"

@@ -7,10 +7,7 @@ import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
 
 // material ui components
-import { Typography, IconButton } from "@material-ui/core"
-
-// icons
-import { Close as CloseIcon } from "@material-ui/icons"
+import { Typography } from "@material-ui/core"
 
 export default () => {
   const [password, setPassword] = useState("")
@@ -24,15 +21,6 @@ export default () => {
         setOpen={() => setParams("modal", null)}
         onSubmit={e => e.preventDefault()} // TODO: handle reset
       >
-        <IconButton
-          aria-label="close password reset popup"
-          onClick={() => {
-            setParams("modal", null)
-          }}
-          style={{ position: "absolute", top: "8px", left: "1.5%" }}
-        >
-          <CloseIcon />
-        </IconButton>
         <Typography
           variant="h2"
           color="primary"
