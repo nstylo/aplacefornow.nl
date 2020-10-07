@@ -8,7 +8,6 @@ import {
   Typography,
   TextField,
   FormControlLabel,
-  IconButton,
   Checkbox,
   Link,
 } from "@material-ui/core"
@@ -18,9 +17,6 @@ import AuthDialog from "../Misc/AuthDialog"
 import { Button, PasswordTextField } from "lib"
 import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
-
-// icons
-import { Close as CloseIcon } from "@material-ui/icons"
 
 export default ({ routeTo }) => {
   const [email, setEmail] = useState("")
@@ -64,15 +60,6 @@ export default ({ routeTo }) => {
         setOpen={() => setParams(("modal": null))}
         onSubmit={handleLogin}
       >
-        <IconButton
-          aria-label="close login popup"
-          onClick={() => {
-            setParams("modal", null)
-          }}
-          style={{ position: "absolute", top: "8px", left: "1.5%" }}
-        >
-          <CloseIcon />
-        </IconButton>
         <Typography
           variant="h2"
           color="primary"

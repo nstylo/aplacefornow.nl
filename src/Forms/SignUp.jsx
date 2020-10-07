@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom"
 import {
   Typography,
   TextField,
-  IconButton,
   Checkbox,
   FormControlLabel,
   Link,
@@ -21,9 +20,6 @@ import AuthDialog from "../Misc/AuthDialog"
 import { Button, PasswordTextField } from "lib"
 import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
-
-// icons
-import { Close as CloseIcon } from "@material-ui/icons"
 
 export default () => {
   const [firstName, setFirstName] = useState("")
@@ -72,15 +68,6 @@ export default () => {
         setOpen={() => setParams("modal", null)}
         onSubmit={handleSignUp}
       >
-        <IconButton
-          aria-label="close signup popup"
-          onClick={() => {
-            setParams("modal", null)
-          }}
-          style={{ position: "absolute", top: "8px", left: "1.5%" }}
-        >
-          <CloseIcon />
-        </IconButton>
         <Typography
           variant="h2"
           color="primary"
