@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { forgotPw } from "Misc/Api"
 
 // custom components
 import AuthDialog from "../Misc/AuthDialog"
@@ -15,14 +16,37 @@ import { ArrowBackIos as BackIcon } from "@material-ui/icons"
 
 export default () => {
   const [mail, setMail] = useState("")
+  const [error, setError] = useState(null)
   const [params, setParams] = useQuery()
+
+  const handleForgotPassword = async e => {
+    e.preventDefault()
+    setError(null)
+    const response = await forgotPw(mail)
+
+    console.log(response)
+
+    switch (response.name) {
+      case "INVALID_CREDENTIALS_EMAIL":
+        setError("Email provided is not valid.")
+        break
+      case "USER_NOT_EXISTS":
+        setError("This Email does not exist in our system.")
+        break
+      case "USER_PASSWORD_RESET_LINK_SENT":
+        // TODO: show notification popup
+        break
+      default:
+        setError("Something went wrong, please try again.")
+    }
+  }
 
   return (
     <Modal>
       <AuthDialog
         open={params.get("modal") === "forgotpw" ? true : false}
         setOpen={() => setParams("modal", null)}
-        onSubmit={e => e.preventDefault()} // handle forgotpw
+        onSubmit={handleForgotPassword}
       >
         <IconButton
           aria-label="back to login"
@@ -46,6 +70,8 @@ export default () => {
           in the email we send you to reset your password.
         </Typography>
         <TextField
+          error={error ? true : false}
+          helperText={error}
           label="Email Address"
           value={mail}
           onChange={e => setMail(e.target.value)}

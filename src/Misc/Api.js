@@ -10,12 +10,22 @@ export async function login(data = {}) {
     .catch(err => err)
 }
 
+// TODO: very similar to login
 export async function signUp(data = {}) {
   return await fetch(`${process.env.REACT_APP_API_URL}register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   })
+    .then(response => response.json())
+    .catch(err => err)
+}
+
+export async function forgotPw(email) {
+  return await fetch(
+    `${process.env.REACT_APP_API_URL}auth/password/reset/${email}`,
+    { method: "GET" }
+  )
     .then(response => response.json())
     .catch(err => err)
 }
