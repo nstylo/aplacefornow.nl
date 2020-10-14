@@ -14,7 +14,7 @@ import { breakpoints } from "../theme"
 function BannerTUe() {
   return (
   <Container >
-    <NewBannerImage src={UBannerImage}/>
+    <BannerImage src={UBannerImage}/>
     <BackgroundGradient src={BackgroundGradient}/>
         
     <TUeTitle>A SERVICE ENDORSED <br/> BY UNIVERSITIES</TUeTitle> 
@@ -24,41 +24,30 @@ function BannerTUe() {
   )
 }
 
-const NewBannerImage = styled(BannerImage)`
-margin: 0px;
-`
-
 const TUeLogo = styled(UTUeLogo)`
 position: absolute;
 left: 3.79%;
 right: 56.36%;
 top: 64%;
 bottom: 21.53%;
-
 width: 29.75vw;
-`
 
-const NewButton = styled(Button)`
-position: absolute;
-left: 3.79%;
-right: 84.79%;
-top: 64%;
-bottom: 31%;
+@media (max-width: ${breakpoints.md}px) {
+  right: 66.88%;
+  top: 59%;
+  bottom: 25.34%;
+}
 
-font-family: Karla;
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-line-height: 21px;
-display: flex;
-align-items: center;
-text-align: center;
+@media (max-width: ${breakpoints.mds}px) {
+  top: 55%;
+}
 
-border: 1.5px solid #FFFFFF;
-box-sizing: border-box;
-border-radius: 20px;
+@media (max-width: ${breakpoints.xs}px) {
+  width:55vw;
+  left: initial;
+  right: initial;
+}
 
-color: #FFFFFF;
 `
 
 const TUeTitle = styled(Title)`
@@ -71,6 +60,13 @@ top: 34.25%;
 bottom: 36%;
 
 width:100%;
+height: auto;
+
+@media (max-width: ${breakpoints.xs}px) {
+  left:0px;
+  right:0px;
+}
+}
 `
 
 export default BannerTUe

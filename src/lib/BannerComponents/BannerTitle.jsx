@@ -10,6 +10,9 @@ line-height: 75px;
 display: flex;
 align-items: center;
 
+width:100%;
+height:auto;
+
 text-align: start;
 
 /* White */

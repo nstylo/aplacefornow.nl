@@ -15,7 +15,7 @@ export default () => {
   return (
   <Home>
   <HomeBanner>
-    <MyCarousel showArrows={false} autoplay={true} stopOnHover={false} swipeable={true}>
+    <MyCarousel showArrows={false} autoplay={true} stopOnHover={false} swipeable={true} showStatus={false}>
       <div>
         <BannerWelcome/>
       </div>

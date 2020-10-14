@@ -12,7 +12,7 @@ import { breakpoints } from "../theme"
 function BannerWelcome() {
   return (
   <Container>
-    <BannerImage src={UBannerImage}/>
+    <WelcomeBannerImage src={UBannerImage}/>
     <BackgroundGradient src={BackgroundGradient}/>
         
     <WelcomeTitle>WELCOME TO <br/> A PLACE FOR NOW</WelcomeTitle> 
@@ -39,6 +39,15 @@ const SubTitle = styled.div`
 
   /* White */
   color: #FFFFFF;
+
+  @media (max-width: ${breakpoints.mds}px) {
+    font-size:24px;
+    line-height:45.76px;
+  }
+
+  @media (max-width: ${breakpoints.xs}px) {
+    top:70%;
+  }
 `
 
 const WelcomeTitle = styled(Title)`
@@ -50,9 +59,17 @@ const WelcomeTitle = styled(Title)`
   top: 34.25%;
   bottom: 36%;
 
-  width: 58.59vw;
-  heigh: 29vh;
-  
+  @media (max-width: ${breakpoints.xs}px) {
+    left:0px;
+    right:0px;
+  }
 `
 
+const WelcomeBannerImage = styled(BannerImage)`
+@media (max-width: ${breakpoints.xs}px) {
+  width: 150% !important;
+  position: absolute !important;
+  left: -180px !important;
+}
+`
 export default BannerWelcome

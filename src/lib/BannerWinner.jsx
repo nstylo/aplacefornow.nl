@@ -16,7 +16,7 @@ function BannerWinner() {
     <NewBannerImage src={UBannerImage}/>
     <BackgroundGradient src={BackgroundGradient}/>
         
-    <NewButton style={{minWidth: '160px'}}>Read more</NewButton>
+    <NewButton style={{minWidth: '160px' , minHeight: '40px'}}>Read more</NewButton>
     <WinnerTitle>TU/E CONTEST <br/> AUDIENCE AWARD WINNER</WinnerTitle> 
     <SideRectangle/>
   </Container>
@@ -48,6 +48,13 @@ box-sizing: border-box;
 border-radius: 20px;
 
 color: #FFFFFF;
+
+@media (max-width: ${breakpoints.xs}px) {
+  left:initial;
+  right:initial;
+  top: 61vh;
+  bottom: 33vh;
+}
 `
 
 const WinnerTitle = styled(Title)`
@@ -58,6 +65,11 @@ left: 3.79%;
 right: 26.5%;
 top: 34.25%;
 bottom: 36%;
+
+@media (max-width: ${breakpoints.xs}px) {
+  left:0px;
+  right:0px;
+}
 `
 
 export default BannerWinner
