@@ -15,7 +15,6 @@ import {
 // custom components
 import AuthDialog from "../Misc/AuthDialog"
 import { Button, PasswordTextField } from "lib"
-import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
 
 export default ({ routeTo }) => {
@@ -54,72 +53,66 @@ export default ({ routeTo }) => {
   }
 
   return (
-    <Modal>
-      <AuthDialog
-        open={params.get("modal") === "login" ? true : false}
-        setOpen={() => setParams(("modal": null))}
-        onSubmit={handleLogin}
+    <AuthDialog
+      open={params.get("modal") === "login" ? true : false}
+      setOpen={() => setParams(("modal": null))}
+      onSubmit={handleLogin}
+    >
+      <Typography variant="h2" color="primary" style={{ textAlign: "center" }}>
+        Log In
+      </Typography>
+      <TextField
+        id="email"
+        value={email}
+        error={error ? true : false}
+        disabled={disabled}
+        helperText={error}
+        label="Email Address"
+        onChange={e => setEmail(e.target.value)}
+      />
+      <PasswordTextField
+        id="password"
+        value={password}
+        error={error ? true : false}
+        disabled={disabled}
+        helperText={error}
+        label="Password"
+        onChange={e => setPassword(e.target.value)}
+      />
+      <HelperBar>
+        <FormControlLabel
+          control={<Checkbox color="primary" disabled={disabled} />}
+          label="Remember me"
+        />
+        <Link
+          onClick={() => {
+            setParams("modal", "forgotpw")
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          <Typography variant="body1">Forgot Password</Typography>
+        </Link>
+      </HelperBar>
+      <Button
+        variant="outlined"
+        color="primary"
+        type="submit"
+        disabled={disabled}
       >
-        <Typography
-          variant="h2"
-          color="primary"
-          style={{ textAlign: "center" }}
+        Log in
+      </Button>
+      <Typography variant="body1" style={{ paddingTop: "30px" }}>
+        Don't have an account?
+        <Link
+          onClick={() => {
+            setParams("modal", "signup")
+          }}
+          style={{ paddingLeft: "10px", cursor: "pointer" }}
         >
-          Log In
-        </Typography>
-        <TextField
-          id="email"
-          value={email}
-          error={error ? true : false}
-          disabled={disabled}
-          helperText={error}
-          label="Email Address"
-          onChange={e => setEmail(e.target.value)}
-        />
-        <PasswordTextField
-          id="password"
-          value={password}
-          error={error ? true : false}
-          disabled={disabled}
-          helperText={error}
-          label="Password"
-          onChange={e => setPassword(e.target.value)}
-        />
-        <HelperBar>
-          <FormControlLabel
-            control={<Checkbox color="primary" disabled={disabled} />}
-            label="Remember me"
-          />
-          <Link
-            onClick={() => {
-              setParams("modal", "forgotpw")
-            }}
-            style={{ cursor: "pointer" }}
-          >
-            <Typography variant="body1">Forgot Password</Typography>
-          </Link>
-        </HelperBar>
-        <Button
-          variant="outlined"
-          color="primary"
-          type="submit"
-          disabled={disabled}
-        >
-          Log in
-        </Button>
-        <Typography variant="body1" style={{ paddingTop: "30px" }}>
-          Don't have an account?
-          <Link
-            onClick={() => {
-              setParams("modal", "signup")
-            }}
-            style={{ paddingLeft: "10px", cursor: "pointer" }}
-          >
-            Sign Up
-          </Link>
-        </Typography>
-      </AuthDialog>
-    </Modal>
+          Sign Up
+        </Link>
+      </Typography>
+    </AuthDialog>
   )
 }
 
