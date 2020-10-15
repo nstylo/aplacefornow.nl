@@ -24,8 +24,6 @@ export default () => {
     setError(null)
     const response = await forgotPw(mail)
 
-    console.log(response)
-
     switch (response.name) {
       case "INVALID_CREDENTIALS_EMAIL":
         setError("Email provided is not valid.")
@@ -34,6 +32,7 @@ export default () => {
         setError("This Email does not exist in our system.")
         break
       case "USER_PASSWORD_RESET_LINK_SENT":
+        setMail("")
         // TODO: show notification popup
         break
       default:
