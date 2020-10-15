@@ -36,7 +36,8 @@ export default () => {
 
   const handleSignUp = async e => {
     e.preventDefault()
-    const response = await signUp({
+
+    const { name, message } = await signUp({
       email: mail,
       password,
       confEmail: mailConf,
@@ -46,14 +47,20 @@ export default () => {
       type: role,
     })
 
-    console.log(response)
-
-    switch (response.name) {
+    switch (name) {
       case "USER_CREATED":
+        // TODO: send notification
         history.push("/?modal=login")
         break
       case "USER_EXISTS":
-        setErrors() // TODO
+        setErrors({ email: "User already exists" })
+        break
+      case "BAD_FORMAT":
+        // extract errors
+        Object.keys(message).forEach(key => {
+          message[key] = message[key][0]
+        })
+        setErrors(message)
         break
       default:
       // should never happen
@@ -123,24 +130,32 @@ export default () => {
           </div>
         </RadioGroup>
         <TextField
+          error={errors?.email}
+          helperText={errors?.email}
           id="email"
           value={mail}
           label="Email Address"
           onChange={e => setMail(e.target.value)}
         />
         <TextField
+          error={errors?.emailConf}
+          helperText={errors?.emailConf}
           id="email confirmation"
           value={mailConf}
           label="Email Confirmation"
           onChange={e => setMailConf(e.target.value)}
         />
         <PasswordTextField
+          error={errors?.password}
+          helperText={errors?.password}
           id="password"
           value={password}
           label="Password"
           onChange={e => setPassword(e.target.value)}
         />
         <PasswordTextField
+          error={errors?.passwordConf}
+          helperText={errors?.passwordConf}
           id="password confirmation"
           value={passwordConf}
           label="Password Confirmation"
