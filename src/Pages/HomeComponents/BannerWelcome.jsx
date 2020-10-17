@@ -1,18 +1,26 @@
 import React from "react"
 import styled from "styled-components"
-import UBannerImage from "../Assets/Home/BannerPicture.png"
+
+import UBannerImage from "../../Assets/Home/BannerPicture.png"
+import SmallBannerImage from "../../Assets/Home/welcome_phone.png"
+
 import {Container} from "./BannerComponents/BannerContainer"
 import {BannerImage} from "./BannerComponents/BannerImageStyle"
 import {BackgroundGradient} from "./BannerComponents/BannerBackgroundGradient"
 import {SideRectangle} from "./BannerComponents/BannerSideRectangle"
 import {Title} from "./BannerComponents/BannerTitle"
 
-import { breakpoints } from "../theme"
+import { breakpoints } from "../../theme"
 
 function BannerWelcome() {
   return (
   <Container>
-    <WelcomeBannerImage src={UBannerImage}/>
+
+    <picture>
+      <source media="(max-width: 480px)" srcset={SmallBannerImage}/>
+      <source media="(min-width: 481px)" srcset={UBannerImage}/>
+      <BannerImage src={UBannerImage}/>
+    </picture>
     <BackgroundGradient src={BackgroundGradient}/>
         
     <WelcomeTitle>WELCOME TO <br/> A PLACE FOR NOW</WelcomeTitle> 
@@ -46,6 +54,10 @@ const SubTitle = styled.div`
   }
 
   @media (max-width: ${breakpoints.xs}px) {
+    top:80%;
+  }
+
+  @media (max-width: ${breakpoints.xs}px) and (max-height:430px) {
     top:70%;
   }
 `
@@ -63,13 +75,5 @@ const WelcomeTitle = styled(Title)`
     left:0px;
     right:0px;
   }
-`
-
-const WelcomeBannerImage = styled(BannerImage)`
-@media (max-width: ${breakpoints.xs}px) {
-  width: 150% !important;
-  position: absolute !important;
-  left: -180px !important;
-}
 `
 export default BannerWelcome

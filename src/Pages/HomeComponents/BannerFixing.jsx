@@ -1,19 +1,28 @@
 import React from "react"
 import styled from "styled-components"
-import UBannerImage from "../Assets/Home/BannerPicture2.png"
-import {Button} from "./Button.jsx"
+
+import UBannerImage from "../../Assets/Home/BannerPicture2.png"
+import SmallBannerImage from "../../Assets/Home/fixing_phone.png"
+
+import {Button} from "../../lib/Button.jsx"
+
 import {Container} from "./BannerComponents/BannerContainer"
 import {BannerImage} from "./BannerComponents/BannerImageStyle"
 import {BackgroundGradient} from "./BannerComponents/BannerBackgroundGradient"
 import {SideRectangle} from "./BannerComponents/BannerSideRectangle"
 import {Title} from "./BannerComponents/BannerTitle"
 
-import { breakpoints } from "../theme"
+import { breakpoints } from "../../theme"
 
 function BannerFixing() {
   return (
   <Container>
-    <BannerImage src={UBannerImage}/>
+    <picture>
+      <source media="(max-width: 480px)" srcset={SmallBannerImage}/>
+      <source media="(min-width: 481px)" srcset={UBannerImage}/>
+      <BannerImage src={UBannerImage}/>
+    </picture>
+
     <BackgroundGradient src={BackgroundGradient}/>
         
     <FixingTitle>FIXING ISSUES ONE STUDENT <br/> AT A TIME</FixingTitle> 

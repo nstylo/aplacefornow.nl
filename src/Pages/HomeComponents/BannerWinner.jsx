@@ -1,19 +1,29 @@
 import React from "react"
 import styled from "styled-components"
-import UBannerImage from "../Assets/Home/BannerPicture3.png"
-import {Button} from "./Button.jsx"
+
+import UBannerImage from "../../Assets/Home/BannerPicture3.png"
+import SmallBannerImage from "../../Assets/Home/win_phone.png"
+
+import {Button} from "../../lib/Button.jsx"
+
 import {Container} from "./BannerComponents/BannerContainer"
 import {BannerImage} from "./BannerComponents/BannerImageStyle"
 import {BackgroundGradient} from "./BannerComponents/BannerBackgroundGradient"
 import {SideRectangle} from "./BannerComponents/BannerSideRectangle"
 import {Title} from "./BannerComponents/BannerTitle"
 
-import { breakpoints } from "../theme"
+import { breakpoints } from "../../theme"
 
 function BannerWinner() {
   return (
   <Container>
-    <NewBannerImage src={UBannerImage}/>
+    <picture>
+      <source media="(max-width: 480px)" srcset={SmallBannerImage}/>
+      <source media="(min-width: 481px)" srcset={UBannerImage}/>
+      <NewBannerImage src={UBannerImage}/>
+    </picture>
+
+
     <BackgroundGradient src={BackgroundGradient}/>
         
     <NewButton style={{minWidth: '160px' , minHeight: '40px'}}>Read more</NewButton>

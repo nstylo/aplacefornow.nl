@@ -1,15 +1,19 @@
 import React from "react"
-
 import styled from "styled-components"
-import BannerWelcome from "../lib/BannerWelcome.jsx"
-import BannerFixing from "../lib/BannerFixing.jsx"
-import BannerWinner from "../lib/BannerWinner.jsx"
-import BannerTUe from "../lib/BannerTUe.jsx"
+
+import BannerWelcome from "./HomeComponents/BannerWelcome.jsx"
+import BannerFixing from "./HomeComponents/BannerFixing.jsx"
+import BannerWinner from "./HomeComponents/BannerWinner.jsx"
+import BannerTUe from "./HomeComponents/BannerTUe.jsx"
+import HomeContent from "./HomeComponents/HomeContent"
+
+import UScrollDownIcon from '../Assets/Home/ScrollDownIcon.png';
 
 import { breakpoints } from "../theme"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import {Button} from "../lib/Button.jsx"
 
 export default () => {
   return (
@@ -31,13 +35,35 @@ export default () => {
       <div>
         <BannerWinner/>
       </div>
-
     </MyCarousel>
+
+    <ScrollDownIcon src={UScrollDownIcon}/>
+
   </HomeBanner>
+  <HomeContent/>
   </Home>
   )
 }
 
+const ScrollDownIcon = styled.img`
+position: relative; 
+left: 50%; 
+right: 50%; 
+height: 9px;
+width: 16px;
+scale: 4; 
+top: -12vh; 
+
+@media (max-width: ${breakpoints.md}px) {
+  height: 6px; 
+  width: 10.67px; 
+}
+
+@media (max-width: ${breakpoints.xs}px) {
+  height: 4.5px; 
+  width: 8px; 
+}
+`
 const HomeBanner = styled.div.attrs({className: "home-banner"})`
   position: absolute;
   width: 100vw;
@@ -101,6 +127,19 @@ div.carousel:nth-child(1) {
 .control-dots {
   right: 5.3vw;
   bottom: 5.9vh;
+}
+
+@media (max-width: ${breakpoints.xs}px) {
+  .control-dots {
+    right: -10.7vw;
+    scale: 0.7;
+    bottom: 1vh;
+  }
+
+  .carousel .slide img {
+    height: initial;
+    width: 100vw;
+  }
 }
 
 `

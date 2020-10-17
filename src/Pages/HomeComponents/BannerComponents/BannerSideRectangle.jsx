@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { breakpoints } from "../../theme"
+import { breakpoints } from "../../../theme.js"
 
 export const SideRectangle = styled.div`
 height: 25vh;
