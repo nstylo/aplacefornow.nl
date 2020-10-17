@@ -2,11 +2,20 @@ import styled from "styled-components"
 import { breakpoints } from "../../../theme.js"
 
 export const Title = styled.div`
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
+/* karla-700 - latin */
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Karla Bold'), local('Karla-Bold'),
+       url('Fonts/karla-v13-latin-700.woff2') format('woff2'),
+       url('Fonts/karla-v13-latin-700.woff') format('woff'), 
+
+}
 
 font-family: Karla;
 font-style: normal;
-font-weight: bold;
+font-weight: 700;
 
 font-size: 64px;
 line-height: 75px;
