@@ -1,18 +1,7 @@
 import styled from "styled-components"
-import { breakpoints } from "../../../theme.js"
+import { breakpoints } from "../../../../theme"
 
 export const Title = styled.div`
-/* karla-700 - latin */
-@font-face {
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Karla Bold'), local('Karla-Bold'),
-       url('Fonts/karla-v13-latin-700.woff2') format('woff2'),
-       url('Fonts/karla-v13-latin-700.woff') format('woff'), 
-
-}
-
 font-family: Karla;
 font-style: normal;
 font-weight: 700;

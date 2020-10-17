@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 
-import UBannerImage from "../../Assets/Home/BannerPicture3.png"
-import SmallBannerImage from "../../Assets/Home/win_phone.png"
+import UBannerImage from "../BannerPicture2.png"
+import SmallBannerImage from "../fixing_phone.png"
 
-import {Button} from "../../lib/Button.jsx"
+import {Button} from "../../../lib/Button.jsx"
 
 import {Container} from "./BannerComponents/BannerContainer"
 import {BannerImage} from "./BannerComponents/BannerImageStyle"
@@ -12,37 +12,37 @@ import {BackgroundGradient} from "./BannerComponents/BannerBackgroundGradient"
 import {SideRectangle} from "./BannerComponents/BannerSideRectangle"
 import {Title} from "./BannerComponents/BannerTitle"
 
-import { breakpoints } from "../../theme"
+import { breakpoints } from "../../../theme"
 
-function BannerWinner() {
+function BannerFixing() {
   return (
   <Container>
     <picture>
       <source media="(max-width: 480px)" srcset={SmallBannerImage}/>
       <source media="(min-width: 481px)" srcset={UBannerImage}/>
-      <NewBannerImage src={UBannerImage}/>
+      <BannerImage src={UBannerImage}/>
     </picture>
-
 
     <BackgroundGradient src={BackgroundGradient}/>
         
-    <NewButton style={{minWidth: '160px' , minHeight: '40px'}}>Read more</NewButton>
-    <WinnerTitle>TU/E CONTEST <br/> AUDIENCE AWARD WINNER</WinnerTitle> 
+    <FixingTitle>FIXING ISSUES ONE STUDENT <br/> AT A TIME</FixingTitle> 
+    <NewButton style={{minWidth: '206px', minHeight: '40px'}}>Browse our offers</NewButton>
     <SideRectangle/>
+
   </Container>
   )
 }
 
-const NewBannerImage = styled(BannerImage)`
-margin: 0px;
-`
-
 const NewButton = styled(Button)`
 position: absolute;
 left: 3.79%;
-right: 84.79%;
-top: 64%;
-bottom: 31%;
+right: 81.5%;
+top: 64.12%;
+bottom: 30.88%;
+
+border: 1.5px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 20px;
 
 font-family: Karla;
 font-style: normal;
@@ -52,10 +52,6 @@ line-height: 21px;
 display: flex;
 align-items: center;
 text-align: center;
-
-border: 1.5px solid #FFFFFF;
-box-sizing: border-box;
-border-radius: 20px;
 
 color: #FFFFFF;
 
@@ -67,7 +63,7 @@ color: #FFFFFF;
 }
 `
 
-const WinnerTitle = styled(Title)`
+const FixingTitle = styled(Title)`
 /* FIXING ISSUES ONE STUDENT AT A TIME */
 
 position: absolute;
@@ -80,6 +76,8 @@ bottom: 36%;
   left:0px;
   right:0px;
 }
+
 `
 
-export default BannerWinner
+
+export default BannerFixing

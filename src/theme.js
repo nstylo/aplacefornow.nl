@@ -48,6 +48,19 @@ import BrandonBlackWoff from "./Fonts/BrandonGrotesque-Black.woff"
 import BrandonBlackItalicWoff2 from "./Fonts/BrandonGrotesque-BlackItalic.woff2"
 import BrandonBlackItalicWoff from "./Fonts/BrandonGrotesque-BlackItalic.woff"
 
+import KarlaBoldWoff2 from "./Fonts/karla-v13-latin-700.woff2"
+import KarlaBoldWoff from "./Fonts/karla-v13-latin-700.woff"
+
+const karla_bold = {
+  fontFamily: "Karla",
+  fontStyle: "normal",
+  fontWeight: 700,
+  src: `
+    url(${KarlaBoldWoff2}) format('woff2'),
+    url(${KarlaBoldWoff}) format('woff')
+  `, 
+}
+
 const brandon_thin = {
   fontFamily: "Brandon Grotesque",
   fontStyle: "normal",
@@ -258,6 +271,7 @@ export const theme = createMuiTheme({
     MuiCssBaseline: {
       "@global": {
         "@font-face": [
+          karla_bold,
           brandon_thin,
           brandon_thin_italic,
           brandon_light,

@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 
-import BannerWelcome from "./HomeComponents/BannerWelcome.jsx"
-import BannerFixing from "./HomeComponents/BannerFixing.jsx"
-import BannerWinner from "./HomeComponents/BannerWinner.jsx"
-import BannerTUe from "./HomeComponents/BannerTUe.jsx"
-import HomeContent from "./HomeComponents/HomeContent"
+import BannerWelcome from "Assets/Home/HomeComponents/BannerWelcome"
+import BannerFixing from "Assets/Home/HomeComponents/BannerFixing.jsx"
+import BannerWinner from "Assets/Home/HomeComponents/BannerWinner.jsx"
+import BannerTUe from "Assets/Home/HomeComponents/BannerTUe.jsx"
+import HomeContent from "Assets/Home/HomeComponents/HomeContent"
 
 import UScrollDownIcon from '../Assets/Home/ScrollDownIcon.png';
 

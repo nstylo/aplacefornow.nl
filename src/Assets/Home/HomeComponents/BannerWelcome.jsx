@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
-import UBannerImage from "../../Assets/Home/BannerPicture.png"
-import SmallBannerImage from "../../Assets/Home/welcome_phone.png"
+import UBannerImage from "../BannerPicture.png"
+import SmallBannerImage from "../welcome_phone.png"
 
 import {Container} from "./BannerComponents/BannerContainer"
 import {BannerImage} from "./BannerComponents/BannerImageStyle"
@@ -10,7 +10,7 @@ import {BackgroundGradient} from "./BannerComponents/BannerBackgroundGradient"
 import {SideRectangle} from "./BannerComponents/BannerSideRectangle"
 import {Title} from "./BannerComponents/BannerTitle"
 
-import { breakpoints } from "../../theme"
+import { breakpoints } from "../../../theme"
 
 function BannerWelcome() {
   return (
