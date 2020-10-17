@@ -45,6 +45,7 @@ export default () => {
   )
 }
 
+
 const ScrollDownIcon = styled.img`
 position: relative; 
 left: 50%; 
