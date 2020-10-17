@@ -138,7 +138,7 @@ div.carousel:nth-child(1) {
   }
 
   .carousel .slide img {
-    height: initial;
+    height: 100vh;
     width: 100vw;
   }
 }
