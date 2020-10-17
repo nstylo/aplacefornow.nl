@@ -114,6 +114,7 @@ const MyCarousel = styled(Carousel)`
 
 .carousel .slide img {
   height: 100vh;
+  width: 100vw
 }
 
 div.carousel:nth-child(1) {
