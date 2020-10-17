@@ -2,9 +2,12 @@ import styled from "styled-components"
 import { breakpoints } from "../../../theme.js"
 
 export const Title = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
+
 font-family: Karla;
 font-style: normal;
 font-weight: bold;
+
 font-size: 64px;
 line-height: 75px;
 display: flex;
@@ -38,3 +41,5 @@ color: #FFFFFF;
   right:0px;
 }
   `
+
+
