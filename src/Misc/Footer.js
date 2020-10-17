@@ -2,6 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { Grid, Typography, Paper, Link } from "@material-ui/core"
 import { breakpoints } from "../theme"
+import IconButton from "@material-ui/core/IconButton"
+import InstagramIcon from "@material-ui/icons/Instagram"
+import TwitterIcon from "@material-ui/icons/Twitter"
+import LinkedInIcon from "@material-ui/icons/LinkedIn"
+import FacebookIcon from "@material-ui/icons/Facebook"
 
 const Footer = () => {
   return (
@@ -58,6 +63,58 @@ const Footer = () => {
                     Follow us on social media for the latest updates of our
                     progress
                   </P>
+                  <Grid
+                    container
+                    xs={12}
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                  >
+                    <IconButton
+                      aria-label="LinkedIn Icon"
+                      onClick={() => {
+                        window.open(
+                          "https://www.linkedin.com/company/a-place-for-now/",
+                          "_blank"
+                        )
+                      }}
+                    >
+                      <LinkedInIcon />
+                    </IconButton>
+                    <IconButton
+                      aria-label="Instagram Icon"
+                      onClick={() => {
+                        window.open(
+                          "https://www.instagram.com/aplacefornow/",
+                          "_blank"
+                        )
+                      }}
+                    >
+                      <InstagramIcon />
+                    </IconButton>
+                    <IconButton
+                      aria-label="Facebook Icon"
+                      onClick={() => {
+                        window.open(
+                          "https://www.facebook.com/A-Place-for-Now-APFN-103517767884952",
+                          "_blank"
+                        )
+                      }}
+                    >
+                      <FacebookIcon />
+                    </IconButton>
+                    <IconButton
+                      aria-label="Twitter Icon"
+                      onClick={() => {
+                        window.open(
+                          "https://www.instagram.com/aplacefornow/",
+                          "_blank"
+                        )
+                      }}
+                    >
+                      <TwitterIcon />
+                    </IconButton>
+                  </Grid>
                   {/*Social Media Links here*/}
                 </FooterColumn>
                 <hr border="none" width="100%" color="D3D3D3" />
