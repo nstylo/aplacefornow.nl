@@ -33,7 +33,7 @@ import { makeStyles } from "@material-ui/styles"
 const UScrollTop = ({ className }) => {
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 })
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
       "#back-to-top-anchor"
     )
@@ -122,7 +122,7 @@ export default ({ children, ...props }) => {
     history.push(url)
   }
 
-  const handleLogin = event => {
+  const handleLogin = (event) => {
     setParams("modal", "login")
   }
 
@@ -205,7 +205,7 @@ export default ({ children, ...props }) => {
   )
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "84px",
   },
@@ -214,7 +214,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Tab = props => {
+const Tab = (props) => {
   const classes = useStyles()
   return (
     <ITab
@@ -250,7 +250,7 @@ const UNav = ({ className, theme, handleLogin, ...props }) => {
 
 const Nav = styled(UNav)`
   padding: 0 30px;
-  margin: ${props =>
+  margin: ${(props) =>
     props.orientation === "horizontal" ? "4px 0 4px 30px" : "20px 6px 0 6px"};
 `
 
