@@ -1,5 +1,6 @@
 html {
   font-size: 20px;
+  overflow-x: hidden; /*hiding the horizontal scroll bar because setting elements to 100vh causes it to appear*/
 }
 
 body {
