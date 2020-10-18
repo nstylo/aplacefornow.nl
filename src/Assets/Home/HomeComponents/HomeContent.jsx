@@ -1,27 +1,82 @@
 import React from "react"
 import styled from "styled-components"
+import { Grid, Typography, Tab, Tabs } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+import { breakpoints } from "../../../theme"
 
+function TabPanel(props) {
+  const { children, value, index } = props
+  return (
+    <div role="tabpanel">
+      {value === index && <Container>{children}</Container>}
+    </div>
+  )
+}
 function HomeContent() {
-    return (
-        <StyledHomeContent>
-            <h1>This is the content title</h1>
-            <h2>This is some text below that</h2>
-            <p>I'm sure you'd love to find a place for now wouldn't you ;)</p>
-        </StyledHomeContent>
-    )
+  const [value, setValue] = React.useState(0)
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
+  const classes = useStyles()
+  return (
+    <StyledHomeContent>
+      <Container>
+        <Section xs={12} top={80} item>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            variant="fullWidth"
+            classes={{
+              root: classes.customTabRoot,
+              indicator: classes.customTabIndicator,
+            }}
+          >
+            <Tab label="Become a host" />
+            <Tab label="Learn more" />
+            <Tab label="Find a room" />
+          </Tabs>
+        </Section>
+      </Container>
+    </StyledHomeContent>
+  )
+}
+
+const StyledHomeContent = styled.div`
+  position: relative;
+  top: 105vh;
+  bottom: 150vh;
+`
+
+const Container = styled(Grid).attrs(() => ({
+  container: true,
+}))`
+  overflow: hidden;
+`
+const Section = styled(Grid)`
+  position: relative;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: ${(props) => props.top}px;
+
+  @media (max-width: ${breakpoints.sm}px) {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
-  /* In reality, we will use tabs to be able to switch between different
-  kinds of conent on this page
-  see: https://material-ui.com/components/tabs/
-  */
-
-  const StyledHomeContent = styled.div`
-    position: relative;
-    top: 135vh;
-    bottom: 150vh;
-    text-align: center;
-    height: 100vh;
-  `
-
-  export default HomeContent
+  @media (max-width: ${breakpoints.xxs}px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+`
+const useStyles = makeStyles((theme) => ({
+  customTabRoot: {
+    color: "black",
+    backgroundColor: "transparent",
+  },
+  customTabIndicator: {
+    backgroundColor: "#AD578D",
+    height: 5,
+    width: "80%",
+  },
+}))
+export default HomeContent
