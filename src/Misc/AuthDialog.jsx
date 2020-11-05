@@ -1,12 +1,22 @@
 import React from "react"
 import styled from "styled-components"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
-import { Dialog } from "@material-ui/core"
+import { Dialog, IconButton as UIconButton } from "@material-ui/core"
 import { breakpoints } from "../theme"
 
 import { ReactComponent as UCloud } from "../Assets/Auth/Cloud.svg"
 
-export default ({ children, open, setOpen, onSubmit }) => {
+// icons
+import { Close as CloseIcon } from "@material-ui/icons"
+
+export default ({
+  children,
+  open,
+  setOpen,
+  onSubmit,
+  onClose,
+  closeButton,
+}) => {
   // add 64 px because of dialog margins to avoid x overflow
   const matches = useMediaQuery(`(max-width: ${breakpoints.md + 64}px)`)
   const fullScreen = useMediaQuery(`(max-width: ${breakpoints.sm + 64}px)`)
@@ -19,6 +29,9 @@ export default ({ children, open, setOpen, onSubmit }) => {
       onClose={() => setOpen("none")}
     >
       <Grid columnStyle={matches} fullScreen={fullScreen}>
+        <IconButton onClick={onClose ? onClose : () => setOpen("none")}>
+          {closeButton ? closeButton : <CloseIcon />}
+        </IconButton>
         {/* TODO: make form a basic component */}
         <Form fullScreen={fullScreen} onSubmit={onSubmit}>
           {children}
@@ -32,6 +45,13 @@ export default ({ children, open, setOpen, onSubmit }) => {
     </Dialog>
   )
 }
+
+const IconButton = styled(UIconButton)`
+  position: absolute;
+  top: 8px;
+  left: 1.5%;
+  z-index: 1001;
+`
 
 const Cloud = styled(UCloud)`
   position: absolute;

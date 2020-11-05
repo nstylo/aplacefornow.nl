@@ -16,3 +16,7 @@ We use [prettier](https://prettier.io/), [eslint](https://eslint.org/) and
 ## Workflow
 
 feature_branch -> develop (needs review) -> master
+
+To use the api locally do not forget to set the api url environment variable, e.g. in linux:
+
+`export REACT_APP_API_URL="https://a-place-for-now-268420.appspot.com/api/v1/"`

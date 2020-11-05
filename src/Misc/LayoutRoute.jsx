@@ -20,7 +20,7 @@ import {
 } from "@material-ui/core"
 
 // custom components
-import { Button } from "../Basic/Basics"
+import { Button } from "lib"
 
 // make things reactive
 import useMediaQuery from "@material-ui/core/useMediaQuery"
@@ -73,7 +73,7 @@ const HideOnScroll = ({ children }) => {
 }
 
 export default ({ children, ...props }) => {
-  const [activeTab, setActiveTab] = useState(0)
+  const [activeTab, setActiveTab] = useState(null) // default is no tab selected
   const [isOpen, setOpen] = useState(false)
   const history = useHistory()
   const [params, setParams] = useQuery()
@@ -92,7 +92,6 @@ export default ({ children, ...props }) => {
         setActiveTab(2)
         break
       default:
-        setActiveTab(0)
     }
   }, [history.location.pathname])
 
@@ -122,7 +121,8 @@ export default ({ children, ...props }) => {
     history.push(url)
   }
 
-  const handleLogin = (event) => {
+  const handleLogin = event => {
+    setParams("routeTo", "/browse")
     setParams("modal", "login")
   }
 
@@ -236,7 +236,7 @@ const UNav = ({ className, theme, handleLogin, ...props }) => {
         <Tab label="About us" />
       </Tabs>
       <Button
-        style={{ height: "46px" }}
+        style={{ height: "46px", whiteSpace: "nowrap" }}
         className={className}
         variant="outlined"
         color="primary"
@@ -274,6 +274,8 @@ const Grid = styled.div`
 `
 
 const Item = styled.div`
-  grid-column-start: 2;
-  grid-column-end: 3;
+  @media (min-width: ${breakpoints.xl}px) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
 `

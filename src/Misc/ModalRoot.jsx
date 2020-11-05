@@ -1,4 +1,5 @@
 import React from "react"
+import Modal from "./Modal"
 import { useQuery } from "./Hooks"
 import Login from "../Forms/Login"
 import SignUp from "../Forms/SignUp"
@@ -8,16 +9,23 @@ import ForgotPw from "../Forms/ForgotPw"
 export default () => {
   const [params] = useQuery()
 
+  let child
   switch (params.get("modal")) {
     case "login":
-      return <Login />
+      child = <Login routeTo={params.get("routeTo")} />
+      break
     case "signup":
-      return <SignUp />
+      child = <SignUp />
+      break
     case "resetpw":
-      return <ResetPw />
+      child = <ResetPw />
+      break
     case "forgotpw":
-      return <ForgotPw />
+      child = <ForgotPw />
+      break
     default:
-      return null
+      child = null
   }
+
+  return <Modal>{child}</Modal>
 }
