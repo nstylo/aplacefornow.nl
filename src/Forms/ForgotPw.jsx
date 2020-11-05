@@ -5,7 +5,6 @@ import { forgotPw } from "Misc/Api"
 // custom components
 import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "lib"
-import Modal from "../Misc/Modal"
 import { useQuery } from "../Misc/Hooks"
 
 // material ui components
@@ -24,8 +23,6 @@ export default () => {
     setError(null)
     const response = await forgotPw(mail)
 
-    console.log(response)
-
     switch (response.name) {
       case "INVALID_CREDENTIALS_EMAIL":
         setError("Email provided is not valid.")
@@ -34,6 +31,7 @@ export default () => {
         setError("This Email does not exist in our system.")
         break
       case "USER_PASSWORD_RESET_LINK_SENT":
+        setMail("")
         // TODO: show notification popup
         break
       default:
@@ -42,61 +40,59 @@ export default () => {
   }
 
   return (
-    <Modal>
-      <AuthDialog
-        open={params.get("modal") === "forgotpw" ? true : false}
-        setOpen={() => setParams("modal", null)}
-        onSubmit={handleForgotPassword}
-        onClose={() => setParams("modal", "login")}
-        closeButton={
-          <>
-            <BackIcon style={{ width: "20px", height: "auto" }} />
-            <Typography variant="body2">Back</Typography>
-          </>
-        }
+    <AuthDialog
+      open={params.get("modal") === "forgotpw" ? true : false}
+      setOpen={() => setParams("modal", null)}
+      onSubmit={handleForgotPassword}
+      onClose={() => setParams("modal", "login")}
+      closeButton={
+        <>
+          <BackIcon style={{ width: "20px", height: "auto" }} />
+          <Typography variant="body2">Back</Typography>
+        </>
+      }
+    >
+      <Typography
+        variant="h2"
+        color="primary"
+        style={{ textAlign: "center", margin: "0 -20px 12px -20px" }}
       >
-        <Typography
-          variant="h2"
+        Forgot Your Password?
+      </Typography>
+      <Typography variant="body1">
+        Enter the email address associated with your account. Click the link in
+        the email we send you to reset your password.
+      </Typography>
+      <TextField
+        error={error ? true : false}
+        helperText={error}
+        label="Email Address"
+        value={mail}
+        onChange={e => setMail(e.target.value)}
+      />
+      <Wrapper>
+        <Button
+          variant="outlined"
           color="primary"
-          style={{ textAlign: "center", margin: "0 -20px 12px -20px" }}
+          type="submit"
+          style={{ flexGrow: 5 }}
         >
-          Forgot Your Password?
-        </Typography>
-        <Typography variant="body1">
-          Enter the email address associated with your account. Click the link
-          in the email we send you to reset your password.
-        </Typography>
-        <TextField
-          error={error ? true : false}
-          helperText={error}
-          label="Email Address"
-          value={mail}
-          onChange={e => setMail(e.target.value)}
-        />
-        <Wrapper>
-          <Button
-            variant="outlined"
-            color="primary"
-            type="submit"
-            style={{ flexGrow: 5 }}
-          >
-            Confirm
-          </Button>
-          <Link
-            onClick={() => {
-              setParams("modal", "login")
-            }}
-            style={{
-              textAlign: "right",
-              cursor: "pointer",
-              flexGrow: 2,
-            }}
-          >
-            <Typography variant="body1">Log In</Typography>
-          </Link>
-        </Wrapper>
-      </AuthDialog>
-    </Modal>
+          Confirm
+        </Button>
+        <Link
+          onClick={() => {
+            setParams("modal", "login")
+          }}
+          style={{
+            textAlign: "right",
+            cursor: "pointer",
+            flexGrow: 2,
+          }}
+        >
+          <Typography variant="body1">Log In</Typography>
+        </Link>
+      </Wrapper>
+    </AuthDialog>
   )
 }
 
