@@ -16,6 +16,7 @@ import ListingsPage from "./Pages/ListingsPage"
 import BrowsingPage from "./Pages/BrowsingPage"
 import NoMatch from "./Pages/404.jsx"
 import ModalRoot from "./Misc/ModalRoot"
+import { ToastProvider } from "./Misc/ToastContext"
 
 // routes
 import LayoutRoute from "./Misc/LayoutRoute"
@@ -23,32 +24,34 @@ import LayoutRoute from "./Misc/LayoutRoute"
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Lightbox>
-        <Router history={history}>
-          <CssBaseline />
-          <ModalRoot />
-          <Switch>
-            <LayoutRoute exact path="/">
-              <Home />
-            </LayoutRoute>
-            <LayoutRoute exact path="/about">
-              <About />
-            </LayoutRoute>
-            <LayoutRoute exact path="/how-it-works">
-              <HowItWorks />
-            </LayoutRoute>
-            <LayoutRoute exact path="/listing/:id">
-              <ListingsPage />
-            </LayoutRoute>
-            <LayoutRoute exact path="/browse/">
-              <BrowsingPage />
-            </LayoutRoute>
-            <Route path="*">
-              <NoMatch />
-            </Route>
-          </Switch>
-        </Router>
-      </Lightbox>
+      <ToastProvider>
+        <Lightbox>
+          <Router history={history}>
+            <CssBaseline />
+            <ModalRoot />
+            <Switch>
+              <LayoutRoute exact path="/">
+                <Home />
+              </LayoutRoute>
+              <LayoutRoute exact path="/about">
+                <About />
+              </LayoutRoute>
+              <LayoutRoute exact path="/how-it-works">
+                <HowItWorks />
+              </LayoutRoute>
+              <LayoutRoute exact path="/listing/:id">
+                <ListingsPage />
+              </LayoutRoute>
+              <LayoutRoute exact path="/browse/">
+                <BrowsingPage />
+              </LayoutRoute>
+              <Route path="*">
+                <NoMatch />
+              </Route>
+            </Switch>
+          </Router>
+        </Lightbox>
+      </ToastProvider>
     </ThemeProvider>
   )
 }
