@@ -17,9 +17,11 @@ import BrowsingPage from "./Pages/BrowsingPage"
 import NoMatch from "./Pages/404.jsx"
 import ModalRoot from "./Misc/ModalRoot"
 import { ToastProvider } from "./Misc/ToastContext"
+import Footer from "./Misc/Footer"
 
 // routes
 import LayoutRoute from "./Misc/LayoutRoute"
+// import { ProtectedRoute } from "./Misc/ProtectedRoute"
 
 function App() {
   return (
@@ -49,6 +51,7 @@ function App() {
                 <NoMatch />
               </Route>
             </Switch>
+            <Footer />
           </Router>
         </Lightbox>
       </ToastProvider>

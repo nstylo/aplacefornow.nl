@@ -251,7 +251,7 @@ const Cloud = styled(UCloud)`
   overflow-x: hidden;
   position: absolute;
   z-index: -2;
-  width: ${props => props.width};
+  width: ${(props) => props.width};
   height: auto;
 `
 
@@ -324,7 +324,7 @@ const Section = styled(Grid)`
   position: relative;
   padding-left: 80px;
   padding-right: 80px;
-  padding-top: ${props => props.top}px;
+  padding-top: ${(props) => props.top}px;
 
   @media (max-width: ${breakpoints.sm}px) {
     padding-left: 40px;
