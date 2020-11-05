@@ -69,6 +69,7 @@ const Footer = () => {
                     direction="row"
                     justify="center"
                     alignItems="center"
+                    style={{ paddingTop: "12px" }}
                   >
                     <IconButton
                       aria-label="LinkedIn Icon"
@@ -118,10 +119,18 @@ const Footer = () => {
                   {/*Social Media Links here*/}
                 </FooterColumn>
                 <hr border="none" width="100%" color="D3D3D3" />
-                <Grid container item xs={12} justify="center">
+                <Grid
+                  container
+                  item
+                  xs={12}
+                  justify="center"
+                  style={{
+                    marginBottom: "36px",
+                  }}
+                >
                   <FooterLink href="#">
                     {/*links in here*/}
-                    ©2020 A Place For Now, All rights reserved
+                    ©2020 A Place For Now, all rights reserved
                   </FooterLink>
                 </Grid>
               </Section>
@@ -141,7 +150,7 @@ const FooterSection = styled(Grid)`
 const Section = styled(Grid)`
   padding-left: 80px;
   padding-right: 80px;
-  padding-top: ${(props) => props.top}px;
+  padding-top: ${props => props.top}px;
 
   @media (max-width: ${breakpoints.sm}px) {
     padding-left: 40px;
