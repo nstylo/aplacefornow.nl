@@ -53,7 +53,7 @@ export default () => {
         history.push("/?modal=login")
         break
       case "USER_EXISTS":
-        setErrors() // TODO
+        setErrors() // TODO: set errors
         break
       default:
       // should never happen
@@ -61,6 +61,8 @@ export default () => {
     }
   }
 
+  // TODO: disable when waiting for response, perhaps generalize throughout all
+  // forms?
   return (
     <Modal>
       <AuthDialog
