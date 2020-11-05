@@ -67,6 +67,8 @@ export default () => {
     }
   }
 
+  // TODO: disable when waiting for response, perhaps generalize throughout all
+  // forms?
   return (
     <AuthDialog
       open={params.get("modal") === "signup" ? true : false}
