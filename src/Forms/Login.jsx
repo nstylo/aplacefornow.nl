@@ -16,6 +16,7 @@ import {
 import AuthDialog from "../Misc/AuthDialog"
 import { Button, PasswordTextField } from "lib"
 import { useQuery } from "../Misc/Hooks"
+import { useToastContext, ADD } from "../Misc/ToastContext"
 
 export default ({ routeTo }) => {
   const [email, setEmail] = useState("")
@@ -23,10 +24,10 @@ export default ({ routeTo }) => {
   const [disabled, setDisabled] = useState(false)
   const [params, setParams] = useQuery()
   const [error, setError] = useState(null)
+  const { dispatchToast } = useToastContext()
 
   let history = useHistory()
 
-  // TODO
   const handleLogin = async e => {
     e.preventDefault()
     const response = await login({ email, password })
@@ -41,6 +42,15 @@ export default ({ routeTo }) => {
         } else {
           history.push("/browse")
         }
+
+        dispatchToast({
+          type: ADD,
+          payload: {
+            message: "You logged in successfully!",
+            severity: "success",
+            duration: 5000,
+          },
+        })
 
         break
       case "INVALID_CREDENTIALS":

@@ -6,6 +6,7 @@ import { forgotPw } from "Misc/Api"
 import AuthDialog from "../Misc/AuthDialog"
 import { Button } from "lib"
 import { useQuery } from "../Misc/Hooks"
+import { useToastContext, ADD } from "../Misc/ToastContext"
 
 // material ui components
 import { Typography, TextField, Link } from "@material-ui/core"
@@ -17,6 +18,7 @@ export default () => {
   const [mail, setMail] = useState("")
   const [error, setError] = useState(null)
   const [params, setParams] = useQuery()
+  const { dispatchToast } = useToastContext()
 
   const handleForgotPassword = async e => {
     e.preventDefault()
@@ -32,7 +34,16 @@ export default () => {
         break
       case "USER_PASSWORD_RESET_LINK_SENT":
         setMail("")
-        // TODO: show notification popup
+
+        dispatchToast({
+          type: ADD,
+          payload: {
+            message: "Email sent successfully!",
+            severity: "success",
+            duration: 5000,
+          },
+        })
+
         break
       default:
         setError("Something went wrong, please try again.")

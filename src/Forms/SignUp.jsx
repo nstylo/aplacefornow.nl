@@ -19,8 +19,10 @@ import {
 import AuthDialog from "../Misc/AuthDialog"
 import { Button, PasswordTextField } from "lib"
 import { useQuery } from "../Misc/Hooks"
+import { useToastContext, ADD } from "../Misc/ToastContext"
 
 export default () => {
+  // TODO: possibly use Reducer?
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [role, setRole] = useState("STUDENT") // STUDENT <or> HOST
@@ -32,6 +34,7 @@ export default () => {
   const [params, setParams] = useQuery()
   let history = useHistory()
   const matches = useMediaQuery(theme => theme.breakpoints.down("xs"))
+  const { dispatchToast } = useToastContext()
 
   const handleSignUp = async e => {
     e.preventDefault()
@@ -48,8 +51,17 @@ export default () => {
 
     switch (name) {
       case "USER_CREATED":
-        // TODO: send notification
         history.push("/?modal=login")
+
+        dispatchToast({
+          type: ADD,
+          payload: {
+            message: "You have signed up! Please check your mail.",
+            severity: "success",
+            duration: 6000,
+          },
+        })
+
         break
       case "USER_EXISTS":
         setErrors({ email: "User already exists" })
