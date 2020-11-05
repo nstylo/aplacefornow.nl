@@ -7,27 +7,27 @@ export const ToastContext = createContext()
 export const ADD = "ADD"
 export const REMOVE = "REMOVE"
 
-const initialState = null
+const initialState = {}
 
 const toastReducer = (state, action) => {
   switch (action.type) {
     case ADD:
-      return action.payload
+      return { ...action.payload, open: true }
     case REMOVE:
-      return null
+      return { ...state, open: false }
     default:
       return state
   }
 }
 
 export const ToastProvider = props => {
-  const [toast, dispatchToast] = useReducer(toastReducer, initialState)
+  const [toastProps, dispatchToast] = useReducer(toastReducer, initialState)
 
   return (
-    <ToastContext.Provider value={{ toast, dispatchToast }}>
+    <ToastContext.Provider value={{ toastProps, dispatchToast }}>
       {props.children}
       {createPortal(
-        toast ? <Toast {...toast} /> : null,
+        <Toast {...toastProps} />,
         document.getElementById("toast-root")
       )}
     </ToastContext.Provider>
