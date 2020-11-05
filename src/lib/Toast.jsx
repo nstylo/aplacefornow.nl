@@ -2,16 +2,18 @@ import React, { useState } from "react"
 import { Snackbar } from "@material-ui/core"
 import { Alert } from "@material-ui/lab"
 
-export default ({ duration, severity, message, anchorOrigin }) => {
-  const [open, setOpen] = useState(false)
+export const Toast = ({ duration, severity, message, anchor }) => {
+  const [open, setOpen] = useState(true)
 
-  const handleClose = () => {
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") return
+
     setOpen(false)
   }
 
   return (
     <Snackbar
-      anchorOrigin={anchorOrigin}
+      anchorOrigin={anchor}
       open={open}
       autoHideDuration={duration}
       onClose={handleClose}
